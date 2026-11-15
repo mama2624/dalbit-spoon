@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://saju.gold-queen.com/sitemap.xml
+
+#DaumWebMasterTool:e49d0b7bd761c1c353b09041b9632867085b3e863e58fb6834abb81d0151b0cc:CNSJIIGOISrSV2aL3hPlgQ==
