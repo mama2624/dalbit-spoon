@@ -8,7 +8,7 @@
 <meta name="description" content="고민을 고르고 카드 세 장을 뽑으면 지금 내 자리와 오늘의 조언을 읽어드려요. 생년월일시를 넣으면 사주팔자와 오행 균형까지, 꿈에서 본 것은 120가지 한국식 꿈해몽으로, 이름과 생일로는 재미로 보는 전생까지, 이번 주 행운의 로또 6/45 번호까지 찾아드립니다.">
 <meta property="og:title" content="달빛 한 스푼 — 오늘의 타로 · 사주 · 꿈해몽 · 전생체험 · 로또 번호">
 <meta property="og:description" content="3장 타로로 오늘을 읽고, 만세력으로 내 사주를 보고, 꿈해몽으로 간밤의 꿈을 풀고, 이름과 생일로 전생까지, 이번 주 행운의 로또 번호까지 만나봅니다.">
-<meta name="theme-color" content="#0a0818">
+<meta name="theme-color" content="#000000">
 <!-- 제목용 명조 웹폰트 (2026-11-15 고급화) : 차단되거나 없으면 시스템 명조체로 자연 대체 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +24,9 @@
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#0a0818; --bg2:#150e2c; --purple:#2b1c52;
+  --bg:#000000; --bg2:#030306; --purple:#0a0a0e;
   --gold:#e9c67e; --gold2:#f6e3b4; --goldline:rgba(233,198,126,.26);
-  --text:#f3effb; --muted:#a99dc6; --muted2:#7f749c;
+  --text:#f4efe6; --muted:#9a948a; --muted2:#726c63;
   --card:rgba(255,255,255,.055); --card2:rgba(255,255,255,.09);
   --ok:#7bd6a4; --warn:#e78a7a;
   --radius:18px;
@@ -35,9 +35,9 @@
 html,body{margin:0;padding:0}
 body{
   background:
-    radial-gradient(120% 60% at 50% -10%, #3a2468 0%, rgba(58,36,104,0) 60%),
-    radial-gradient(90% 50% at 100% 100%, #1d1740 0%, rgba(29,23,64,0) 55%),
-    var(--bg);
+    radial-gradient(120% 55% at 50% -12%, rgba(233,198,126,.055) 0%, rgba(233,198,126,0) 62%),
+    radial-gradient(80% 45% at 50% 106%, rgba(233,198,126,.026) 0%, rgba(233,198,126,0) 60%),
+    #000;
   color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Nanum Gothic",sans-serif;
   font-size:16px; line-height:1.6; letter-spacing:-0.01em;
@@ -50,11 +50,11 @@ body{
     radial-gradient(1.4px 1.4px at 12% 14%, #fff 50%, transparent 51%),
     radial-gradient(1.2px 1.2px at 82% 8%, #ffe9c0 50%, transparent 51%),
     radial-gradient(1.6px 1.6px at 64% 26%, #fff 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px at 28% 42%, #dcd0ff 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 28% 42%, #ffe9c0 50%, transparent 51%),
     radial-gradient(1.5px 1.5px at 92% 54%, #fff 50%, transparent 51%),
     radial-gradient(1.2px 1.2px at 6% 66%, #ffe9c0 50%, transparent 51%),
     radial-gradient(1.4px 1.4px at 44% 78%, #fff 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px at 74% 88%, #dcd0ff 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 74% 88%, #ffe9c0 50%, transparent 51%),
     radial-gradient(1.3px 1.3px at 18% 92%, #fff 50%, transparent 51%);
 }
 .stars::before,.stars::after{content:"";position:absolute;inset:-40px;background-repeat:repeat;will-change:opacity}
@@ -62,7 +62,7 @@ body{
     radial-gradient(1.5px 1.5px at 24% 18%, rgba(255,255,255,.9) 50%, transparent 51%),
     radial-gradient(1.1px 1.1px at 62% 36%, rgba(255,233,192,.9) 50%, transparent 51%),
     radial-gradient(1.7px 1.7px at 88% 24%, rgba(255,255,255,.85) 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px at 40% 62%, rgba(220,208,255,.9) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 40% 62%, rgba(255,233,192,.9) 50%, transparent 51%),
     radial-gradient(1.4px 1.4px at 76% 74%, rgba(255,255,255,.8) 50%, transparent 51%),
     radial-gradient(1.1px 1.1px at 10% 84%, rgba(255,233,192,.85) 50%, transparent 51%);
   background-size:280px 280px;animation:twinkle 6.5s ease-in-out infinite}
@@ -71,7 +71,7 @@ body{
     radial-gradient(1.6px 1.6px at 68% 52%, rgba(255,255,255,.85) 50%, transparent 51%),
     radial-gradient(1.8px 1.8px at 14% 46%, rgba(255,255,255,.75) 50%, transparent 51%),
     radial-gradient(2.1px 2.1px at 54% 86%, rgba(246,227,180,.8) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 90% 66%, rgba(220,208,255,.85) 50%, transparent 51%);
+    radial-gradient(1.5px 1.5px at 90% 66%, rgba(255,233,192,.85) 50%, transparent 51%);
   background-size:360px 360px;animation:twinkle 9.5s ease-in-out -3.2s infinite}
 @keyframes twinkle{0%,100%{opacity:.22}45%{opacity:.78}72%{opacity:.34}}
 
@@ -79,9 +79,9 @@ body{
 .moon-aura{position:fixed;top:-180px;left:50%;width:min(620px,150vw);height:min(620px,150vw);
   transform:translateX(-50%);pointer-events:none;z-index:0;border-radius:50%;
   background:radial-gradient(circle at 50% 50%,
-    rgba(246,227,180,.22) 0%, rgba(233,198,126,.12) 26%,
-    rgba(122,92,204,.10) 52%, rgba(90,70,170,0) 70%);
-  filter:blur(8px);animation:moonBreath 11s ease-in-out infinite;will-change:opacity,transform}
+    rgba(246,227,180,.085) 0%, rgba(233,198,126,.045) 30%,
+    rgba(233,198,126,.014) 56%, rgba(233,198,126,0) 74%);
+  filter:blur(34px);animation:moonBreath 11s ease-in-out infinite;will-change:opacity,transform}
 @keyframes moonBreath{0%,100%{opacity:.55;transform:translateX(-50%) scale(.97)}50%{opacity:.95;transform:translateX(-50%) scale(1.05)}}
 
 /* 헤더 금선 오너먼트 (2026-11-15 : 제목 위 중앙 오너먼트로 재배치) */
@@ -114,23 +114,23 @@ body{
     radial-gradient(1.2px 1.2px at 7% 18%, #FFF1CC 50%, transparent 51%),
     radial-gradient(1.1px 1.1px at 15% 62%, #fff 50%, transparent 51%),
     radial-gradient(1.3px 1.3px at 24% 12%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 33% 78%, #E7DCFF 50%, transparent 51%),
+    radial-gradient(1px 1px at 33% 78%, #FFEBC0 50%, transparent 51%),
     radial-gradient(1.2px 1.2px at 42% 34%, #FFF1CC 50%, transparent 51%),
     radial-gradient(1.1px 1.1px at 51% 88%, #fff 50%, transparent 51%),
     radial-gradient(1.3px 1.3px at 59% 22%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 67% 54%, #E7DCFF 50%, transparent 51%),
+    radial-gradient(1px 1px at 67% 54%, #FFEBC0 50%, transparent 51%),
     radial-gradient(1.2px 1.2px at 76% 76%, #fff 50%, transparent 51%),
     radial-gradient(1.1px 1.1px at 84% 30%, #FFF1CC 50%, transparent 51%),
     radial-gradient(1.3px 1.3px at 92% 66%, #fff 50%, transparent 51%),
     radial-gradient(1px 1px at 96% 14%, #fff 50%, transparent 51%),
     radial-gradient(1.2px 1.2px at 11% 88%, #fff 50%, transparent 51%),
-    radial-gradient(1.1px 1.1px at 88% 92%, #E7DCFF 50%, transparent 51%)}
+    radial-gradient(1.1px 1.1px at 88% 92%, #FFEBC0 50%, transparent 51%)}
 .skydeco .dust-b{opacity:.5;animation:dbDust 7.2s ease-in-out infinite;background-image:
     radial-gradient(1.9px 1.9px at 10% 40%, #FFF4D8 50%, transparent 51%),
     radial-gradient(1.7px 1.7px at 20% 84%, #fff 50%, transparent 51%),
     radial-gradient(2px 2px at 30% 26%, #fff 50%, transparent 51%),
     radial-gradient(1.7px 1.7px at 39% 96%, #FFF4D8 50%, transparent 51%),
-    radial-gradient(1.9px 1.9px at 48% 52%, #EADFFF 50%, transparent 51%),
+    radial-gradient(1.9px 1.9px at 48% 52%, #FFEFCB 50%, transparent 51%),
     radial-gradient(1.7px 1.7px at 57% 8%, #fff 50%, transparent 51%),
     radial-gradient(2px 2px at 64% 70%, #FFF4D8 50%, transparent 51%),
     radial-gradient(1.7px 1.7px at 73% 44%, #fff 50%, transparent 51%),
@@ -141,12 +141,12 @@ body{
     radial-gradient(1.6px 1.6px at 13% 71%, #FFF1CC 50%, transparent 51%),
     radial-gradient(1.3px 1.3px at 21% 47%, #fff 50%, transparent 51%),
     radial-gradient(1.5px 1.5px at 29% 90%, #fff 50%, transparent 51%),
-    radial-gradient(1.4px 1.4px at 37% 58%, #E7DCFF 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 37% 58%, #FFEBC0 50%, transparent 51%),
     radial-gradient(1.6px 1.6px at 45% 16%, #fff 50%, transparent 51%),
     radial-gradient(1.3px 1.3px at 53% 73%, #FFF1CC 50%, transparent 51%),
     radial-gradient(1.5px 1.5px at 61% 41%, #fff 50%, transparent 51%),
     radial-gradient(1.4px 1.4px at 69% 86%, #fff 50%, transparent 51%),
-    radial-gradient(1.6px 1.6px at 77% 62%, #E7DCFF 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 77% 62%, #FFEBC0 50%, transparent 51%),
     radial-gradient(1.3px 1.3px at 85% 18%, #fff 50%, transparent 51%),
     radial-gradient(1.5px 1.5px at 91% 78%, #FFF1CC 50%, transparent 51%),
     radial-gradient(1.4px 1.4px at 97% 47%, #fff 50%, transparent 51%),
@@ -170,8 +170,8 @@ body{
    ============================================================ */
 .top{position:relative;z-index:2;padding:26px 20px 22px;text-align:center;
   background:
-    radial-gradient(135% 130% at 50% -45%, rgba(148,110,232,.36) 0%, rgba(96,64,176,.17) 40%, rgba(10,8,24,0) 74%),
-    linear-gradient(180deg,#171230 0%,#110d24 56%,rgba(10,8,24,0) 100%);
+    radial-gradient(135% 130% at 50% -45%, rgba(233,198,126,.10) 0%, rgba(233,198,126,.034) 40%, rgba(0,0,0,0) 74%),
+    linear-gradient(180deg,#06060a 0%,#030305 56%,rgba(0,0,0,0) 100%);
   box-shadow:0 26px 50px -42px rgba(0,0,0,1)}
 .top::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(56% 78% at 50% 0%, rgba(246,227,180,.14), rgba(246,227,180,0) 72%)}
@@ -189,8 +189,8 @@ body{
 @keyframes sparkAura{0%,100%{opacity:.72}50%{opacity:1}}
 .tagline{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:0;row-gap:1px;
   margin:13px 0 0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
-  font-size:11.8px;letter-spacing:.11em;line-height:1.9;color:#a99bc8;word-break:keep-all;
-  text-shadow:0 0 14px rgba(122,92,204,.22)}
+  font-size:11.8px;letter-spacing:.11em;line-height:1.9;color:#9c968c;word-break:keep-all;
+  text-shadow:0 0 14px rgba(233,198,126,.14)}
 .tagline span{white-space:nowrap}
 .tagline span:not(:last-child)::after{content:"·";display:inline-block;margin:0 .55em;color:rgba(233,198,126,.62);letter-spacing:0}
 /* 별빛 레이어 위로 헤더 글자가 오도록 (레이아웃·정렬은 그대로) */
@@ -211,7 +211,7 @@ body{
   letter-spacing:.035em;line-height:1.45;
   background:linear-gradient(100deg,#fdf7ec,#f8e4b8 44%,#e7c485);-webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 2px 12px rgba(246,227,180,.22))}
-.home-sub{margin:9px 0 0;font-size:12.5px;color:#a498c2;letter-spacing:.02em}
+.home-sub{margin:9px 0 0;font-size:12.5px;color:#918b81;letter-spacing:.02em}
 /* 물음표만 빙글빙글 (2026-11-15) : inline-block으로 감싸 제자리에서 회전, 금빛 글로우 */
 .home-title .q-spin{display:inline-block;transform-origin:50% 52%;vertical-align:baseline;
   background:linear-gradient(102deg,#f8e4b8 0%,#f0d49a 52%,#e0b569 100%);
@@ -223,21 +223,21 @@ body{
 .menu{display:grid;gap:10px;margin:22px 0 0}
 .mcard{display:flex;align-items:center;gap:13px;width:100%;text-align:left;cursor:pointer;
   appearance:none;font-family:inherit;color:inherit;
-  background:linear-gradient(168deg,rgba(52,38,94,.56) 0%,rgba(24,17,50,.72) 60%,rgba(16,11,34,.78) 100%);
-  border:1px solid rgba(233,198,126,.20);border-radius:16px;padding:14px;
-  box-shadow:0 22px 42px -38px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.055);
+  background:linear-gradient(168deg,#0a0b0f 0%,#07080b 60%,#040406 100%);
+  border:1px solid rgba(233,198,126,.22);border-radius:16px;padding:14px;
+  box-shadow:0 22px 42px -38px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.035);
   transition:border-color .22s,box-shadow .22s,transform .22s,background .22s}
 .mcard:hover,.mcard:focus-visible{border-color:rgba(233,198,126,.44);outline:none;
-  background:linear-gradient(168deg,rgba(60,44,106,.62) 0%,rgba(26,19,54,.76) 60%,rgba(17,12,36,.8) 100%);
-  box-shadow:0 26px 46px -34px rgba(0,0,0,1), 0 0 26px -14px rgba(233,198,126,.5), inset 0 1px 0 rgba(255,255,255,.075)}
+  background:linear-gradient(168deg,#111216 0%,#0b0c10 60%,#07080a 100%);
+  box-shadow:0 26px 46px -34px rgba(0,0,0,1), 0 0 26px -14px rgba(233,198,126,.45), inset 0 1px 0 rgba(255,255,255,.06)}
 .mcard:active{transform:translateY(1px)}
 .mico{flex:0 0 auto;width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;
   font-size:19px;line-height:1;
   background:radial-gradient(120% 120% at 30% 18%,rgba(246,227,180,.20),rgba(233,198,126,.06) 68%,rgba(233,198,126,.02) 100%);
   border:1px solid rgba(233,198,126,.30);box-shadow:inset 0 1px 0 rgba(255,255,255,.1), 0 0 18px -10px rgba(233,198,126,.7)}
 .mtxt{flex:1;min-width:0}
-.mtxt b{display:block;font-size:15px;font-weight:700;color:#f4f0fc;letter-spacing:-.02em}
-.mtxt small{display:block;margin-top:4px;font-size:11.5px;color:#a195c0;letter-spacing:0;line-height:1.5;word-break:keep-all}
+.mtxt b{display:block;font-size:15px;font-weight:700;color:#f6f1e7;letter-spacing:-.02em}
+.mtxt small{display:block;margin-top:4px;font-size:11.5px;color:#948e84;letter-spacing:0;line-height:1.5;word-break:keep-all}
 .mgo{flex:0 0 auto;font-size:18px;line-height:1;color:rgba(233,198,126,.55);padding-right:2px}
 
 /* 홈 하단 : 골드퀸 허브로 나가는 버튼 (기존과 같은 톤) */
@@ -253,14 +253,14 @@ body{
   border-radius:7px;background:linear-gradient(160deg,#f4dfae,#cf9f52);color:#2a1c05;
   font-size:9.5px;font-weight:800;letter-spacing:0;line-height:1;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
 .hub-go{opacity:.7;font-size:13px}
-.home-note{margin:16px 2px 0;text-align:center;font-size:11px;color:#7f749c;line-height:1.75;word-break:keep-all}
+.home-note{margin:16px 2px 0;text-align:center;font-size:11px;color:#6f6a62;line-height:1.75;word-break:keep-all}
 
 /* ============================================================
    전용 화면 상단 슬림 바 : ← 이전으로 · 메뉴 이름 · 🏠 홈으로
    (일반 흐름 배치 — 스크롤해도 본문을 가리지 않음)
    ============================================================ */
 .slimbar{display:none;align-items:center;gap:8px;padding:11px 16px;
-  background:linear-gradient(180deg,rgba(22,17,46,.94) 0%,rgba(14,10,30,.9) 100%);
+  background:linear-gradient(180deg,rgba(8,8,11,.96) 0%,rgba(3,3,5,.94) 100%);
   border-bottom:1px solid rgba(233,198,126,.18);
   box-shadow:0 14px 28px -26px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.04)}
 .slimbtn{appearance:none;font-family:inherit;font-size:12px;font-weight:600;letter-spacing:-.01em;
@@ -269,7 +269,7 @@ body{
   border-radius:999px;padding:6px 11px;cursor:pointer;line-height:1.2;transition:.2s}
 .slimbtn:hover{border-color:rgba(233,198,126,.46);background:rgba(233,198,126,.15)}
 .slimbtn:active{transform:translateY(1px)}
-.slimname{flex:1;min-width:0;text-align:center;font-size:13px;font-weight:700;letter-spacing:-.01em;color:#f0eafa;
+.slimname{flex:1;min-width:0;text-align:center;font-size:13px;font-weight:700;letter-spacing:-.01em;color:#f1ebdf;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 body.sub .top{display:none}
 body.sub .home{display:none}
@@ -287,8 +287,8 @@ main{padding:22px 18px 0}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
 /* common */
-.panel{background:linear-gradient(168deg,rgba(48,35,88,.62) 0%,rgba(26,19,54,.70) 50%,rgba(16,11,34,.76) 100%);
-  border:1px solid rgba(233,198,126,.17);border-radius:var(--radius);padding:19px 16px;
+.panel{background:linear-gradient(168deg,#0a0b0f 0%,#07080b 50%,#040507 100%);
+  border:1px solid rgba(233,198,126,.22);border-radius:var(--radius);padding:19px 16px;
   box-shadow:0 24px 52px -44px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.055), inset 0 0 26px -20px rgba(246,227,180,.55)}
 h2.sec{font-size:16px;margin:0 0 12px;font-weight:700;letter-spacing:-.01em}
 h2.sec small{font-weight:500;color:var(--muted2);font-size:12.5px;margin-left:6px}
@@ -334,16 +334,16 @@ h2.sec small{font-weight:500;color:var(--muted2);font-size:12.5px;margin-left:6p
 .tc.flipped .inner{transform:rotateY(180deg)}
 .tc .face{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;-webkit-backface-visibility:hidden;
   display:flex;align-items:center;justify-content:center;overflow:hidden}
-.tc .back{background:linear-gradient(150deg,#3a2a6b,#1d1439 60%,#2a1d4f);
+.tc .back{background:linear-gradient(150deg,#14151a,#08090c 60%,#101116);
   border:1px solid rgba(233,198,126,.35);box-shadow:inset 0 0 12px rgba(233,198,126,.12)}
 .tc .back::after{content:"";position:absolute;inset:5px;border:1px solid rgba(233,198,126,.22);border-radius:6px}
 .tc .back svg{width:60%;height:60%;color:rgba(233,198,126,.55)}
-.tc .front{transform:rotateY(180deg);background:linear-gradient(165deg,#221a42,#15102b);
+.tc .front{transform:rotateY(180deg);background:linear-gradient(165deg,#0e0f13,#050608);
   border:1px solid rgba(233,198,126,.5);flex-direction:column;gap:2px;padding:5px}
 .tc .front .sym{flex:1;display:flex;align-items:center;justify-content:center;color:var(--gold2);width:100%}
 .tc .front .sym svg{width:94%;height:94%}
 .tc .front .nm{font-size:9.5px;color:var(--gold2);text-align:center;line-height:1.2;word-break:keep-all}
-.tc .front.rv{border-color:rgba(160,140,220,.5)}
+.tc .front.rv{border-color:rgba(233,198,126,.34)}
 .tc .front .flipdir{position:absolute;top:3px;right:4px;font-size:8px;color:var(--muted);letter-spacing:.04em}
 .tc:not(.flipped):active .inner{transform:scale(.96)}
 .tc.taken{pointer-events:none}
@@ -359,17 +359,17 @@ h2.sec small{font-weight:500;color:var(--muted2);font-size:12.5px;margin-left:6p
 .rhead .kicker{font-size:11.5px;letter-spacing:.18em;color:rgba(233,198,126,.7);text-transform:uppercase}
 .rhead .big{font-size:21px;font-weight:800;margin-top:6px;letter-spacing:-.02em}
 .rhead .sum{font-size:13.5px;color:var(--muted);margin-top:6px;word-break:keep-all}
-.rblock{background:linear-gradient(170deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
-  border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:15px 15px;margin-bottom:10px;
+.rblock{background:linear-gradient(170deg,#0a0b0f,#07080b);
+  border:1px solid rgba(233,198,126,.16);border-radius:16px;padding:15px 15px;margin-bottom:10px;
   animation:fade .45s ease both}
 .rblock .pos{font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(233,198,126,.85)}
 .rblock .cname{display:flex;align-items:center;gap:8px;margin:7px 0 8px;font-size:15px;font-weight:700}
-.rblock .cname .mini{width:26px;height:38px;border-radius:5px;background:linear-gradient(165deg,#241b45,#171128);
+.rblock .cname .mini{width:26px;height:38px;border-radius:5px;background:linear-gradient(165deg,#0e0f13,#07080a);
   border:1px solid rgba(233,198,126,.4);display:flex;align-items:center;justify-content:center;color:var(--gold2);flex:0 0 auto}
 .rblock .cname .mini svg{width:78%;height:78%}
 .rblock .cname .ori{font-size:10.5px;font-weight:600;color:var(--muted2);border:1px solid rgba(255,255,255,.14);
   padding:2px 6px;border-radius:6px;margin-left:auto}
-.rblock p{margin:0;font-size:14.5px;line-height:1.72;color:#e8e2f6;word-break:keep-all}
+.rblock p{margin:0;font-size:14.5px;line-height:1.72;color:#efe9df;word-break:keep-all}
 .oneline{margin:14px 0 4px;padding:14px 15px;border-radius:15px;border:1px solid var(--goldline);
   background:linear-gradient(170deg,rgba(233,198,126,.13),rgba(233,198,126,.04));font-size:14px;line-height:1.7;word-break:keep-all}
 .oneline b{color:var(--gold2)}
@@ -445,13 +445,13 @@ select option:checked,select option:hover{background-color:#2b2450;color:#fdf6e6
 .ebar .fill{height:100%;border-radius:6px;width:0;transition:width .9s cubic-bezier(.3,.8,.3,1)}
 .ebar .num{font-size:11px;color:var(--muted2);text-align:right;white-space:nowrap}
 .luck{display:grid;gap:9px;margin-top:4px}
-.luck .lcard{border-radius:14px;padding:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.luck .lcard{border-radius:14px;padding:14px;background:#08090c;border:1px solid rgba(233,198,126,.16)}
 .luck .lcard h3{margin:0 0 6px;font-size:13.5px;color:var(--gold2);font-weight:700;display:flex;align-items:center;gap:7px}
-.luck .lcard p{margin:0;font-size:14px;line-height:1.72;color:#e6e0f5;word-break:keep-all}
+.luck .lcard p{margin:0;font-size:14px;line-height:1.72;color:#ece6dc;word-break:keep-all}
 .tipbox{margin-top:10px;border-radius:14px;padding:14px;border:1px solid var(--goldline);
   background:linear-gradient(170deg,rgba(233,198,126,.12),rgba(233,198,126,.03))}
 .tipbox h3{margin:0 0 8px;font-size:13.5px;color:var(--gold2)}
-.tipbox .item{display:flex;gap:9px;font-size:13.5px;line-height:1.65;margin-bottom:6px;color:#efe9fb;word-break:keep-all}
+.tipbox .item{display:flex;gap:9px;font-size:13.5px;line-height:1.65;margin-bottom:6px;color:#f1ebdf;word-break:keep-all}
 .tipbox .item b{color:var(--gold2);flex:0 0 auto;width:62px;font-weight:600}
 .note{font-size:11.5px;color:var(--muted2);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07)}
 footer{text-align:center;font-size:11px;color:var(--muted2);padding:26px 20px 10px;line-height:1.7}
@@ -466,7 +466,7 @@ footer{text-align:center;font-size:11px;color:var(--muted2);padding:26px 20px 10
 /* 하단 토스트 */
 .toast-banner{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:9999;
   max-width:calc(100vw - 36px);padding:13px 20px;border-radius:14px;
-  background:linear-gradient(165deg,rgba(43,34,74,.98),rgba(19,15,36,.98));
+  background:linear-gradient(165deg,rgba(10,10,13,.98),rgba(3,3,5,.98));
   border:1px solid rgba(233,198,126,.5);box-shadow:0 14px 34px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.03) inset;
   color:#faf5ea;font-size:13px;font-weight:600;line-height:1.45;text-align:center;letter-spacing:-.01em;word-break:keep-all;
   transform:translate(-50%,16px);opacity:0;pointer-events:none;
@@ -483,12 +483,12 @@ footer{text-align:center;font-size:11px;color:var(--muted2);padding:26px 20px 10
 }
 @media (min-width:520px){
   body{padding:0}
-  .app{border-left:1px solid rgba(255,255,255,.06);border-right:1px solid rgba(255,255,255,.06);
-    box-shadow:0 0 90px -30px rgba(120,90,220,.55)}
+  .app{border-left:1px solid rgba(233,198,126,.10);border-right:1px solid rgba(233,198,126,.10);
+    box-shadow:0 0 90px -40px rgba(233,198,126,.22)}
 }
 
 .deck-empty{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:26px 0 14px;color:var(--muted2);font-size:12.5px}
-.deck-empty .stack{width:54px;height:80px;color:rgba(233,198,126,.5);border:1px solid rgba(233,198,126,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#2d2055,#1a1235)}
+.deck-empty .stack{width:54px;height:80px;color:rgba(233,198,126,.5);border:1px solid rgba(233,198,126,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#12131a,#07080b)}
 .deck-empty .stack svg{width:70%;height:70%}
 
 #sajuResult{scroll-margin-top:170px}
@@ -550,7 +550,7 @@ footer{text-align:center;font-size:11px;color:var(--muted2);padding:26px 20px 10
 
 .badge{flex:0 0 auto;font-size:10.5px;font-weight:700;padding:2.5px 7px;border-radius:6px;letter-spacing:.01em;line-height:1.4}
 .b-gil{color:#0f2e1e;background:linear-gradient(160deg,#9ee7bd,#6fcf9b)}
-.b-pyo{color:#241a3a;background:linear-gradient(160deg,#cfc6ea,#a99dc6)}
+.b-pyo{color:#241a03;background:linear-gradient(160deg,#f6e3b4,#cf9f52)}
 .b-hyung{color:#3a1210;background:linear-gradient(160deg,#f0a79a,#e0786a)}
 mark{background:transparent;color:var(--gold2);font-weight:700}
 
@@ -621,13 +621,13 @@ mark{background:transparent;color:var(--gold2);font-weight:700}
   background:linear-gradient(100deg,#f8ebc8,#e9c67e 50%,#c39a4c);-webkit-background-clip:text;background-clip:text;color:transparent}
 .pl-name small{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:6px;letter-spacing:0;
   -webkit-text-fill-color:var(--muted)}
-.pl-one{margin:14px auto 0;max-width:310px;font-size:14.5px;line-height:1.7;color:#efe9fb;word-break:keep-all}
+.pl-one{margin:14px auto 0;max-width:310px;font-size:14.5px;line-height:1.7;color:#f1ebdf;word-break:keep-all}
 .pl-who{font-size:11.5px;color:var(--muted2);margin-top:12px;line-height:1.7;word-break:keep-all}
 
-.pl-story{margin:0;font-size:14.5px;line-height:1.85;color:#eae4f7;word-break:keep-all}
+.pl-story{margin:0;font-size:14.5px;line-height:1.85;color:#e9e2d8;word-break:keep-all}
 .pl-remain{margin-top:12px;padding:12px 13px;border-radius:12px;border:1px solid var(--goldline);
   background:linear-gradient(170deg,rgba(233,198,126,.12),rgba(233,198,126,.03));
-  font-size:14px;line-height:1.72;color:#f4eeff;word-break:keep-all}
+  font-size:14px;line-height:1.72;color:#f4efe6;word-break:keep-all}
 .pl-remain b{display:block;font-size:11.5px;font-weight:700;color:rgba(233,198,126,.9);margin-bottom:5px;letter-spacing:.04em}
 
 .pl-fates{display:grid;gap:9px}
@@ -641,7 +641,7 @@ mark{background:transparent;color:var(--gold2);font-weight:700}
 .pl-rx{margin-top:10px;border-radius:15px;padding:15px;border:1px solid var(--goldline);
   background:linear-gradient(170deg,rgba(233,198,126,.14),rgba(233,198,126,.04))}
 .pl-rx h3{margin:0 0 8px;font-size:12.5px;color:var(--gold2);letter-spacing:.02em}
-.pl-rx p{margin:0;font-size:14px;line-height:1.75;color:#f6f1ff;word-break:keep-all}
+.pl-rx p{margin:0;font-size:14px;line-height:1.75;color:#f6f1e7;word-break:keep-all}
 
 .pl-actions{display:grid;gap:8px;margin-top:16px}
 .pl-actions .btn{font-size:14.5px;padding:14px}
@@ -711,7 +711,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 .lo-tip{margin-top:12px;padding:14px 15px;border-radius:15px;border:1px solid var(--goldline);
   background:linear-gradient(170deg,rgba(233,198,126,.13),rgba(233,198,126,.03))}
 .lo-tip h3{margin:0 0 7px;font-size:12.5px;color:var(--gold2);letter-spacing:.02em}
-.lo-tip p{margin:0;font-size:14px;line-height:1.75;color:#f4eeff;word-break:keep-all}
+.lo-tip p{margin:0;font-size:14px;line-height:1.75;color:#f4efe6;word-break:keep-all}
 
 .lo-colorkey{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;justify-content:center}
 .lo-colorkey span{font-size:10.5px;font-weight:600;color:var(--muted2);border:1px solid rgba(255,255,255,.1);
