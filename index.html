@@ -9,6 +9,10 @@
 <meta property="og:title" content="달빛 한 스푼 — 오늘의 타로 · 사주 · 꿈해몽 · 전생체험 · 로또 번호">
 <meta property="og:description" content="3장 타로로 오늘을 읽고, 만세력으로 내 사주를 보고, 꿈해몽으로 간밤의 꿈을 풀고, 이름과 생일로 전생까지, 이번 주 행운의 로또 번호까지 만나봅니다.">
 <meta name="theme-color" content="#0a0818">
+<!-- 제목용 명조 웹폰트 (2026-11-15 고급화) : 차단되거나 없으면 시스템 명조체로 자연 대체 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
 <!-- ============================================================
      ADSENSE (1/2) : 애드센스 자동 광고 — 게시자 ID ca-pub-3479064308586347
      · gold-queen.com 본 도메인에서 승인된 계정(mama2624@gmail.com)의 ID입니다.
@@ -26,6 +30,7 @@
   --card:rgba(255,255,255,.055); --card2:rgba(255,255,255,.09);
   --ok:#7bd6a4; --warn:#e78a7a;
   --radius:18px;
+  --serif:"Noto Serif KR","Nanum Myeongjo","Noto Serif CJK KR","AppleMyungjo","Apple SD Gothic Neo",Georgia,"Times New Roman",serif;
 }
 html,body{margin:0;padding:0}
 body{
@@ -79,10 +84,15 @@ body{
   filter:blur(8px);animation:moonBreath 11s ease-in-out infinite;will-change:opacity,transform}
 @keyframes moonBreath{0%,100%{opacity:.55;transform:translateX(-50%) scale(.97)}50%{opacity:.95;transform:translateX(-50%) scale(1.05)}}
 
-/* 헤더 금선 오너먼트 */
-.brand-orn{display:flex;align-items:center;gap:9px;margin-top:8px;opacity:.85}
-.brand-orn i{flex:1;height:1px;background:linear-gradient(90deg,rgba(233,198,126,0),rgba(233,198,126,.6),rgba(233,198,126,0))}
-.brand-orn span{font-size:10.5px;letter-spacing:.3em;color:rgba(233,198,126,.78);line-height:1;text-shadow:0 0 12px rgba(233,198,126,.5)}
+/* 헤더 금선 오너먼트 (2026-11-15 : 제목 위 중앙 오너먼트로 재배치) */
+.brand-orn{display:flex;align-items:center;justify-content:center;gap:10px;margin:0;opacity:.9}
+.brand-orn i{flex:0 1 96px;min-width:24px;height:1px;background:linear-gradient(90deg,rgba(233,198,126,0),rgba(233,198,126,.6),rgba(233,198,126,0))}
+.brand-orn span{flex:0 0 auto;font-size:10.5px;letter-spacing:.3em;color:rgba(233,198,126,.78);line-height:1;text-shadow:0 0 12px rgba(233,198,126,.5)}
+/* 달빛 오너먼트 : 글꼴에 상관없이 초승달이 보이도록 CSS로 그림 (2026-11-15) */
+.brand-orn .orn-moon{display:inline-block;width:13px;height:13px;border-radius:50%;background:rgba(248,236,200,.95);
+  box-shadow:0 0 10px rgba(246,227,180,.45),0 0 20px rgba(233,198,126,.22);
+  -webkit-mask:radial-gradient(circle at 66% 50%,transparent 0 56%,#000 57%);mask:radial-gradient(circle at 66% 50%,transparent 0 56%,#000 57%)}
+.brand-orn .orn-moon.l{-webkit-mask:radial-gradient(circle at 34% 50%,transparent 0 56%,#000 57%);mask:radial-gradient(circle at 34% 50%,transparent 0 56%,#000 57%)}
 
 /* 반짝이는 별 · 초승달 */
 .sparkles{position:fixed;inset:0;z-index:3;pointer-events:none}
@@ -90,8 +100,6 @@ body{
   text-shadow:0 0 12px rgba(233,198,126,.85);opacity:0;
   animation:sparkle 8s ease-in-out var(--d,0s) infinite}
 @keyframes sparkle{0%,100%{opacity:0;transform:scale(.55)}38%{opacity:.75;transform:scale(1)}62%{opacity:.45;transform:scale(.85)}}
-.moon-mark{position:absolute;right:22px;top:24px;font-size:19px;line-height:1;color:rgba(246,227,180,.8);
-  text-shadow:0 0 18px rgba(246,227,180,.6),0 0 34px rgba(233,198,126,.3);pointer-events:none}
 .app{position:relative;z-index:1;max-width:470px;margin:0 auto;padding:0 0 40px;min-height:100vh}
 
 /* ============================================================
@@ -99,7 +107,7 @@ body{
    · position:sticky 해제 → 스크롤해도 아래 입력창·결과를 가리지 않음
    · 깊은 벨벳 그라데이션 + 은은한 달빛 헤일로 + 금빛 헤어라인
    ============================================================ */
-.top{position:relative;z-index:2;padding:24px 20px 18px;
+.top{position:relative;z-index:2;padding:26px 20px 22px;text-align:center;
   background:
     radial-gradient(135% 130% at 50% -45%, rgba(148,110,232,.36) 0%, rgba(96,64,176,.17) 40%, rgba(10,8,24,0) 74%),
     linear-gradient(180deg,#171230 0%,#110d24 56%,rgba(10,8,24,0) 100%);
@@ -108,21 +116,38 @@ body{
   background:radial-gradient(56% 78% at 50% 0%, rgba(246,227,180,.14), rgba(246,227,180,0) 72%)}
 .top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;
   background:linear-gradient(90deg,rgba(233,198,126,0) 0%,rgba(233,198,126,.30) 20%,rgba(248,235,200,.52) 50%,rgba(233,198,126,.30) 80%,rgba(233,198,126,0) 100%)}
-.brand{display:flex;align-items:center;gap:8px;font-size:19.5px;font-weight:700;letter-spacing:-.01em;
-  background:linear-gradient(100deg,#fdf3d9,#f2d79b 32%,#e9c67e 58%,#c79a45);-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand .spark{font-size:14px;-webkit-text-fill-color:#f6e3b4;color:#f6e3b4}
-.tagline{font-size:12px;color:#9b8fbb;margin-top:5px;letter-spacing:.06em}
+.brand{display:flex;align-items:center;justify-content:center;gap:.3em;margin:15px 0 0;
+  font-family:var(--serif);font-size:clamp(27px,7.6vw,32px);font-weight:700;
+  letter-spacing:.14em;line-height:1.24;word-break:keep-all;
+  filter:drop-shadow(0 3px 16px rgba(246,227,180,.32)) drop-shadow(0 0 40px rgba(233,198,126,.16))}
+.brand .brand-name{text-indent:.14em;
+  background:linear-gradient(104deg,#fffaf1 0%,#f9ecc9 20%,#f1d69d 44%,#e0b569 64%,#f6e8c2 86%,#fff9ea 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.brand .spark{flex:0 0 auto;font-size:.5em;line-height:1;-webkit-text-fill-color:#f8ecc8;color:#f8ecc8;
+  text-shadow:0 0 12px rgba(246,227,180,.75),0 0 24px rgba(233,198,126,.45);animation:sparkAura 6.5s ease-in-out infinite}
+@keyframes sparkAura{0%,100%{opacity:.72}50%{opacity:1}}
+.tagline{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:0;row-gap:1px;
+  margin:13px 0 0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  font-size:11.8px;letter-spacing:.11em;line-height:1.9;color:#a99bc8;word-break:keep-all;
+  text-shadow:0 0 14px rgba(122,92,204,.22)}
+.tagline span{white-space:nowrap}
+.tagline span:not(:last-child)::after{content:"·";display:inline-block;margin:0 .55em;color:rgba(233,198,126,.62);letter-spacing:0}
+/* 좁은 화면에서 서브타이틀이 한 줄에 들어가도록 미세 조정 (2026-11-15) */
+@media (max-width:400px){
+  .tagline{font-size:11px;letter-spacing:.05em}
+  .tagline span:not(:last-child)::after{margin:0 .42em}
+}
 
 /* ============================================================
    첫 화면(홈) : 다섯 개 메뉴 카드   (2026-11-15 · 상단 탭 바 제거)
    ============================================================ */
-.home{padding:24px 18px 4px}
+.home{padding:20px 18px 4px}
 .home-hero{text-align:center}
-.home-kicker{display:block;font-size:10.5px;letter-spacing:.3em;color:rgba(233,198,126,.72);
-  text-shadow:0 0 14px rgba(233,198,126,.35)}
-.home-title{margin:11px 0 0;font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.35;
-  background:linear-gradient(100deg,#fdf3d9,#f2d79b 42%,#e2bb72);-webkit-background-clip:text;background-clip:text;color:transparent}
-.home-sub{margin:8px 0 0;font-size:12.5px;color:#a498c2;letter-spacing:.01em}
+.home-title{margin:0;font-family:var(--serif);font-size:clamp(21px,5.9vw,25px);font-weight:700;
+  letter-spacing:.035em;line-height:1.45;
+  background:linear-gradient(100deg,#fdf7ec,#f8e4b8 44%,#e7c485);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 12px rgba(246,227,180,.22))}
+.home-sub{margin:9px 0 0;font-size:12.5px;color:#a498c2;letter-spacing:.02em}
 
 .menu{display:grid;gap:10px;margin:22px 0 0}
 .mcard{display:flex;align-items:center;gap:13px;width:100%;text-align:left;cursor:pointer;
@@ -627,10 +652,9 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 <div class="app">
 
   <header class="top">
-    <span class="moon-mark" aria-hidden="true">☾</span>
-    <div class="brand"><span class="spark">✦</span>달빛 한 스푼</div>
-    <div class="brand-orn" aria-hidden="true"><i></i><span>☾ ✦ ☽</span><i></i></div>
-    <div class="tagline">오늘의 타로 · 만세력 사주 · 꿈해몽 · 전생체험 · 로또 번호</div>
+    <div class="brand-orn" aria-hidden="true"><i></i><span class="orn-moon l"></span><i></i></div>
+    <div class="brand"><span class="spark" aria-hidden="true">✦</span><span class="brand-name">달빛 한 스푼</span><span class="spark" aria-hidden="true">✦</span></div>
+    <p class="tagline"><span>오늘의 타로</span><span>만세력 사주</span><span>꿈해몽</span><span>전생체험</span><span>로또 번호</span></p>
   </header>
 
   <!-- ============================================================
@@ -646,7 +670,6 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
   <!-- ===================== 첫 화면 : 다섯 개의 메뉴 ===================== -->
   <div class="home" id="home">
     <div class="home-hero">
-      <span class="home-kicker">☾ 오늘의 메뉴 ☽</span>
       <h1 class="home-title">무엇이 궁금하세요?</h1>
       <p class="home-sub">다섯 가지 중 하나를 고르면 바로 열려요.</p>
     </div>
