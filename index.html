@@ -100,6 +100,67 @@ body{
   text-shadow:0 0 12px rgba(233,198,126,.85);opacity:0;
   animation:sparkle 8s ease-in-out var(--d,0s) infinite}
 @keyframes sparkle{0%,100%{opacity:0;transform:scale(.55)}38%{opacity:.75;transform:scale(1)}62%{opacity:.45;transform:scale(.85)}}
+
+/* ============================================================
+   별빛 가루 + 반짝이는 4꼭지 별 (2026-11-15 추가)
+   · 상단 헤더(.top)와 첫 화면(.home) 배경에만 깔립니다.
+     (body.sub 에서는 헤더·홈이 함께 숨겨지므로 안쪽 화면은 그대로 깨끗합니다)
+   · 장식 레이어는 pointer-events:none → 스크롤·탭·링크 클릭을 절대 가로채지 않습니다.
+   · prefers-reduced-motion: reduce 에서는 애니메이션을 멈춥니다.
+   ============================================================ */
+.skydeco{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.skydeco .dust{position:absolute;inset:0}
+.skydeco .dust-a{opacity:.46;background-image:
+    radial-gradient(1.2px 1.2px at 7% 18%, #FFF1CC 50%, transparent 51%),
+    radial-gradient(1.1px 1.1px at 15% 62%, #fff 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 24% 12%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 33% 78%, #E7DCFF 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 42% 34%, #FFF1CC 50%, transparent 51%),
+    radial-gradient(1.1px 1.1px at 51% 88%, #fff 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 59% 22%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 67% 54%, #E7DCFF 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 76% 76%, #fff 50%, transparent 51%),
+    radial-gradient(1.1px 1.1px at 84% 30%, #FFF1CC 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 92% 66%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 96% 14%, #fff 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 11% 88%, #fff 50%, transparent 51%),
+    radial-gradient(1.1px 1.1px at 88% 92%, #E7DCFF 50%, transparent 51%)}
+.skydeco .dust-b{opacity:.5;animation:dbDust 7.2s ease-in-out infinite;background-image:
+    radial-gradient(1.9px 1.9px at 10% 40%, #FFF4D8 50%, transparent 51%),
+    radial-gradient(1.7px 1.7px at 20% 84%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 30% 26%, #fff 50%, transparent 51%),
+    radial-gradient(1.7px 1.7px at 39% 96%, #FFF4D8 50%, transparent 51%),
+    radial-gradient(1.9px 1.9px at 48% 52%, #EADFFF 50%, transparent 51%),
+    radial-gradient(1.7px 1.7px at 57% 8%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 64% 70%, #FFF4D8 50%, transparent 51%),
+    radial-gradient(1.7px 1.7px at 73% 44%, #fff 50%, transparent 51%),
+    radial-gradient(1.9px 1.9px at 81% 88%, #fff 50%, transparent 51%),
+    radial-gradient(1.7px 1.7px at 94% 38%, #FFF4D8 50%, transparent 51%)}
+.skydeco .dust-c{opacity:.4;animation:dbDust 9.6s ease-in-out -3.2s infinite;background-image:
+    radial-gradient(1.4px 1.4px at 4% 33%, #fff 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 13% 71%, #FFF1CC 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 21% 47%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 29% 90%, #fff 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 37% 58%, #E7DCFF 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 45% 16%, #fff 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 53% 73%, #FFF1CC 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 61% 41%, #fff 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 69% 86%, #fff 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 77% 62%, #E7DCFF 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 85% 18%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 91% 78%, #FFF1CC 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 97% 47%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 8% 8%, #fff 50%, transparent 51%)}
+/* 4꼭지 금빛·은빛 스파클 */
+.skydeco .spk{position:absolute;display:block;width:7px;height:7px;background:#FFF3D2;opacity:.42;
+  clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);
+  -webkit-clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);
+  filter:drop-shadow(0 0 5px rgba(255,235,192,.9));
+  animation:dbSpk 5.8s ease-in-out infinite}
+.skydeco .spk.g{background:#F4DFAE}
+.skydeco .spk.w{background:#FFFFFF}
+@keyframes dbDust{0%,100%{opacity:.24}46%{opacity:.68}72%{opacity:.36}}
+@keyframes dbSpk{0%,100%{opacity:.12;transform:scale(.5)}40%{opacity:.95;transform:scale(1)}68%{opacity:.4;transform:scale(.72)}}
 .app{position:relative;z-index:1;max-width:470px;margin:0 auto;padding:0 0 40px;min-height:100vh}
 
 /* ============================================================
@@ -132,6 +193,8 @@ body{
   text-shadow:0 0 14px rgba(122,92,204,.22)}
 .tagline span{white-space:nowrap}
 .tagline span:not(:last-child)::after{content:"·";display:inline-block;margin:0 .55em;color:rgba(233,198,126,.62);letter-spacing:0}
+/* 별빛 레이어 위로 헤더 글자가 오도록 (레이아웃·정렬은 그대로) */
+.top > .brand-orn,.top > .brand,.top > .tagline{position:relative;z-index:1}
 /* 좁은 화면에서 서브타이틀이 한 줄에 들어가도록 미세 조정 (2026-11-15) */
 @media (max-width:400px){
   .tagline{font-size:11px;letter-spacing:.05em}
@@ -141,13 +204,21 @@ body{
 /* ============================================================
    첫 화면(홈) : 다섯 개 메뉴 카드   (2026-11-15 · 상단 탭 바 제거)
    ============================================================ */
-.home{padding:20px 18px 4px}
+.home{position:relative;padding:20px 18px 4px}
+.home > .home-hero,.home > .menu,.home > .hub,.home > .home-note{position:relative;z-index:1}
 .home-hero{text-align:center}
 .home-title{margin:0;font-family:var(--serif);font-size:clamp(21px,5.9vw,25px);font-weight:700;
   letter-spacing:.035em;line-height:1.45;
   background:linear-gradient(100deg,#fdf7ec,#f8e4b8 44%,#e7c485);-webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 2px 12px rgba(246,227,180,.22))}
 .home-sub{margin:9px 0 0;font-size:12.5px;color:#a498c2;letter-spacing:.02em}
+/* 물음표만 빙글빙글 (2026-11-15) : inline-block으로 감싸 제자리에서 회전, 금빛 글로우 */
+.home-title .q-spin{display:inline-block;transform-origin:50% 52%;vertical-align:baseline;
+  background:linear-gradient(102deg,#f8e4b8 0%,#f0d49a 52%,#e0b569 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 9px rgba(246,227,180,.5));
+  animation:qSpin 4s ease-in-out infinite;will-change:transform}
+@keyframes qSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 .menu{display:grid;gap:10px;margin:22px 0 0}
 .mcard{display:flex;align-items:center;gap:13px;width:100%;text-align:left;cursor:pointer;
@@ -329,6 +400,15 @@ select,input[type=text]{appearance:none;-webkit-appearance:none;width:100%;font-
   color:var(--text);background:rgba(255,255,255,.06) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%23a99dc6'/></svg>") no-repeat right 12px center;
   border:1px solid rgba(255,255,255,.11);border-radius:12px;padding:12px 30px 12px 12px;font-weight:600}
 select:focus,input:focus{outline:none;border-color:rgba(233,198,126,.55);background-color:rgba(255,255,255,.1)}
+/* ============================================================
+   드롭다운(select) 목록 가독성 — 윈도우 PC 크롬 대응 (2026-11-15)
+   · option 팝업은 OS·브라우저가 직접 그립니다. 배경은 흰색인데
+     글자색(흰색)이 상속돼 선택지가 안 보이던 문제를 잡습니다.
+   · color-scheme:dark → 팝업·스크롤바까지 어두운 밤하늘 톤으로.
+   ============================================================ */
+select{color-scheme:dark}
+select option,select optgroup{background-color:#14192b;color:#f4efe6}
+select option:checked,select option:hover{background-color:#2b2450;color:#fdf6e6}
 .radio-row{display:flex;gap:8px}
 .radio-row label{flex:1;text-align:center;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.11);
   background:rgba(255,255,255,.045);font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;transition:.2s}
@@ -582,6 +662,9 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 @media (prefers-reduced-motion: reduce){
   .stars::before,.stars::after,.moon-aura{animation:none}
   .pane,.rblock,.tc{animation:none !important}
+  .skydeco .dust-b,.skydeco .dust-c{animation:none;opacity:.5}
+  .skydeco .spk{animation:none;opacity:.5;transform:none}
+  .home-title .q-spin{animation:none;transform:none}
 }
 
 /* ============================================================
@@ -652,6 +735,19 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 <div class="app">
 
   <header class="top">
+    <!-- 밤하늘 별빛 : 상단 헤더 전용 장식 (클릭 방해 없음) -->
+    <span class="skydeco" aria-hidden="true">
+      <span class="dust dust-a"></span>
+      <span class="dust dust-b"></span>
+      <span class="dust dust-c"></span>
+      <i class="spk" style="top:11px;right:42px;width:9px;height:9px;animation-delay:.3s"></i>
+      <i class="spk g" style="top:31px;right:16px;width:6px;height:6px;animation-delay:2.7s"></i>
+      <i class="spk w" style="top:56px;left:16px;width:6px;height:6px;animation-delay:1.6s"></i>
+      <i class="spk" style="top:87px;left:25px;width:5px;height:5px;animation-delay:3.6s"></i>
+      <i class="spk g" style="bottom:36px;right:27px;width:8px;height:8px;animation-delay:1s"></i>
+      <i class="spk w" style="bottom:13px;left:40px;width:5px;height:5px;animation-delay:4.4s"></i>
+      <i class="spk" style="top:6px;left:36px;width:5px;height:5px;animation-delay:2.1s"></i>
+    </span>
     <div class="brand-orn" aria-hidden="true"><i></i><span class="orn-moon l"></span><i></i></div>
     <div class="brand"><span class="spark" aria-hidden="true">✦</span><span class="brand-name">달빛 한 스푼</span><span class="spark" aria-hidden="true">✦</span></div>
     <p class="tagline"><span>오늘의 타로</span><span>만세력 사주</span><span>꿈해몽</span><span>전생체험</span><span>로또 번호</span></p>
@@ -669,8 +765,22 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 
   <!-- ===================== 첫 화면 : 다섯 개의 메뉴 ===================== -->
   <div class="home" id="home">
+    <!-- 밤하늘 별빛 : 첫 화면 배경 장식 (클릭 방해 없음) -->
+    <span class="skydeco" aria-hidden="true">
+      <span class="dust dust-a"></span>
+      <span class="dust dust-b"></span>
+      <span class="dust dust-c"></span>
+      <i class="spk" style="top:10px;left:32px;width:5px;height:5px;animation-delay:1.2s"></i>
+      <i class="spk g" style="top:46px;right:24px;width:7px;height:7px;animation-delay:2.9s"></i>
+      <i class="spk w" style="top:126px;left:9px;width:5px;height:5px;animation-delay:4.1s"></i>
+      <i class="spk" style="top:264px;right:10px;width:6px;height:6px;animation-delay:.7s"></i>
+      <i class="spk g" style="top:402px;left:10px;width:5px;height:5px;animation-delay:3.3s"></i>
+      <i class="spk" style="top:521px;right:11px;width:7px;height:7px;animation-delay:1.9s"></i>
+      <i class="spk w" style="bottom:148px;left:15px;width:5px;height:5px;animation-delay:5s"></i>
+      <i class="spk g" style="bottom:64px;right:19px;width:5px;height:5px;animation-delay:2.4s"></i>
+    </span>
     <div class="home-hero">
-      <h1 class="home-title">무엇이 궁금하세요?</h1>
+      <h1 class="home-title">무엇이 궁금하세요<span class="q-spin">?</span></h1>
       <p class="home-sub">다섯 가지 중 하나를 고르면 바로 열려요.</p>
     </div>
 
