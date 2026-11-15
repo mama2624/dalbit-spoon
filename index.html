@@ -5,7 +5,7 @@
 <!-- 달빛 한 스푼 v4 (2026-11-15) : 5번째 '이번 주 행운의 로또 번호' 탭 추가 / 타로·사주·꿈해몽·전생체험 100% 유지 / 애드센스 자동광고(ca-pub-3479064308586347) 적용 -->
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>달빛 한 스푼 — 오늘의 타로 · 만세력 사주 · 꿈해몽 · 전생체험 · 로또 번호</title>
-<meta name="description" content="고민을 고르고 카드 세 장을 뽑으면 지금 내 자리와 오늘의 조언을 읽어드려요. 생년월일시를 넣으면 사주팔자와 오행 균형까지, 꿈에서 본 것은 120가지 한국식 꿈해몽으로, 이름과 생일로는 재미로 보는 전생까지, 이번 주 행운의 로또 6/45 번호까지 찾아드립니다.">
+<meta name="description" content="고민을 고르고 카드 세 장을 뽑으면 지금 내 자리와 오늘의 조언을 읽어드려요. 생년월일시를 넣으면 사주팔자와 오행 균형까지, 꿈에서 본 것은 133가지 한국식 꿈해몽으로, 이름과 생일로는 재미로 보는 전생까지, 이번 주 행운의 로또 6/45 번호까지 찾아드립니다.">
 <meta property="og:title" content="달빛 한 스푼 — 오늘의 타로 · 사주 · 꿈해몽 · 전생체험 · 로또 번호">
 <meta property="og:description" content="3장 타로로 오늘을 읽고, 만세력으로 내 사주를 보고, 꿈해몽으로 간밤의 꿈을 풀고, 이름과 생일로 전생까지, 이번 주 행운의 로또 번호까지 만나봅니다.">
 <meta name="theme-color" content="#000000">
@@ -187,6 +187,18 @@ body{
 .brand .spark{flex:0 0 auto;font-size:.5em;line-height:1;-webkit-text-fill-color:#f8ecc8;color:#f8ecc8;
   text-shadow:0 0 12px rgba(246,227,180,.75),0 0 24px rgba(233,198,126,.45);animation:sparkAura 6.5s ease-in-out infinite}
 @keyframes sparkAura{0%,100%{opacity:.72}50%{opacity:1}}
+/* ============================================================
+   달무리 후광 (2026-11-15) : 제목 글씨는 고정, 뒤쪽 금빛 후광만 6초 주기로 숨쉬기
+   · opacity 0.14 ↔ 0.30 · prefers-reduced-motion: reduce 에서는 정지
+   ============================================================ */
+.brand-halo{position:absolute;left:50%;top:70px;width:min(430px,98vw);height:172px;
+  transform:translate(-50%,-50%);pointer-events:none;z-index:0;border-radius:50%;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%,
+    rgba(246,227,180,.55) 0%, rgba(233,198,126,.30) 30%,
+    rgba(233,198,126,.10) 56%, rgba(233,198,126,0) 76%);
+  filter:blur(16px);will-change:opacity;
+  animation:haloBreath 6s ease-in-out infinite}
+@keyframes haloBreath{0%,100%{opacity:.14}50%{opacity:.30}}
 .tagline{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:0;row-gap:1px;
   margin:13px 0 0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
   font-size:11.8px;letter-spacing:.11em;line-height:1.9;color:#9c968c;word-break:keep-all;
@@ -665,6 +677,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
   .skydeco .dust-b,.skydeco .dust-c{animation:none;opacity:.5}
   .skydeco .spk{animation:none;opacity:.5;transform:none}
   .home-title .q-spin{animation:none;transform:none}
+  .brand-halo{animation:none;opacity:.2}
 }
 
 /* ============================================================
@@ -749,6 +762,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
       <i class="spk" style="top:6px;left:36px;width:5px;height:5px;animation-delay:2.1s"></i>
     </span>
     <div class="brand-orn" aria-hidden="true"><i></i><span class="orn-moon l"></span><i></i></div>
+    <i class="brand-halo" aria-hidden="true"></i>
     <div class="brand"><span class="spark" aria-hidden="true">✦</span><span class="brand-name">달빛 한 스푼</span><span class="spark" aria-hidden="true">✦</span></div>
     <p class="tagline"><span>오늘의 타로</span><span>만세력 사주</span><span>꿈해몽</span><span>전생체험</span><span>로또 번호</span></p>
   </header>
@@ -797,7 +811,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
       </button>
       <button class="mcard" type="button" data-go="dream">
         <span class="mico" aria-hidden="true">🌙</span>
-        <span class="mtxt"><b>꿈해몽</b><small>120가지 한국식 꿈해몽으로 간밤의 꿈을</small></span>
+        <span class="mtxt"><b>꿈해몽</b><small>133가지 한국식 꿈해몽으로 간밤의 꿈을</small></span>
         <span class="mgo" aria-hidden="true">›</span>
       </button>
       <button class="mcard" type="button" data-go="past">
@@ -1999,7 +2013,7 @@ var SOCIAL_TEXT = {
 
 /* ---------- dream_data.js ---------- */
 /* ============================================================
-   꿈해몽 데이터 (한국식 상황별 풀이 120가지)
+   꿈해몽 데이터 (한국식 상황별 풀이 133가지)
    cat : money 재물·복권 / animal 동물 / nature 자연·재해 /
          body 신체·행동 / people 사람·기타
    grade: 길(길몽) / 평(보통·주의) / 흉(흉몽·경고)
@@ -2878,6 +2892,101 @@ var DREAMS = [
   body:"장례식은 꿈에서 오히려 좋은 신호로 봅니다. 오래 끌던 일이 끝나고 새 일이 시작된다는 뜻이에요. 상여가 지나가는 걸 봤다면 큰 변화가 지나가고, 조문을 했다면 인연이 정리됩니다.",
   tip:"오늘은 끝내야 할 일 하나를 정해 마무리해 보세요.",
   luck:"흰색 · 숫자 1" },
+
+/* ===== 사람·기타 : 언쟁·분쟁 (2026-11-15 추가) ===== */
+{ id:"friend-argue", cat:"people", emoji:"💬", pop:3, grade:"평",
+  title:"친구·지인과 말다툼(언쟁)하는 꿈",
+  keys:"친구 지인 언쟁 말다툼 분쟁 갈등 다투다 싸우다 서운",
+  sum:"가까운 사이의 서운함이 꿈으로 올라온 거예요.",
+  body:"친한 사람과 말다툼하는 꿈은 관계가 나빠진다는 뜻보다, 요즘 쌓인 서운함이나 오해가 꿈에서 풀린다는 쪽으로 읽습니다. 목소리를 높였는데 상대가 웃고 있었다면 오히려 사이가 가까워지는 신호예요. 말다툼 끝에 먼저 사과했다면 그 갈등은 이미 정리된 것으로 봅니다.",
+  tip:"오늘은 그 친구와의 최근 대화를 한 번만 다시 읽어보세요. 오해는 대개 말의 속도에서 생깁니다.",
+  luck:"하늘색 · 숫자 3" },
+{ id:"spouse-argue", cat:"people", emoji:"💔", pop:3, grade:"평",
+  title:"배우자·연인과 심하게 다투는 꿈",
+  keys:"배우자 남편 아내 연인 애인 언쟁 다툼 분쟁 부부싸움",
+  sum:"정이 깊은 만큼 부딪히는 꿈이에요.",
+  body:"배우자나 연인과 크게 다투는 꿈은 미운 마음이 아니라, 함께 지내는 동안 쌓인 작은 불편이 꿈에서 목소리를 낸 것으로 봅니다. 꿈에서 먼저 손을 내밀었거나 등을 토닥였다면 실제로도 관계가 회복되는 흐름이에요. 헤어지자는 말이 나왔다면 오히려 그 관계를 붙잡고 싶은 마음의 반대 표현일 수 있습니다.",
+  tip:"오늘은 고맙다는 말 한마디를 먼저 건네보세요. 다툼의 대부분은 그 한마디로 풀립니다.",
+  luck:"연분홍 · 숫자 2" },
+{ id:"work-argue", cat:"people", emoji:"🏢", pop:3, grade:"평",
+  title:"직장 상사·동료와 언쟁·분쟁하는 꿈",
+  keys:"직장 상사 동료 회사 언쟁 분쟁 갈등 다툼 회의 상사",
+  sum:"일에서 눌린 마음이 꿈으로 나온 거예요.",
+  body:"직장에서 언쟁하는 꿈은 업무 스트레스가 그대로 꿈에 옮겨진 경우가 많아요. 상사에게 할 말을 삼킨 날에 특히 잘 꾸는 꿈입니다. 회의에서 내 말이 먹혔다면 실제로도 내 의견이 받아들여질 흐름이고, 사과를 받았다면 그동안의 오해가 풀립니다.",
+  tip:"오늘은 말로 하기 어려운 안건을 글로 정리해 두세요. 정리된 문장은 협상에서 이깁니다.",
+  luck:"회색 · 숫자 4" },
+{ id:"stranger-argue", cat:"people", emoji:"🗣️", pop:2, grade:"평",
+  title:"모르는 사람·이웃과 시비 붙는 꿈",
+  keys:"모르는 사람 이웃 시비 언쟁 분쟁 다툼 싸우다 낯선 사람",
+  sum:"낯선 갈등은 대개 내 안의 조급함이에요.",
+  body:"모르는 사람이나 이웃과 시비가 붙는 꿈은 그 사람과의 문제라기보다, 요즘 내가 어딘가에 예민해져 있다는 신호예요. 시비를 걸어온 상대에게 당당히 말대꾸했다면 그만큼 내 주장이 단단해졌다는 뜻입니다. 싸움이 길어졌다면 괜한 일에 힘을 빼고 있다는 신호이니 한 걸음 물러나 보세요.",
+  tip:"오늘은 알림을 잠시 꺼두고, 나를 건드리는 일에서 한 발 떨어져 보세요.",
+  luck:"베이지 · 숫자 7" },
+{ id:"shout-anger", cat:"people", emoji:"😤", pop:3, grade:"평",
+  title:"답답해서 소리 지르며 화내는 꿈",
+  keys:"화내다 소리치다 고함 울화 분쟁 갈등 짜증 답답",
+  sum:"쌓인 울화가 터지는 꿈이에요.",
+  body:"소리 지르며 화내는 꿈은 꾹 눌러둔 감정이 꿈에서 빠져나가는 자리예요. 실제로 화를 낸 게 아니라 마음속 압력이 빠진 것이라, 꾸고 나서 오히려 개운했다면 좋은 신호입니다. 큰 소리를 냈는데 아무도 듣지 못했다면, 지금 내 이야기를 들어줄 사람이 필요하다는 뜻이에요.",
+  tip:"오늘은 말 대신 짧게 적어보세요. 소리 대신 종이에 옮기면 압력이 먼저 빠집니다.",
+  luck:"주황색 · 숫자 9" },
+{ id:"reconcile", cat:"people", emoji:"🤝", pop:3, grade:"길",
+  title:"다툼 끝에 화해하고 악수하는 꿈",
+  keys:"화해 악수 풀다 언쟁 분쟁 다툼 사과 화해하다",
+  sum:"막혔던 관계가 풀리는 꿈이에요.",
+  body:"다투다가 화해하고 악수까지 했다면, 오래 끌던 갈등이 정리되는 대표적인 길몽이에요. 미뤄둔 연락이나 정산, 사과가 자연스럽게 이뤄질 흐름입니다. 악수한 손이 따뜻했다면 그 인연이 오래 남고, 상대가 먼저 손을 내밀었다면 도움도 함께 옵니다.",
+  tip:"오늘은 미뤄둔 사과나 화해의 연락을 하나 보내보세요. 지금이 그 문이 열린 때입니다.",
+  luck:"연두색 · 숫자 5" },
+/* ===== 사람·기타 : 다툼의 역몽 (2026-11-15 추가) ===== */
+{ id:"die-in-fight", cat:"people", emoji:"🕯️", pop:2, grade:"길",
+  title:"다투다가 내가 죽는 꿈",
+  keys:"다투다 싸우다 언쟁 분쟁 내가 죽다 죽음 역몽 새출발",
+  sum:"갈등이 끝나고 새 국면이 시작되는 역몽이에요.",
+  body:"다투는 도중에 내가 죽는 꿈은 흉몽이 아니라 대표적인 역몽이에요. 오래 붙들고 있던 갈등과 부담이 거기서 끝맺음되고, 새로운 국면이 시작된다는 뜻입니다. 죽음이 두렵지 않았거나 편안했다면 그만큼 마음의 정리가 잘 된 상태이고, 다시 일어났다면 반전의 기회가 곧 옵니다.",
+  tip:"오늘은 붙들고 있던 문제 하나에 '여기까지'라고 선을 정해보세요. 끝을 정하면 다음이 열립니다.",
+  luck:"흰색 · 숫자 1" },
+{ id:"kill-in-fight", cat:"people", emoji:"🥊", pop:2, grade:"길",
+  title:"다투다가 상대를 죽이는 꿈",
+  keys:"다투다 싸우다 언쟁 분쟁 상대 죽이다 이기다 제압 역몽",
+  sum:"답답한 고리를 끊어내는 역몽이에요.",
+  body:"다투다가 상대를 죽이는 꿈은 잔인한 꿈이 아니라, 나를 옥죄던 문제나 경쟁, 방해 요소를 완전히 끊어냈다는 뜻으로 봅니다. 꿈에서 이겼다면 실제로도 주도권을 잡는 자리이고, 미안한 마음이 남았다면 그만큼 사람을 아끼고 있다는 표시예요. 이 꿈 뒤에는 일이 정리되고 새 판이 열리는 흐름이 붙습니다.",
+  tip:"오늘은 정리하고 싶은 일 하나를 실제로 끝내보세요. 끊는 결단이 다음 판을 엽니다.",
+  luck:"금색 · 숫자 8" },
+/* ===== 사람·기타 : 태몽·열매 (2026-11-15 추가) ===== */
+{ id:"fruit-apple", cat:"people", emoji:"🍎", pop:3, grade:"길",
+  title:"크고 탐스러운 사과·배를 따거나 받는 꿈",
+  keys:"사과 배 과일 태몽 따다 받다 먹다 결실 열매",
+  sum:"탐스러운 열매는 좋은 소식의 꿈이에요.",
+  body:"크고 잘 익은 사과나 배를 땄거나 받았다면 결실이 손에 들어오는 꿈이에요. 특히 태몽으로 꾸면 건강하고 복 있는 아이를 뜻한다고 전해집니다. 혼자 따기보다 누가 건네줬다면 도움을 받아 이루어지는 일이라 더 좋아요. 열매가 상해 있었다면 기대가 조금 어긋날 수 있으니 서두르지 마세요.",
+  tip:"오늘은 준비해 온 일의 마지막 한 걸음을 해보세요. 열매는 익었을 때 따야 답니다.",
+  luck:"붉은색 · 숫자 6" },
+{ id:"fruit-peach", cat:"people", emoji:"🍑", pop:3, grade:"길",
+  title:"잘 익은 복숭아를 품에 안거나 먹는 꿈",
+  keys:"복숭아 천도복숭아 과일 태몽 안다 먹다 애정 인연",
+  sum:"달콤한 인연과 새 생명의 꿈이에요.",
+  body:"복숭아를 품에 안는 꿈은 예부터 태몽으로 꼽히는 꿈이에요. 아이 소식뿐 아니라 애정과 인연이 깊어지는 흐름으로도 읽습니다. 잘 익은 복숭아를 먹었다면 그 기쁨이 내 것이 되고, 누군가에게 나눠줬다면 좋은 일이 주변으로 퍼집니다. 천도복숭아도 같은 결로 봅니다.",
+  tip:"오늘은 마음에 둔 사람에게 안부 한 줄을 보내보세요. 달콤한 건 나눌 때 더 달아집니다.",
+  luck:"분홍색 · 숫자 9" },
+{ id:"fruit-grape", cat:"people", emoji:"🍇", pop:3, grade:"길",
+  title:"주렁주렁 열린 포도·감·대추를 보는 꿈",
+  keys:"포도 감 홍시 대추 과일 태몽 열매 풍요 수확",
+  sum:"열매가 주렁주렁, 풍요가 들어오는 꿈이에요.",
+  body:"포도나 감, 대추가 주렁주렁 달린 걸 봤다면 여러 갈래로 결실이 오는 꿈이에요. 수확이 많을수록 재물과 인연이 함께 불어납니다. 감이 유난히 붉고 컸다면 기쁜 소식이, 대추가 가득했다면 가족의 복으로 읽습니다.",
+  tip:"오늘은 지금 하는 일 중 '잘 익은 것' 하나에 힘을 몰아보세요.",
+  luck:"보라색 · 숫자 3" },
+{ id:"fruit-melon", cat:"people", emoji:"🍉", pop:2, grade:"길",
+  title:"큰 수박·참외·호박을 품에 안는 꿈",
+  keys:"수박 참외 호박 과일 태몽 안다 재물 목돈",
+  sum:"배가 불러오는 만큼 결실도 큰 꿈이에요.",
+  body:"큰 수박이나 참외, 호박을 품에 안는 꿈은 그 크기만큼 결과도 큰 자리예요. 태몽으로 보면 튼튼한 아이를, 재물로 보면 목돈이 들어오는 흐름을 뜻합니다. 수박을 갈라 나눠 먹었다면 그 이익이 여럿에게 고루 돌아갑니다.",
+  tip:"오늘은 미뤄둔 큰일의 예산과 일정을 숫자로 적어보세요. 큰 열매는 준비를 봅니다.",
+  luck:"초록색 · 숫자 4" },
+{ id:"fruit-chestnut", cat:"people", emoji:"🌰", pop:2, grade:"길",
+  title:"알밤·호두·딸기·귤을 한아름 줍는 꿈",
+  keys:"밤 알밤 호두 딸기 귤 과일 태몽 줍다 수확",
+  sum:"작은 복이 한아름 쌓이는 꿈이에요.",
+  body:"알밤이나 호두, 딸기, 귤을 줍는 꿈은 작은 복이 여러 개 쌓이는 꿈이에요. 한 번에 큰돈보다 소소한 수입과 기쁜 소식이 자주 생깁니다. 주운 것을 다 챙겼다면 셈이 밝아 이익을 놓치지 않는다는 뜻이고, 흘렸다면 정리를 한 번 해야 할 때입니다.",
+  tip:"오늘은 지출 내역이나 적립금처럼 작은 숫자를 한 번 정리해 보세요.",
+  luck:"갈색 · 숫자 2" },
 ];
 
 /* ---------- saju.js ---------- */
