@@ -39,7 +39,8 @@ body{
   min-height:100vh;
   -webkit-font-smoothing:antialiased;
 }
-.stars{position:fixed;inset:0;pointer-events:none;opacity:.3;
+/* ===== 밤하늘 : 별빛 · 달빛 오라 ===== */
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
   background-image:
     radial-gradient(1.4px 1.4px at 12% 14%, #fff 50%, transparent 51%),
     radial-gradient(1.2px 1.2px at 82% 8%, #ffe9c0 50%, transparent 51%),
@@ -51,7 +52,47 @@ body{
     radial-gradient(1.2px 1.2px at 74% 88%, #dcd0ff 50%, transparent 51%),
     radial-gradient(1.3px 1.3px at 18% 92%, #fff 50%, transparent 51%);
 }
-.app{position:relative;max-width:470px;margin:0 auto;padding:0 0 40px;min-height:100vh}
+.stars::before,.stars::after{content:"";position:absolute;inset:-40px;background-repeat:repeat;will-change:opacity}
+.stars::before{background-image:
+    radial-gradient(1.5px 1.5px at 24% 18%, rgba(255,255,255,.9) 50%, transparent 51%),
+    radial-gradient(1.1px 1.1px at 62% 36%, rgba(255,233,192,.9) 50%, transparent 51%),
+    radial-gradient(1.7px 1.7px at 88% 24%, rgba(255,255,255,.85) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 40% 62%, rgba(220,208,255,.9) 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 76% 74%, rgba(255,255,255,.8) 50%, transparent 51%),
+    radial-gradient(1.1px 1.1px at 10% 84%, rgba(255,233,192,.85) 50%, transparent 51%);
+  background-size:280px 280px;animation:twinkle 6.5s ease-in-out infinite}
+.stars::after{background-image:
+    radial-gradient(2px 2px at 30% 8%, rgba(246,227,180,.95) 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 68% 52%, rgba(255,255,255,.85) 50%, transparent 51%),
+    radial-gradient(1.8px 1.8px at 14% 46%, rgba(255,255,255,.75) 50%, transparent 51%),
+    radial-gradient(2.1px 2.1px at 54% 86%, rgba(246,227,180,.8) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 90% 66%, rgba(220,208,255,.85) 50%, transparent 51%);
+  background-size:360px 360px;animation:twinkle 9.5s ease-in-out -3.2s infinite}
+@keyframes twinkle{0%,100%{opacity:.22}45%{opacity:.78}72%{opacity:.34}}
+
+/* 상단 보랫빛·금빛 달빛 오라 (은은하게 숨쉬는 빛) */
+.moon-aura{position:fixed;top:-180px;left:50%;width:min(620px,150vw);height:min(620px,150vw);
+  transform:translateX(-50%);pointer-events:none;z-index:0;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,
+    rgba(246,227,180,.22) 0%, rgba(233,198,126,.12) 26%,
+    rgba(122,92,204,.10) 52%, rgba(90,70,170,0) 70%);
+  filter:blur(8px);animation:moonBreath 11s ease-in-out infinite;will-change:opacity,transform}
+@keyframes moonBreath{0%,100%{opacity:.55;transform:translateX(-50%) scale(.97)}50%{opacity:.95;transform:translateX(-50%) scale(1.05)}}
+
+/* 헤더 금선 오너먼트 */
+.brand-orn{display:flex;align-items:center;gap:9px;margin-top:8px;opacity:.85}
+.brand-orn i{flex:1;height:1px;background:linear-gradient(90deg,rgba(233,198,126,0),rgba(233,198,126,.6),rgba(233,198,126,0))}
+.brand-orn span{font-size:10.5px;letter-spacing:.3em;color:rgba(233,198,126,.78);line-height:1;text-shadow:0 0 12px rgba(233,198,126,.5)}
+
+/* 반짝이는 별 · 초승달 */
+.sparkles{position:fixed;inset:0;z-index:3;pointer-events:none}
+.sparkles .tw{position:absolute;left:var(--x);top:var(--y);font-size:11px;line-height:1;color:#f8ecc8;
+  text-shadow:0 0 12px rgba(233,198,126,.85);opacity:0;
+  animation:sparkle 8s ease-in-out var(--d,0s) infinite}
+@keyframes sparkle{0%,100%{opacity:0;transform:scale(.55)}38%{opacity:.75;transform:scale(1)}62%{opacity:.45;transform:scale(.85)}}
+.moon-mark{position:absolute;right:20px;top:15px;font-size:16px;line-height:1;color:rgba(233,198,126,.72);
+  text-shadow:0 0 14px rgba(233,198,126,.55);pointer-events:none}
+.app{position:relative;z-index:1;max-width:470px;margin:0 auto;padding:0 0 40px;min-height:100vh}
 
 /* header */
 .top{position:sticky;top:0;z-index:20;padding:18px 20px 10px;
@@ -229,9 +270,27 @@ select:focus,input:focus{outline:none;border-color:rgba(233,198,126,.55);backgro
 .tipbox .item b{color:var(--gold2);flex:0 0 auto;width:62px;font-weight:600}
 .note{font-size:11.5px;color:var(--muted2);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07)}
 footer{text-align:center;font-size:11px;color:var(--muted2);padding:26px 20px 10px;line-height:1.7}
-.mini-actions{display:flex;gap:8px;margin-top:10px}
-.mini-actions button{flex:1;appearance:none;font-family:inherit;font-size:12.5px;font-weight:600;padding:11px;
-  border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--muted);cursor:pointer}
+.mini-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:12px}
+.mini-actions button{appearance:none;font-family:inherit;font-size:12.5px;font-weight:600;padding:12px 6px;
+  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2;
+  border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--muted);cursor:pointer;
+  transition:background .18s,border-color .18s,color .18s,transform .12s}
+.mini-actions button:active{transform:translateY(1px)}
+.mini-actions button:hover{border-color:rgba(233,198,126,.38);color:var(--gold2)}
+
+/* 하단 토스트 */
+.toast-banner{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:9999;
+  max-width:calc(100vw - 36px);padding:13px 20px;border-radius:14px;
+  background:linear-gradient(165deg,rgba(43,34,74,.98),rgba(19,15,36,.98));
+  border:1px solid rgba(233,198,126,.5);box-shadow:0 14px 34px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.03) inset;
+  color:#faf5ea;font-size:13px;font-weight:600;line-height:1.45;text-align:center;letter-spacing:-.01em;word-break:keep-all;
+  transform:translate(-50%,16px);opacity:0;pointer-events:none;
+  transition:opacity .26s ease,transform .26s ease}
+.toast-banner.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:352px){
+  .mini-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mini-actions button:first-child{grid-column:1 / -1}
+}
 @media (max-width:360px){
   .chips{grid-template-columns:1fr}
   .pil .han{font-size:19px}
@@ -412,15 +471,40 @@ mark{background:transparent;color:var(--gold2);font-weight:700}
 .pl-actions{display:grid;gap:8px;margin-top:16px}
 .pl-actions .btn{font-size:14.5px;padding:14px}
 .pl-share{font-size:11.5px;color:var(--muted2);text-align:center;margin-top:10px;line-height:1.7;word-break:keep-all}
+/* ===== 신비로운 글로우 (가독성은 그대로) ===== */
+h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-right:7px;vertical-align:2px}
+.panel{box-shadow:0 22px 48px -46px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.035)}
+.rblock{box-shadow:0 14px 32px -28px rgba(0,0,0,.95), inset 0 0 24px -16px rgba(233,198,126,.55)}
+.oneline{box-shadow:0 16px 34px -26px rgba(233,198,126,.8), inset 0 0 26px -18px rgba(233,198,126,.7)}
+.luck .lcard,.tipbox,.pl-rx{box-shadow:0 14px 30px -28px rgba(0,0,0,.9), inset 0 0 20px -14px rgba(233,198,126,.45)}
+.tc .back{box-shadow:0 0 22px -10px rgba(233,198,126,.5)}
+.pl-head,.dtop{background:radial-gradient(70% 80% at 50% 0%, rgba(233,198,126,.10), rgba(233,198,126,0) 72%);border-radius:18px}
+.pl-actions .btn{box-shadow:0 10px 26px -18px rgba(0,0,0,.9)}
+@media (prefers-reduced-motion: reduce){
+  .stars::before,.stars::after,.moon-aura{animation:none}
+  .pane,.rblock,.tc{animation:none !important}
+}
 
 </style>
 </head>
 <body>
 <div class="stars"></div>
+<div class="moon-aura" aria-hidden="true"></div>
+<div class="sparkles" aria-hidden="true">
+  <span class="tw" style="--x:7%;--y:31%;--d:0s">✦</span>
+  <span class="tw" style="--x:93%;--y:27%;--d:2.4s">✦</span>
+  <span class="tw" style="--x:5%;--y:52%;--d:4.1s">✦</span>
+  <span class="tw" style="--x:95%;--y:63%;--d:1.2s">✦</span>
+  <span class="tw" style="--x:8%;--y:79%;--d:5.6s">✦</span>
+  <span class="tw" style="--x:92%;--y:88%;--d:3.3s">✦</span>
+</div>
+<div class="moon-aura" aria-hidden="true"></div>
 <div class="app">
 
   <header class="top">
+    <span class="moon-mark" aria-hidden="true">☾</span>
     <div class="brand"><span class="spark">✦</span>달빛 한 스푼</div>
+    <div class="brand-orn" aria-hidden="true"><i></i><span>☾ ✦ ☽</span><i></i></div>
     <div class="tagline">오늘의 타로 · 만세력 사주 · 꿈해몽 · 전생체험</div>
     <nav class="tabs">
       <button class="tab active" data-tab="tarot" id="tabTarot">🔮 타로</button>
@@ -623,6 +707,340 @@ var CONFIG = {
   adsense: { client: "", slot: "" }
 };
 /* ▲▲▲ 설정 끝 ▲▲▲ */
+</script>
+<script>
+/* ============================================================
+   공용 UI : 하단 토스트 · 복사/공유 · 결과 카드 PNG 저장
+   타로·사주·꿈해몽·전생체험이 함께 씁니다.
+   ============================================================ */
+(function (root) {
+  "use strict";
+
+  var TOAST_MS = 3000;
+  var COPY_MSG = "✓ 복사 완료! 카톡·스레드에 붙여넣기 해보세요";
+  var IMG_MSG = "✓ 결과 카드 이미지를 저장했어요!";
+  var FONT = 'Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif';
+  var toastTimer = null;
+
+  /* ---------- 하단 토스트 ---------- */
+  function toast(msg, ms) {
+    var el = document.getElementById("dalbitToast");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "dalbitToast";
+      el.className = "toast-banner";
+      el.setAttribute("role", "status");
+      el.setAttribute("aria-live", "polite");
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    if (el.classList.contains("show")) {
+      el.classList.remove("show");
+      void el.offsetWidth;
+    }
+    el.classList.add("show");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      el.classList.remove("show");
+      toastTimer = null;
+    }, ms || TOAST_MS);
+  }
+
+  /* ---------- 클립보드 ---------- */
+  function legacyCopy(txt) {
+    try {
+      var ta = document.createElement("textarea");
+      ta.value = txt;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { ta.setSelectionRange(0, ta.value.length); } catch (e) { }
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function copy(txt) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(txt).then(function () { return true; }, function () { return legacyCopy(txt); });
+    }
+    return Promise.resolve(legacyCopy(txt));
+  }
+
+  function flash(btn, label) {
+    if (!btn) return;
+    var old = btn.getAttribute("data-label") || btn.textContent;
+    btn.setAttribute("data-label", old);
+    btn.textContent = label;
+    clearTimeout(btn._flashTimer);
+    btn._flashTimer = setTimeout(function () { btn.textContent = old; }, 1600);
+  }
+
+  /* ---------- 공유 시트(안드로이드·아이폰) ---------- */
+  function shareText(txt) {
+    if (!navigator.share) return;
+    try {
+      var p = navigator.share({ title: "달빛 한 스푼", text: txt });
+      if (p && typeof p.catch === "function") p.catch(function () { });
+    } catch (e) { }
+  }
+
+  /* 복사 → 버튼 문구 잠깐 변경 → 토스트 → (지원 시) 공유 시트 */
+  function copyResult(txt, btn, msg) {
+    return copy(txt).then(function () {
+      flash(btn, "복사됐어요 ✓");
+      toast(msg || COPY_MSG);
+      shareText(txt);
+      return true;
+    }, function () {
+      toast("복사에 실패했어요. 길게 눌러 직접 복사해 주세요.");
+      return false;
+    });
+  }
+
+  /* ---------- 결과 카드 PNG ---------- */
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function wrap(ctx, text, maxW) {
+    var lines = [];
+    var line = "";
+    var s = String(text == null ? "" : text);
+    for (var i = 0; i < s.length; i++) {
+      var ch = s.charAt(i);
+      if (ch === "\n") { lines.push(line); line = ""; continue; }
+      var test = line + ch;
+      if (line && ctx.measureText(test).width > maxW) {
+        lines.push(line.replace(/\s+$/, ""));
+        line = (ch === " ") ? "" : ch;
+      } else {
+        line = test;
+      }
+    }
+    if (line.replace(/\s+$/, "")) lines.push(line.replace(/\s+$/, ""));
+    return lines.length ? lines : [""];
+  }
+
+  function fitLines(ctx, text, maxW, maxLines) {
+    var all = wrap(ctx, text, maxW);
+    if (all.length <= maxLines) return all;
+    var out = all.slice(0, maxLines);
+    var last = out[maxLines - 1];
+    while (last.length > 1 && ctx.measureText(last + "…").width > maxW) last = last.slice(0, -1);
+    out[maxLines - 1] = last.replace(/\s+$/, "") + "…";
+    return out;
+  }
+
+  function spacer(ctx, v) {
+    try { ctx.letterSpacing = v; } catch (e) { }
+  }
+
+  /* spec = { kicker, headline, sub, items:[{label,text}] } */
+  function buildCard(spec) {
+    var W = 1080, H = 1350, M = 104, maxW = W - M * 2;
+    var cv = document.createElement("canvas");
+    cv.width = W;
+    cv.height = H;
+    var ctx = cv.getContext("2d");
+    if (!ctx) return null;
+
+    /* 배경 */
+    var g = ctx.createLinearGradient(0, 0, W * 0.35, H);
+    g.addColorStop(0, "#1c1636");
+    g.addColorStop(0.5, "#130f27");
+    g.addColorStop(1, "#090714");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+
+    var glow = ctx.createRadialGradient(W * 0.5, 40, 0, W * 0.5, 40, W * 0.85);
+    glow.addColorStop(0, "rgba(233,198,126,.16)");
+    glow.addColorStop(1, "rgba(233,198,126,0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, W, H);
+
+    /* 미세 별빛 */
+    var seed = 20261115;
+    var rnd = function () { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
+    for (var s = 0; s < 26; s++) {
+      var sx = 60 + rnd() * (W - 120);
+      var sy = 80 + rnd() * (H - 160);
+      var sr = 1 + rnd() * 1.8;
+      ctx.beginPath();
+      ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(" + (rnd() > 0.5 ? "255,255,255" : "246,227,180") + "," + (0.18 + rnd() * 0.32).toFixed(2) + ")";
+      ctx.fill();
+    }
+
+    /* 테두리 */
+    roundRect(ctx, 44, 44, W - 88, H - 88, 46);
+    ctx.strokeStyle = "rgba(233,198,126,.30)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.textAlign = "center";
+    ctx.textBaseline = "alphabetic";
+
+    /* 브랜드 */
+    ctx.fillStyle = "#e9c67e";
+    ctx.font = "700 37px " + FONT;
+    ctx.fillText("달빛 한 스푼", W / 2, 158);
+
+    if (spec.kicker) {
+      ctx.fillStyle = "rgba(233,226,246,.62)";
+      ctx.font = "400 24px " + FONT;
+      var kick = fitLines(ctx, spec.kicker, maxW, 1);
+      ctx.fillText(kick[0], W / 2, 204);
+    }
+
+    /* 금빛 구분선 + 별 장식 */
+    ctx.beginPath();
+    ctx.moveTo(W / 2 - 92, 240);
+    ctx.lineTo(W / 2 - 30, 240);
+    ctx.moveTo(W / 2 + 30, 240);
+    ctx.lineTo(W / 2 + 92, 240);
+    ctx.strokeStyle = "rgba(233,198,126,.55)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = "rgba(233,198,126,.85)";
+    ctx.font = "400 20px " + FONT;
+    ctx.fillText("✦", W / 2, 247);
+
+    /* 제목 */
+    ctx.fillStyle = "#faf5ea";
+    ctx.font = "800 60px " + FONT;
+    var headLines = fitLines(ctx, spec.headline || "", maxW, 3);
+    var y = 336;
+    for (var i = 0; i < headLines.length; i++) {
+      ctx.fillText(headLines[i], W / 2, y + i * 76);
+    }
+    y += (headLines.length - 1) * 76;
+
+    /* 부제 */
+    if (spec.sub) {
+      ctx.fillStyle = "rgba(233,198,126,.92)";
+      ctx.font = "500 27px " + FONT;
+      var subLines = fitLines(ctx, spec.sub, maxW, 2);
+      y += 58;
+      for (var j = 0; j < subLines.length; j++) {
+        ctx.fillText(subLines[j], W / 2, y + j * 40);
+      }
+      y += (subLines.length - 1) * 40;
+    }
+
+    /* 항목 */
+    var items = (spec.items || []).slice(0, 3);
+    y += 60;
+    var areaBottom = 1160;
+    var labelH = 36, lh = 47, gap = 30;
+    var count = Math.max(1, items.length);
+    var per = Math.floor((areaBottom - y - gap * (count - 1) - labelH * count) / (count * lh));
+    per = Math.max(2, Math.min(per, 5));
+
+    /* 본문 높이를 재서 가운데로 배치 */
+    var blockH = 0;
+    var measured = [];
+    for (var q = 0; q < items.length; q++) {
+      ctx.font = "400 29px " + FONT;
+      var ml = fitLines(ctx, (items[q] || {}).text || "", maxW, per);
+      measured.push(ml);
+      blockH += labelH + 30 + ml.length * lh;
+      if (q < items.length - 1) blockH += gap;
+    }
+    var slack = (areaBottom - y) - blockH;
+    if (slack > 0) {
+      gap += Math.min(slack / Math.max(1, count), 64);
+      y += Math.min(slack * 0.3, 76);
+    }
+
+    for (var k = 0; k < items.length; k++) {
+      var it = items[k] || {};
+      ctx.textAlign = "left";
+      ctx.fillStyle = "#e9c67e";
+      ctx.font = "700 22px " + FONT;
+      var lbl = fitLines(ctx, it.label || "", maxW, 1);
+      ctx.fillText(lbl[0], M, y);
+      y += labelH;
+
+      ctx.fillStyle = "rgba(243,239,251,.92)";
+      ctx.font = "400 29px " + FONT;
+      var bodyLines = measured[k] || [""];
+      for (var m = 0; m < bodyLines.length; m++) {
+        ctx.fillText(bodyLines[m], M, y + 30 + m * lh);
+      }
+      y += 30 + bodyLines.length * lh;
+      if (k < items.length - 1) y += gap;
+      ctx.textAlign = "center";
+    }
+
+    /* 푸터 */
+    ctx.beginPath();
+    ctx.moveTo(M, 1206);
+    ctx.lineTo(W - M, 1206);
+    ctx.strokeStyle = "rgba(233,198,126,.22)";
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#e9c67e";
+    ctx.font = "600 28px " + FONT;
+    ctx.fillText("saju.gold-queen.com", W / 2, 1262);
+    ctx.fillStyle = "rgba(233,226,246,.45)";
+    ctx.font = "400 19px " + FONT;
+    ctx.fillText("재미로 보는 오늘의 타로·사주·꿈해몽·전생체험", W / 2, 1300);
+
+    return cv;
+  }
+
+  function saveCard(spec, fileName) {
+    var name = fileName || "dalbit-spoon-result.png";
+    var cv;
+    try {
+      cv = buildCard(spec || {});
+    } catch (e) {
+      cv = null;
+    }
+    if (!cv) { toast("이미지 저장에 실패했어요. 잠시 뒤 다시 시도해 주세요."); return; }
+
+    var fire = function (href, revoke) {
+      var a = document.createElement("a");
+      a.href = href;
+      a.download = name;
+      a.rel = "noopener";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+        try { a.parentNode.removeChild(a); } catch (e) { }
+        if (revoke) { try { URL.revokeObjectURL(href); } catch (e) { } }
+      }, 2000);
+      toast(IMG_MSG);
+    };
+
+    if (cv.toBlob) {
+      cv.toBlob(function (blob) {
+        if (!blob) { toast("이미지 저장에 실패했어요. 잠시 뒤 다시 시도해 주세요."); return; }
+        var url = URL.createObjectURL(blob);
+        fire(url, true);
+      }, "image/png");
+    } else {
+      fire(cv.toDataURL("image/png"), false);
+    }
+  }
+
+  root.DALBIT_UI = { toast: toast, copy: copy, copyResult: copyResult, saveCard: saveCard };
+})(window);
 </script>
 <script>
 /* ---------- data_saju.js ---------- */
@@ -2566,7 +2984,7 @@ var DREAMS = [
       '<b>' + rcards[1].ko + '</b>가 걸려 있어요. <b>' + rcards[2].ko + '</b> 쪽으로 한 걸음 움직이면 풀립니다.</div>';
 
     html += ctaHtml("");
-    html += '<div class="mini-actions"><button id="againBtn">다시 뽑기</button><button id="copyBtn">결과 복사</button></div>';
+    html += '<div class="mini-actions"><button id="againBtn">다시 뽑기</button><button id="copyBtn">결과 복사</button><button id="saveBtn">이미지 저장</button></div>';
 
     tarotResultEl.innerHTML = html;
     tarotResultEl.hidden = false;
@@ -2582,7 +3000,19 @@ var DREAMS = [
         "2. " + POS_LABEL[1] + " · " + rcards[1].ko + "(" + (dirs[1] ? "역" : "정") + ")\n" + body[1] + "\n\n" +
         "3. " + POS_LABEL[2] + " · " + rcards[2].ko + "(" + (dirs[2] ? "역" : "정") + ")\n" + body[2] + "\n\n" +
         "▸ " + CONFIG.blogUrl;
-      copyText(txt, this);
+      DALBIT_UI.copyResult(txt, this);
+    });
+    $("saveBtn").addEventListener("click", function () {
+      DALBIT_UI.saveCard({
+        kicker: dateStr + " · " + TOPIC_LABEL[topic],
+        headline: rcards[0].ko + " → " + rcards[2].ko,
+        sub: "카드 세 장이 말하는 오늘의 흐름",
+        items: [
+          { label: "1. " + POS_LABEL[0] + " · " + rcards[0].ko, text: body[0] },
+          { label: "2. " + POS_LABEL[1] + " · " + rcards[1].ko, text: body[1] },
+          { label: "3. " + POS_LABEL[2] + " · " + rcards[2].ko, text: body[2] }
+        ]
+      }, "dalbit-spoon-result.png");
     });
     scrollToEl(tarotResultEl);
   }
@@ -2829,7 +3259,7 @@ var DREAMS = [
     html += '</div>';
 
     html += ctaHtml(ELEMENT_INFO[tipTargets[0]].name);
-    html += '<div class="mini-actions"><button id="sajuCopy">결과 복사</button><button id="sajuAgain">다시 보기</button></div>';
+    html += '<div class="mini-actions"><button id="sajuAgain">다시 보기</button><button id="sajuCopy">결과 복사</button><button id="sajuSave">이미지 저장</button></div>';
     html += '<div class="note">' +
       "· 월주는 절기(입춘·경칩 등) 시각을 기준으로 계산했어요. 절입 시각은 한국표준시 기준입니다.<br>" +
       "· 음력 변환은 한국천문연구원 음력 기준(1900~2049년)이에요.<br>" +
@@ -2857,7 +3287,19 @@ var DREAMS = [
         "오행 " + s.elementCount.map(function (c, i2) { return SAJU.EL_NAME[i2] + c; }).join(" ") + "\n" +
         "재물운: " + MONEY_TEXT[moneyKey] + "\n" +
         "▸ " + CONFIG.blogUrl;
-      copyText(txt, this);
+      DALBIT_UI.copyResult(txt, this);
+    });
+    $("sajuSave").addEventListener("click", function () {
+      DALBIT_UI.saveCard({
+        kicker: dateLine + " · " + genderTxt,
+        headline: p.day.ganKo + "(" + SAJU.EL_HANJA[me] + ") 일간 · " + strengthTxt,
+        sub: animal + " · " + p.day.textKo + " 일주",
+        items: [
+          { label: "재물운", text: MONEY_TEXT[moneyKey] },
+          { label: "건강운", text: healthTxt },
+          { label: "대인운", text: socialTxt }
+        ]
+      }, "dalbit-spoon-result.png");
     });
     $("sajuAgain").addEventListener("click", function () {
       sajuResultEl.innerHTML = "";
@@ -3216,7 +3658,7 @@ var DREAMS = [
       '<div class="dluck"><span class="dluck-k">🍀 행운 포인트</span><span class="dluck-v">' + esc(d.luck) + "</span></div>" +
       '<h3 class="drelh">함께 찾아본 꿈</h3><div class="drel">' + relHtml + "</div>" +
       ctaHtml() +
-      '<div class="mini-actions"><button id="dreamCopy">결과 복사</button><button id="dreamAgain">다른 꿈 찾기</button></div>' +
+      '<div class="mini-actions"><button id="dreamAgain">다른 꿈 찾기</button><button id="dreamCopy">결과 복사</button><button id="dreamSave">이미지 저장</button></div>' +
       '<p class="note">꿈해몽은 오래 전해 내려온 상징 풀이입니다. 재미로 읽고, 중요한 판단은 현실의 정보와 함께 하세요.</p>';
 
     var detailEl = $("dreamDetail");
@@ -3239,7 +3681,20 @@ var DREAMS = [
         "오늘의 팁 — " + d.tip + "\n" +
         "행운 포인트 — " + d.luck + "\n\n" +
         "▸ " + ((typeof CONFIG !== "undefined" && CONFIG.blogUrl) ? CONFIG.blogUrl : "");
-      copyText(txt, this);
+      DALBIT_UI.copyResult(txt, this);
+    });
+    $("dreamSave").addEventListener("click", function () {
+      var gg = GRADE[d.grade] || GRADE["평"];
+      DALBIT_UI.saveCard({
+        kicker: CATNAME[d.cat] + " · " + gg.label,
+        headline: d.title,
+        sub: d.sum,
+        items: [
+          { label: "상황별 풀이", text: d.body },
+          { label: "오늘의 행동 팁", text: d.tip },
+          { label: "행운 포인트", text: d.luck }
+        ]
+      }, "dalbit-spoon-result.png");
     });
     var relBtns = detailEl.querySelectorAll(".drel button");
     for (var i = 0; i < relBtns.length; i++) {
@@ -4020,9 +4475,10 @@ var DREAMS = [
           '<p>' + esc(persona.rx) + '</p>' +
         '</div>' +
 
-        '<div class="pl-actions">' +
-          '<button class="btn btn-primary" id="plCopy">결과 텍스트 복사</button>' +
-          '<button class="btn btn-ghost" id="plAgain">다시 체험하기</button>' +
+        '<div class="mini-actions">' +
+          '<button id="plAgain">다시 체험</button>' +
+          '<button id="plCopy">결과 복사</button>' +
+          '<button id="plSave">이미지 저장</button>' +
         '</div>' +
         '<p class="pl-share">같은 이름과 생일이면 언제 봐도 같은 전생이 나와요.<br>친구 이름으로 넣어보면 인연이 맞는지 비교할 수 있어요.</p>' +
         ctaHtmlHtml() +
@@ -4033,7 +4489,19 @@ var DREAMS = [
     box.innerHTML = html;
     $("plForm").hidden = true;
 
-    $("plCopy").addEventListener("click", function () { copyText(copyShare(), this); });
+    $("plCopy").addEventListener("click", function () { DALBIT_UI.copyResult(copyShare(), this); });
+    $("plSave").addEventListener("click", function () {
+      DALBIT_UI.saveCard({
+        kicker: "당신의 전생 기록 · " + persona.era,
+        headline: persona.name,
+        sub: persona.role + " · " + persona.one,
+        items: [
+          { label: "타고난 기질", text: persona.temper },
+          { label: "현생에 남은 것", text: persona.remain },
+          { label: "오늘의 작은 행운 처방", text: persona.rx }
+        ]
+      }, "dalbit-spoon-result.png");
+    });
     $("plAgain").addEventListener("click", function () {
       box.innerHTML = "";
       $("plForm").hidden = false;
