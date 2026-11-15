@@ -467,7 +467,8 @@ select option:checked,select option:hover{background-color:#2b2450;color:#fdf6e6
 .tipbox .item b{color:var(--gold2);flex:0 0 auto;width:62px;font-weight:600}
 /* ===== 사주 궁합 (2026-11-15 추가) ===== */
 .compat-two{display:grid;gap:14px;margin-top:14px}
-@media(min-width:720px){.compat-two{grid-template-columns:1fr 1fr;gap:18px}}
+/* 두 사람 카드는 항상 한 줄로 세운다. 본문 폭이 468px 로 고정이라 2단으로 나누면
+   연/월/일 select 가 40~60px 로 눌려 값이 잘린다(2026-11-15 PC 화면 검증). */
 .compat-person{border:1px solid rgba(233,198,126,.22);border-radius:14px;padding:13px 13px 4px;background:rgba(255,255,255,.02)}
 .compat-pt{margin:0 0 10px;font-size:13.5px;font-weight:800;color:var(--gold2);letter-spacing:-.01em}
 .compat-person input[type=text]{width:100%;padding:9px 11px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:#f4efe6;font-size:14px}
