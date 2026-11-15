@@ -2,21 +2,21 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<!-- 달빛 한 스푼 v3 (2026-11-15) : 재미로 보는 전생체험 탭 추가 / 타로·사주·꿈해몽 유지 -->
+<!-- 달빛 한 스푼 v4 (2026-11-15) : 5번째 '이번 주 행운의 로또 번호' 탭 추가 / 타로·사주·꿈해몽·전생체험 100% 유지 / 애드센스 자동광고(ca-pub-347964308586347) 적용 -->
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>달빛 한 스푼 — 오늘의 타로 · 만세력 사주 · 꿈해몽 · 전생체험</title>
-<meta name="description" content="고민을 고르고 카드 세 장을 뽑으면 지금 내 자리와 오늘의 조언을 읽어드려요. 생년월일시를 넣으면 사주팔자와 오행 균형까지, 꿈에서 본 것은 120가지 한국식 꿈해몽으로, 이름과 생일로는 재미로 보는 전생까지 찾아드립니다.">
-<meta property="og:title" content="달빛 한 스푼 — 오늘의 타로 · 사주 · 꿈해몽 · 전생체험">
-<meta property="og:description" content="3장 타로로 오늘을 읽고, 만세력으로 내 사주를 보고, 꿈해몽으로 간밤의 꿈을 풀고, 이름과 생일로 전생까지 만나봅니다.">
+<title>달빛 한 스푼 — 오늘의 타로 · 만세력 사주 · 꿈해몽 · 전생체험 · 로또 번호</title>
+<meta name="description" content="고민을 고르고 카드 세 장을 뽑으면 지금 내 자리와 오늘의 조언을 읽어드려요. 생년월일시를 넣으면 사주팔자와 오행 균형까지, 꿈에서 본 것은 120가지 한국식 꿈해몽으로, 이름과 생일로는 재미로 보는 전생까지, 이번 주 행운의 로또 6/45 번호까지 찾아드립니다.">
+<meta property="og:title" content="달빛 한 스푼 — 오늘의 타로 · 사주 · 꿈해몽 · 전생체험 · 로또 번호">
+<meta property="og:description" content="3장 타로로 오늘을 읽고, 만세력으로 내 사주를 보고, 꿈해몽으로 간밤의 꿈을 풀고, 이름과 생일로 전생까지, 이번 주 행운의 로또 번호까지 만나봅니다.">
 <meta name="theme-color" content="#0a0818">
 <!-- ============================================================
-     ADSENSE_SLOT (1/2) : 티스토리·웹호스팅 업로드 후
-     애드센스에서 받은 광고 스크립트를 아래 주석 자리에 그대로 붙여넣으면 됩니다.
-     (지금은 아무것도 넣지 않아도 그대로 동작합니다)
-
-     예) 애드센스 스크립트 1줄 + <ins class="adsbygoogle" ...></ins> + push({})
-     위쪽 CONFIG.adsense 에 client / slot 값을 넣으면 자동으로 붙습니다.
+     ADSENSE (1/2) : 애드센스 자동 광고 — 게시자 ID ca-pub-347964308586347
+     · gold-queen.com 본 도메인에서 승인된 계정(mama2624@gmail.com)의 ID입니다.
+     · CONFIG.adsense.client 값과 반드시 같아야 합니다.
+     · 자동 광고만으로 운영되며, 특정 위치 광고를 따로 넣으려면
+       CONFIG.adsense.slot 에 광고 단위 슬롯 ID를 넣으면 결과 아래에 붙습니다.
      ============================================================ -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-347964308586347" crossorigin="anonymous"></script>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -90,49 +90,129 @@ body{
   text-shadow:0 0 12px rgba(233,198,126,.85);opacity:0;
   animation:sparkle 8s ease-in-out var(--d,0s) infinite}
 @keyframes sparkle{0%,100%{opacity:0;transform:scale(.55)}38%{opacity:.75;transform:scale(1)}62%{opacity:.45;transform:scale(.85)}}
-.moon-mark{position:absolute;right:20px;top:15px;font-size:16px;line-height:1;color:rgba(233,198,126,.72);
-  text-shadow:0 0 14px rgba(233,198,126,.55);pointer-events:none}
+.moon-mark{position:absolute;right:22px;top:24px;font-size:19px;line-height:1;color:rgba(246,227,180,.8);
+  text-shadow:0 0 18px rgba(246,227,180,.6),0 0 34px rgba(233,198,126,.3);pointer-events:none}
 .app{position:relative;z-index:1;max-width:470px;margin:0 auto;padding:0 0 40px;min-height:100vh}
 
-/* header */
-.top{position:sticky;top:0;z-index:20;padding:18px 20px 10px;
-  background:linear-gradient(180deg,rgba(10,8,24,.96) 55%,rgba(10,8,24,.72) 100%);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(233,198,126,.12)}
-.brand{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:700;letter-spacing:-.02em;
-  background:linear-gradient(100deg,#f8ebc8,#e9c67e 45%,#b98f3f);-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand .spark{font-size:15px;-webkit-text-fill-color:#e9c67e;color:#e9c67e}
-.tagline{font-size:12.5px;color:var(--muted2);margin-top:2px;letter-spacing:.02em}
-.tabs{display:flex;gap:8px;margin-top:14px}
-.tab{flex:1;appearance:none;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);
-  color:var(--muted);border-radius:14px;padding:11px 6px;font-size:14.5px;font-weight:600;font-family:inherit;
-  transition:.22s;cursor:pointer}
-.tab.active{background:linear-gradient(160deg,rgba(233,198,126,.2),rgba(233,198,126,.07));
-  border-color:var(--goldline);color:var(--gold2);box-shadow:0 6px 20px -12px rgba(23,15,45,.6), inset 0 0 12px rgba(233,198,126,.08)}
+/* ============================================================
+   header : 미드나잇 벨벳 + 달빛 오라 (2026-11-15 상단 개선)
+   · position:sticky 해제 → 스크롤해도 아래 입력창·결과를 가리지 않음
+   · 깊은 벨벳 그라데이션 + 은은한 달빛 헤일로 + 금빛 헤어라인
+   ============================================================ */
+.top{position:relative;z-index:2;padding:24px 20px 18px;
+  background:
+    radial-gradient(135% 130% at 50% -45%, rgba(148,110,232,.36) 0%, rgba(96,64,176,.17) 40%, rgba(10,8,24,0) 74%),
+    linear-gradient(180deg,#171230 0%,#110d24 56%,rgba(10,8,24,0) 100%);
+  box-shadow:0 26px 50px -42px rgba(0,0,0,1)}
+.top::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(56% 78% at 50% 0%, rgba(246,227,180,.14), rgba(246,227,180,0) 72%)}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(233,198,126,0) 0%,rgba(233,198,126,.30) 20%,rgba(248,235,200,.52) 50%,rgba(233,198,126,.30) 80%,rgba(233,198,126,0) 100%)}
+.brand{display:flex;align-items:center;gap:8px;font-size:19.5px;font-weight:700;letter-spacing:-.01em;
+  background:linear-gradient(100deg,#fdf3d9,#f2d79b 32%,#e9c67e 58%,#c79a45);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand .spark{font-size:14px;-webkit-text-fill-color:#f6e3b4;color:#f6e3b4}
+.tagline{font-size:12px;color:#9b8fbb;margin-top:5px;letter-spacing:.06em}
 
-main{padding:18px 18px 0}
+/* ============================================================
+   첫 화면(홈) : 다섯 개 메뉴 카드   (2026-11-15 · 상단 탭 바 제거)
+   ============================================================ */
+.home{padding:24px 18px 4px}
+.home-hero{text-align:center}
+.home-kicker{display:block;font-size:10.5px;letter-spacing:.3em;color:rgba(233,198,126,.72);
+  text-shadow:0 0 14px rgba(233,198,126,.35)}
+.home-title{margin:11px 0 0;font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.35;
+  background:linear-gradient(100deg,#fdf3d9,#f2d79b 42%,#e2bb72);-webkit-background-clip:text;background-clip:text;color:transparent}
+.home-sub{margin:8px 0 0;font-size:12.5px;color:#a498c2;letter-spacing:.01em}
+
+.menu{display:grid;gap:10px;margin:22px 0 0}
+.mcard{display:flex;align-items:center;gap:13px;width:100%;text-align:left;cursor:pointer;
+  appearance:none;font-family:inherit;color:inherit;
+  background:linear-gradient(168deg,rgba(52,38,94,.56) 0%,rgba(24,17,50,.72) 60%,rgba(16,11,34,.78) 100%);
+  border:1px solid rgba(233,198,126,.20);border-radius:16px;padding:14px;
+  box-shadow:0 22px 42px -38px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.055);
+  transition:border-color .22s,box-shadow .22s,transform .22s,background .22s}
+.mcard:hover,.mcard:focus-visible{border-color:rgba(233,198,126,.44);outline:none;
+  background:linear-gradient(168deg,rgba(60,44,106,.62) 0%,rgba(26,19,54,.76) 60%,rgba(17,12,36,.8) 100%);
+  box-shadow:0 26px 46px -34px rgba(0,0,0,1), 0 0 26px -14px rgba(233,198,126,.5), inset 0 1px 0 rgba(255,255,255,.075)}
+.mcard:active{transform:translateY(1px)}
+.mico{flex:0 0 auto;width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  font-size:19px;line-height:1;
+  background:radial-gradient(120% 120% at 30% 18%,rgba(246,227,180,.20),rgba(233,198,126,.06) 68%,rgba(233,198,126,.02) 100%);
+  border:1px solid rgba(233,198,126,.30);box-shadow:inset 0 1px 0 rgba(255,255,255,.1), 0 0 18px -10px rgba(233,198,126,.7)}
+.mtxt{flex:1;min-width:0}
+.mtxt b{display:block;font-size:15px;font-weight:700;color:#f4f0fc;letter-spacing:-.02em}
+.mtxt small{display:block;margin-top:4px;font-size:11.5px;color:#a195c0;letter-spacing:0;line-height:1.5;word-break:keep-all}
+.mgo{flex:0 0 auto;font-size:18px;line-height:1;color:rgba(233,198,126,.55);padding-right:2px}
+
+/* 홈 하단 : 골드퀸 허브로 나가는 버튼 (기존과 같은 톤) */
+.hub{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;
+  text-decoration:none;padding:14px 15px;border-radius:15px;
+  background:linear-gradient(160deg,rgba(233,198,126,.15),rgba(233,198,126,.04));
+  border:1px solid rgba(233,198,126,.4);color:var(--gold2);
+  font-size:14px;font-weight:600;letter-spacing:-.01em;transition:.2s;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.hub:active{transform:translateY(1px)}
+.hub-lbl{display:flex;align-items:center;gap:9px;min-width:0}
+.hub-n{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;
+  border-radius:7px;background:linear-gradient(160deg,#f4dfae,#cf9f52);color:#2a1c05;
+  font-size:9.5px;font-weight:800;letter-spacing:0;line-height:1;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.hub-go{opacity:.7;font-size:13px}
+.home-note{margin:16px 2px 0;text-align:center;font-size:11px;color:#7f749c;line-height:1.75;word-break:keep-all}
+
+/* ============================================================
+   전용 화면 상단 슬림 바 : ← 이전으로 · 메뉴 이름 · 🏠 홈으로
+   (일반 흐름 배치 — 스크롤해도 본문을 가리지 않음)
+   ============================================================ */
+.slimbar{display:none;align-items:center;gap:8px;padding:11px 16px;
+  background:linear-gradient(180deg,rgba(22,17,46,.94) 0%,rgba(14,10,30,.9) 100%);
+  border-bottom:1px solid rgba(233,198,126,.18);
+  box-shadow:0 14px 28px -26px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.04)}
+.slimbtn{appearance:none;font-family:inherit;font-size:12px;font-weight:600;letter-spacing:-.01em;
+  display:inline-flex;align-items:center;gap:4px;flex:0 0 auto;
+  color:var(--gold2);background:rgba(233,198,126,.09);border:1px solid rgba(233,198,126,.26);
+  border-radius:999px;padding:6px 11px;cursor:pointer;line-height:1.2;transition:.2s}
+.slimbtn:hover{border-color:rgba(233,198,126,.46);background:rgba(233,198,126,.15)}
+.slimbtn:active{transform:translateY(1px)}
+.slimname{flex:1;min-width:0;text-align:center;font-size:13px;font-weight:700;letter-spacing:-.01em;color:#f0eafa;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.sub .top{display:none}
+body.sub .home{display:none}
+body:not(.sub) main{display:none}
+body.sub .slimbar{display:flex}
+body.sub main{padding-top:16px}
+@media (max-width:360px){
+  .slimbtn{font-size:11px;padding:6px 9px}
+  .slimname{font-size:12px}
+}
+
+main{padding:22px 18px 0}
 .pane{display:none;animation:fade .35s ease}
 .pane.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
 /* common */
-.panel{background:linear-gradient(170deg,rgba(255,255,255,.07),rgba(255,255,255,.028));
-  border:1px solid rgba(255,255,255,.075);border-radius:var(--radius);padding:18px 16px}
+.panel{background:linear-gradient(168deg,rgba(48,35,88,.62) 0%,rgba(26,19,54,.70) 50%,rgba(16,11,34,.76) 100%);
+  border:1px solid rgba(233,198,126,.17);border-radius:var(--radius);padding:19px 16px;
+  box-shadow:0 24px 52px -44px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.055), inset 0 0 26px -20px rgba(246,227,180,.55)}
 h2.sec{font-size:16px;margin:0 0 12px;font-weight:700;letter-spacing:-.01em}
 h2.sec small{font-weight:500;color:var(--muted2);font-size:12.5px;margin-left:6px}
 .hint{font-size:13px;color:var(--muted);margin:10px 2px 0;line-height:1.55}
 .mt{margin-top:18px}
 .btn{appearance:none;font-family:inherit;font-size:15px;font-weight:700;border-radius:15px;
   border:1px solid transparent;padding:15px 16px;width:100%;cursor:pointer;transition:.2s;letter-spacing:-.01em}
-.btn-primary{background:linear-gradient(160deg,#e9c67e,#c99a48);color:#241703;
-  box-shadow:0 10px 26px -14px rgba(233,198,126,.85)}
+.btn-primary{background:linear-gradient(160deg,#f7e6b8 0%,#eccb86 42%,#cc9f52 100%);color:#241703;
+  box-shadow:0 12px 28px -16px rgba(233,198,126,.9), inset 0 1px 0 rgba(255,250,232,.55)}
 .btn-primary:active{transform:translateY(1px)}
 .btn-primary:disabled{opacity:.55;box-shadow:none}
-.btn-ghost{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.13);color:var(--text)}
+.btn-ghost{background:linear-gradient(168deg,rgba(255,255,255,.075),rgba(255,255,255,.028));border-color:rgba(233,198,126,.24);color:var(--text);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.btn-ghost:hover{border-color:rgba(233,198,126,.4)}
 
 /* chips */
 .chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .chip{appearance:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);
-  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:13px;padding:12px 8px;
+  background:linear-gradient(168deg,rgba(255,255,255,.062),rgba(255,255,255,.022));
+  border:1px solid rgba(233,198,126,.14);border-radius:13px;padding:12px 8px;
   cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:6px}
 .chip.active{color:#251a06;background:linear-gradient(160deg,#f3dfae,#d9b06a);border-color:transparent;
   box-shadow:0 8px 18px -12px rgba(233,198,126,.8)}
@@ -140,7 +220,7 @@ h2.sec small{font-weight:500;color:var(--muted2);font-size:12.5px;margin-left:6p
 
 /* tarot slot bar */
 .slotbar{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0 14px}
-.slot{border:1px dashed rgba(255,255,255,.16);border-radius:11px;padding:8px 4px;text-align:center;
+.slot{border:1px dashed rgba(233,198,126,.22);border-radius:11px;padding:8px 4px;text-align:center;
   font-size:11.5px;color:var(--muted2);transition:.25s;line-height:1.35;word-break:keep-all}
 .slot b{display:block;font-size:10px;font-weight:600;color:var(--muted2);letter-spacing:.06em;margin-bottom:2px}
 .slot.done{border-style:solid;border-color:var(--goldline);background:rgba(233,198,126,.1);color:var(--gold2)}
@@ -316,11 +396,7 @@ footer{text-align:center;font-size:11px;color:var(--muted2);padding:26px 20px 10
 /* ============================================================
    꿈해몽 탭
    ============================================================ */
-.tabs .tab{font-size:13.5px;padding:11px 5px;white-space:nowrap}
-@media (max-width:400px){
-  .tabs{gap:6px}
-  .tabs .tab{font-size:12px;padding:10px 2px}
-}
+/* (탭 모양·한 줄 배치는 상단 header 쪽 공통 규칙에서 관리합니다) */
 
 .dsearch{position:relative;margin-top:2px}
 .dsearch input{appearance:none;-webkit-appearance:none;width:100%;font-family:inherit;
@@ -423,13 +499,7 @@ mark{background:transparent;color:var(--gold2);font-weight:700}
 /* ============================================================
    전생체험 탭
    ============================================================ */
-/* 탭 4개가 360px에서도 한 줄에 들어가도록 조정 */
-.tabs{gap:6px}
-.tabs .tab{font-size:13px;padding:11px 2px;min-width:0;letter-spacing:-.02em}
-@media (max-width:400px){
-  .tabs{gap:5px}
-  .tabs .tab{font-size:11.5px;padding:10px 1px;letter-spacing:-.03em}
-}
+/* (탭 5개 한 줄 배치는 상단 header 쪽 공통 규칙에서 관리합니다) */
 
 #plForm[hidden]{display:none}
 #plName{background-image:none;padding-right:12px}
@@ -473,7 +543,11 @@ mark{background:transparent;color:var(--gold2);font-weight:700}
 .pl-share{font-size:11.5px;color:var(--muted2);text-align:center;margin-top:10px;line-height:1.7;word-break:keep-all}
 /* ===== 신비로운 글로우 (가독성은 그대로) ===== */
 h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-right:7px;vertical-align:2px}
-.panel{box-shadow:0 22px 48px -46px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.035)}
+.panel{box-shadow:0 24px 52px -44px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.055), inset 0 0 26px -20px rgba(246,227,180,.55)}
+/* 헤더 달빛 장식 : 금빛 헤어라인 오너먼트에 은은한 글로우 */
+.brand-orn{opacity:.9}
+.brand-orn span{color:rgba(246,227,180,.82);text-shadow:0 0 14px rgba(233,198,126,.6)}
+.brand-orn i{background:linear-gradient(90deg,rgba(233,198,126,0),rgba(246,227,180,.62),rgba(233,198,126,0))}
 .rblock{box-shadow:0 14px 32px -28px rgba(0,0,0,.95), inset 0 0 24px -16px rgba(233,198,126,.55)}
 .oneline{box-shadow:0 16px 34px -26px rgba(233,198,126,.8), inset 0 0 26px -18px rgba(233,198,126,.7)}
 .luck .lcard,.tipbox,.pl-rx{box-shadow:0 14px 30px -28px rgba(0,0,0,.9), inset 0 0 20px -14px rgba(233,198,126,.45)}
@@ -484,6 +558,57 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
   .stars::before,.stars::after,.moon-aura{animation:none}
   .pane,.rblock,.tc{animation:none !important}
 }
+
+/* ============================================================
+   탭 5 : 이번 주 행운의 로또 번호 (v4 · 2026-11-15 추가)
+   기존 4개 탭의 밤하늘·금빛 톤을 그대로 이어받습니다.
+   ============================================================ */
+/* (상단 탭 바는 없어졌습니다 — 첫 화면 메뉴 카드 + 전용 화면 슬림 바로 대체) */
+
+.lo-chips{grid-template-columns:1fr 1fr}
+.lo-chips .chip{font-size:13px;padding:12px 7px;justify-content:center;line-height:1.35;word-break:keep-all}
+@media (max-width:340px){.lo-chips{grid-template-columns:1fr}}
+
+.lo-head{text-align:center;padding:4px 4px 0}
+.lo-kicker{font-size:11px;letter-spacing:.16em;color:rgba(233,198,126,.7)}
+.lo-badge{display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;color:var(--gold2);
+  background:rgba(233,198,126,.12);border:1px solid var(--goldline);border-radius:999px;padding:5px 12px}
+.lo-week{font-size:20px;font-weight:800;margin:13px 0 0;letter-spacing:-.02em;
+  background:linear-gradient(100deg,#f8ebc8,#e9c67e 50%,#c39a4c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lo-who{font-size:11.5px;color:var(--muted2);margin-top:9px;line-height:1.7;word-break:keep-all}
+
+.lo-balls{--d:41px;--g:7px;display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;
+  gap:var(--g);margin:18px auto 0}
+@media (max-width:430px){.lo-balls{--d:37px;--g:5px}}
+@media (max-width:370px){.lo-balls{--d:33px;--g:4px}}
+.lo-balls .ball{width:var(--d);height:var(--d);border-radius:50%;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  font-size:calc(var(--d) * .4);font-weight:800;letter-spacing:-.02em;line-height:1;
+  box-shadow:0 8px 16px -10px rgba(0,0,0,.95), inset 0 -2px 3px rgba(0,0,0,.22), inset 0 2px 3px rgba(255,255,255,.45);
+  animation:ballPop .45s cubic-bezier(.2,.9,.3,1.35) both}
+@keyframes ballPop{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:none}}
+.lo-balls .ball.b1{background:linear-gradient(160deg,#ffd751,#efb100);color:#3a2a00}
+.lo-balls .ball.b2{background:linear-gradient(160deg,#8fd9f9,#3fb0e6);color:#052a3d}
+.lo-balls .ball.b3{background:linear-gradient(160deg,#ff9b9b,#e85f5f);color:#3d0a0a}
+.lo-balls .ball.b4{background:linear-gradient(160deg,#c9c9c9,#9a9a9a);color:#232323}
+.lo-balls .ball.b5{background:linear-gradient(160deg,#d3ea78,#a4cc33);color:#22320a}
+.lo-balls .ball.bonus{outline:2px solid rgba(233,198,126,.9);outline-offset:2px}
+.lo-balls .plus{font-size:calc(var(--d) * .42);font-weight:800;color:rgba(233,198,126,.8);flex:0 0 auto}
+
+.lo-line{margin-top:16px;padding:13px 14px;border-radius:15px;border:1px dashed rgba(233,198,126,.42);
+  background:rgba(233,198,126,.07);text-align:center}
+.lo-line small{display:block;font-size:11px;font-weight:600;color:var(--muted2);margin-bottom:6px;letter-spacing:.02em}
+.lo-line b{font-size:16.5px;font-weight:800;letter-spacing:.04em;color:#fdf6e6;word-break:keep-all}
+
+.lo-tip{margin-top:12px;padding:14px 15px;border-radius:15px;border:1px solid var(--goldline);
+  background:linear-gradient(170deg,rgba(233,198,126,.13),rgba(233,198,126,.03))}
+.lo-tip h3{margin:0 0 7px;font-size:12.5px;color:var(--gold2);letter-spacing:.02em}
+.lo-tip p{margin:0;font-size:14px;line-height:1.75;color:#f4eeff;word-break:keep-all}
+
+.lo-colorkey{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;justify-content:center}
+.lo-colorkey span{font-size:10.5px;font-weight:600;color:var(--muted2);border:1px solid rgba(255,255,255,.1);
+  border-radius:99px;padding:3px 8px;background:rgba(255,255,255,.03)}
+.lo-share{font-size:11.5px;color:var(--muted2);line-height:1.7;margin-top:12px;text-align:center;word-break:keep-all}
 
 </style>
 </head>
@@ -505,18 +630,64 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
     <span class="moon-mark" aria-hidden="true">☾</span>
     <div class="brand"><span class="spark">✦</span>달빛 한 스푼</div>
     <div class="brand-orn" aria-hidden="true"><i></i><span>☾ ✦ ☽</span><i></i></div>
-    <div class="tagline">오늘의 타로 · 만세력 사주 · 꿈해몽 · 전생체험</div>
-    <nav class="tabs">
-      <button class="tab active" data-tab="tarot" id="tabTarot">🔮 타로</button>
-      <button class="tab" data-tab="saju" id="tabSaju">📅 사주</button>
-      <button class="tab" data-tab="dream" id="tabDream">🌙 꿈해몽</button>
-      <button class="tab" data-tab="past" id="tabPast">🕯️ 전생체험</button>
-    </nav>
+    <div class="tagline">오늘의 타로 · 만세력 사주 · 꿈해몽 · 전생체험 · 로또 번호</div>
   </header>
+
+  <!-- ============================================================
+       전용 화면 상단 슬림 바 : ← 이전으로  ·  메뉴 이름  ·  🏠 홈으로
+       (일반 흐름 — sticky 아님 · 본문을 가리지 않음)
+       ============================================================ -->
+  <div class="slimbar" id="slimbar">
+    <button class="slimbtn" id="slimBack" type="button"><span aria-hidden="true">←</span> 이전으로</button>
+    <span class="slimname" id="slimName"></span>
+    <button class="slimbtn" id="slimHome" type="button"><span aria-hidden="true">🏠</span> 홈으로</button>
+  </div>
+
+  <!-- ===================== 첫 화면 : 다섯 개의 메뉴 ===================== -->
+  <div class="home" id="home">
+    <div class="home-hero">
+      <span class="home-kicker">☾ 오늘의 메뉴 ☽</span>
+      <h1 class="home-title">무엇이 궁금하세요?</h1>
+      <p class="home-sub">다섯 가지 중 하나를 고르면 바로 열려요.</p>
+    </div>
+
+    <nav class="menu" aria-label="메뉴">
+      <button class="mcard" type="button" data-go="tarot">
+        <span class="mico" aria-hidden="true">🔮</span>
+        <span class="mtxt"><b>오늘의 타로</b><small>카드 세 장으로 지금 내 자리와 오늘의 조언</small></span>
+        <span class="mgo" aria-hidden="true">›</span>
+      </button>
+      <button class="mcard" type="button" data-go="saju">
+        <span class="mico" aria-hidden="true">📅</span>
+        <span class="mtxt"><b>만세력 사주</b><small>생년월일시로 보는 사주팔자와 오행 군형</small></span>
+        <span class="mgo" aria-hidden="true">›</span>
+      </button>
+      <button class="mcard" type="button" data-go="dream">
+        <span class="mico" aria-hidden="true">🌙</span>
+        <span class="mtxt"><b>꿈해몽</b><small>120가지 한국식 꿈해몽으로 간밤의 꿈을</small></span>
+        <span class="mgo" aria-hidden="true">›</span>
+      </button>
+      <button class="mcard" type="button" data-go="past">
+        <span class="mico" aria-hidden="true">🕯️</span>
+        <span class="mtxt"><b>전생체험</b><small>이름과 생일로 재미로 보는 전생 이야기</small></span>
+        <span class="mgo" aria-hidden="true">›</span>
+      </button>
+      <button class="mcard" type="button" data-go="lotto">
+        <span class="mico" aria-hidden="true">🎟️</span>
+        <span class="mtxt"><b>행운의 로또 번호</b><small>이번 주 6/45 행운 번호 뽑기</small></span>
+        <span class="mgo" aria-hidden="true">›</span>
+      </button>
+    </nav>
+
+    <a class="hub" href="https://link.gold-queen.com/" target="_blank" rel="noopener">
+      <span class="hub-lbl"><span class="hub-n" aria-hidden="true">GQ</span>골드퀸 허브 · 건강·생활 정보 더 보기</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+  </div>
 
   <main>
     <!-- ===================== 탭 1 : 타로 ===================== -->
-    <section class="pane active" id="paneTarot">
+    <section class="pane" id="paneTarot">
       <div class="panel">
         <h2 class="sec">오늘은 어떤 게 궁금하세요?</h2>
         <div class="chips" id="chips">
@@ -657,6 +828,43 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 
       <div id="plResult"></div>
     </section>
+
+    <!-- ===================== 탭 5 : 이번 주 행운의 로또 번호 (v4 추가) ===================== -->
+    <section class="pane" id="paneLotto">
+      <div class="panel" id="loForm">
+        <h2 class="sec">이번 주 행운의 로또 번호 <small>재미로 보는 6/45</small></h2>
+
+        <div class="field">
+          <label>번호를 뽑는 방식</label>
+          <div class="chips lo-chips" id="loMode">
+            <button class="chip active" data-v="seed">🌙 오늘의 기운으로</button>
+            <button class="chip" data-v="random">🎲 완전 랜덤 추첨</button>
+          </div>
+        </div>
+
+        <div id="loSeedBox">
+          <div class="field">
+            <label for="loName">이름 또는 닉네임 (선택)</label>
+            <input type="text" id="loName" maxlength="12" placeholder="예: 지연, 달빛" autocomplete="off" aria-label="이름 또는 닉네임">
+          </div>
+
+          <div class="field">
+            <label>생년월일 (선택)</label>
+            <div class="row3">
+              <select id="loY" aria-label="출생 연도"></select>
+              <select id="loM" aria-label="출생 월"></select>
+              <select id="loD" aria-label="출생 일"></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="msg" id="loMsg"></div>
+        <button class="btn btn-primary" id="loBtn">행운의 번호 뽑기</button>
+        <p class="hint">이름과 생일을 넣으면 이번 주 내내 같은 번호가 나와요. 비워두면 오늘 날짜의 기운으로 뽑습니다.<br>재미로 보는 행운 번호이며 당첨을 보장하지 않습니다.</p>
+      </div>
+
+      <div id="loResult"></div>
+    </section>
   </main>
 
   <!-- ============================================================
@@ -668,7 +876,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
   </div>
 
   <footer>
-    재미로 보는 오늘의 타로·사주·꿈해몽·전생체험입니다.<br>
+    재미로 보는 오늘의 타로·사주·꿈해몽·전생체험·로또 번호입니다.<br>
     중요한 결정은 나의 판단과 전문가의 조언을 함께 믿어주세요.<br>
     <span style="opacity:.7">© 달빛 한 스푼</span>
     <span class="foot-legal">광고·제휴 링크를 통해 구매하시면 일정 수수료를 받을 수 있어요.</span>
@@ -703,8 +911,8 @@ var CONFIG = {
   // 오행별로 따로 연결하고 싶으면 아래에 넣으세요. 비어 있으면 위 affiliateUrl을 씁니다.
   affiliateByElement: { "목": "", "화": "", "토": "", "금": "", "수": "" },
 
-  // 애드센스 (비워두면 광고 영역이 그냥 비어 있습니다)
-  adsense: { client: "", slot: "" }
+  // 애드센스 (자동 광고 — gold-queen.com 승인 계정 / slot은 비워두면 자동 광고만)
+  adsense: { client: "ca-pub-347964308586347", slot: "" }
 };
 /* ▲▲▲ 설정 끝 ▲▲▲ */
 </script>
@@ -848,7 +1056,65 @@ var CONFIG = {
     try { ctx.letterSpacing = v; } catch (e) { }
   }
 
-  /* spec = { kicker, headline, sub, items:[{label,text}] } */
+  /* 로또 공 색 (한국 로또 6/45 표준) : [밝은색, 기본색, 글자색] */
+  function ballColorHex(n) {
+    if (n <= 10) return ["#ffd751", "#efb100", "#3a2a00"];
+    if (n <= 20) return ["#8fd9f9", "#3fb0e6", "#052a3d"];
+    if (n <= 30) return ["#ff9b9b", "#e85f5f", "#3d0a0a"];
+    if (n <= 40) return ["#c9c9c9", "#9a9a9a", "#232323"];
+    return ["#d3ea78", "#a4cc33", "#22320a"];
+  }
+
+  /* 로또 공 한 줄 : 6개 + ＋ + 보너스 */
+  function drawBalls(ctx, W, y, nums, bonus) {
+    var d = 90, gap = 13, plusW = 34;
+    var list = nums || [];
+    if (!list.length) return y;
+    var rowW = list.length * d + (bonus ? d + gap * 2 + plusW : 0) + Math.max(0, list.length - 1) * gap;
+    var x = (W - rowW) / 2;
+    var cy = y + d / 2;
+
+    function one(cx, num, isBonus) {
+      var col = ballColorHex(num);
+      var g = ctx.createRadialGradient(cx - d * 0.2, cy - d * 0.28, d * 0.08, cx, cy, d * 0.62);
+      g.addColorStop(0, col[0]);
+      g.addColorStop(1, col[1]);
+      ctx.beginPath();
+      ctx.arc(cx, cy, d / 2, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+      if (isBonus) {
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "rgba(233,198,126,.95)";
+        ctx.stroke();
+      }
+      ctx.fillStyle = col[2];
+      ctx.font = "800 40px " + FONT;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(String(num), cx, cy + 2);
+      ctx.textBaseline = "alphabetic";
+    }
+
+    for (var i = 0; i < list.length; i++) {
+      one(x + d / 2, list[i], false);
+      x += d + gap;
+    }
+    if (bonus) {
+      ctx.fillStyle = "rgba(233,198,126,.85)";
+      ctx.font = "700 32px " + FONT;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("+", x + plusW / 2, cy);
+      ctx.textBaseline = "alphabetic";
+      x += plusW + gap;
+      one(x + d / 2, bonus, true);
+    }
+    ctx.textAlign = "center";
+    return y + d;
+  }
+
+  /* spec = { kicker, headline, sub, items:[{label,text}], balls, bonus } */
   function buildCard(spec) {
     var W = 1080, H = 1350, M = 104, maxW = W - M * 2;
     var cv = document.createElement("canvas");
@@ -940,6 +1206,11 @@ var CONFIG = {
       y += (subLines.length - 1) * 40;
     }
 
+    /* 로또 공 (spec.balls 가 있으면 항목 위에 공을 그립니다) */
+    if (spec.balls && spec.balls.length) {
+      y = drawBalls(ctx, W, y + 34, spec.balls, spec.bonus) + 22;
+    }
+
     /* 항목 */
     var items = (spec.items || []).slice(0, 3);
     y += 60;
@@ -999,7 +1270,7 @@ var CONFIG = {
     ctx.fillText("saju.gold-queen.com", W / 2, 1262);
     ctx.fillStyle = "rgba(233,226,246,.45)";
     ctx.font = "400 19px " + FONT;
-    ctx.fillText("재미로 보는 오늘의 타로·사주·꿈해몽·전생체험", W / 2, 1300);
+    ctx.fillText("재미로 보는 타로·사주·꿈해몽·전생체험·로또 번호", W / 2, 1300);
 
     return cv;
   }
@@ -2829,22 +3100,95 @@ var DREAMS = [
       adSlotHtml();
   }
 
-  /* ============================== 탭 전환 ============================== */
-  var tabBtns = document.querySelectorAll(".tab");
-  for (var i = 0; i < tabBtns.length; i++) {
-    tabBtns[i].addEventListener("click", function () {
-      var t = this.getAttribute("data-tab");
-      for (var j = 0; j < tabBtns.length; j++) tabBtns[j].classList.remove("active");
-      this.classList.add("active");
-      $("paneTarot").classList.toggle("active", t === "tarot");
-      $("paneSaju").classList.toggle("active", t === "saju");
-      var paneDream = $("paneDream");
-      if (paneDream) paneDream.classList.toggle("active", t === "dream");
-      var panePast = $("panePast");
-      if (panePast) panePast.classList.toggle("active", t === "past");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  /* ============================== 홈 ↔ 전용 화면 전환 ==============================
+     · 첫 화면(홈)의 메뉴 카드를 누르면 해당 전용 화면으로 싹 전환 (로딩 없음)
+     · 주소 해시(#tarot · #saju · #dream · #past · #lotto)로 직접 진입 가능
+     · 브라우저 뒤로가기 / 앞으로가기(hashchange · popstate)를 그대로 따라감
+     · 슬림 바 : ← 이전으로(history.back) / 🏠 홈으로(첫 화면) */
+  var VIEWS = {
+    tarot: { pane: "paneTarot", name: "오늘의 타로" },
+    saju:  { pane: "paneSaju",  name: "만세력 사주" },
+    dream: { pane: "paneDream", name: "꿈해몽" },
+    past:  { pane: "panePast",  name: "전생체험" },
+    lotto: { pane: "paneLotto", name: "행운의 로또 번호" }
+  };
+  var VIEW_KEYS = ["tarot", "saju", "dream", "past", "lotto"];
+  var HOME_TITLE = document.title;
+
+  function hashKey() {
+    var h = String(location.hash || "").replace(/^#\/?/, "").toLowerCase();
+    return VIEWS[h] ? h : "";
+  }
+
+  function renderView(key, skipScroll) {
+    var isSub = !!key;
+    document.body.classList.toggle("sub", isSub);
+    for (var i = 0; i < VIEW_KEYS.length; i++) {
+      var pane = $(VIEWS[VIEW_KEYS[i]].pane);
+      if (pane) pane.classList.toggle("active", VIEW_KEYS[i] === key);
+    }
+    var nameEl = $("slimName");
+    if (nameEl) nameEl.textContent = isSub ? VIEWS[key].name : "";
+    document.title = isSub ? (VIEWS[key].name + " — 달빛 한 스푼") : HOME_TITLE;
+    if (!skipScroll) {
+      try { window.scrollTo({ top: 0, behavior: "auto" }); } catch (e) { window.scrollTo(0, 0); }
+    }
+  }
+
+  function goHome() {
+    if (location.hash || history.state) {
+      navTo("", true);
+    } else {
+      renderView("");
+    }
+  }
+
+  /* 주소를 바꾸면서 화면 전환 (해시 URL + 히스토리 쌓기) */
+  function navTo(key, replace) {
+    var url = location.pathname + location.search + (key ? "#" + key : "");
+    try {
+      if (replace) history.replaceState({ dalbit: 1 }, "", url);
+      else history.pushState({ dalbit: 1 }, "", url);
+      renderView(key, false);
+    } catch (e) {
+      /* pushState 가 막힌 환경은 해시 이동으로 대신 (hashchange 가 이어받음) */
+      location.hash = key || "";
+      if (!key) renderView("", false);
+    }
+  }
+
+  function goView(key) {
+    if (!key || !VIEWS[key]) { goHome(); return; }
+    if (hashKey() === key) renderView(key);
+    else navTo(key, false);
+  }
+
+  function goBack() {
+    /* 이 앱 안에서 들어온 화면이면 직전 화면으로, 처음부터 들어온 화면이면 첫 화면으로 */
+    if (history.state && history.state.dalbit) {
+      try { history.back(); return; } catch (e) { }
+    }
+    if (hashKey()) { navTo("", true); return; }
+    renderView("");
+  }
+
+  var slimBackBtn = $("slimBack");
+  if (slimBackBtn) slimBackBtn.addEventListener("click", goBack);
+  var slimHomeBtn = $("slimHome");
+  if (slimHomeBtn) slimHomeBtn.addEventListener("click", goHome);
+
+  var menuCards = document.querySelectorAll("[data-go]");
+  for (var mi = 0; mi < menuCards.length; mi++) {
+    menuCards[mi].addEventListener("click", function () {
+      goView(this.getAttribute("data-go"));
     });
   }
+
+  window.addEventListener("hashchange", function () { renderView(hashKey(), false); });
+  window.addEventListener("popstate", function () { renderView(hashKey(), false); });
+
+  /* 처음 열 때 해시가 있으면 그 전용 화면부터 시작 (북마크·공유 링크 대용) */
+  renderView(hashKey(), true);
 
   /* ============================== 타로 ============================== */
   var T = { topic: "gen", picks: [], cards: [], locked: false };
@@ -4576,6 +4920,320 @@ var DREAMS = [
     $("plName").addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.keyCode === 13) { e.preventDefault(); build(); }
     });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
+<script>
+/* ============================================================
+   탭 5 : 이번 주 행운의 로또 번호 (달빛 한 스푼 v4 · 2026-11-15)
+   · 뽑는 방식 : 오늘의 기운(이름·생년월일·이번 주) 시드 조합 / 완전 랜덤 추첨
+   · 1~45 중복 없는 6개 + 보너스 1개 (한국 로또 6/45 표준 색상)
+   · 번호 한 줄 복사 · 결과 카드 이미지 저장(DALBIT_UI.saveCard)
+   기존 4개 탭(타로·사주·꿈해몽·전생체험) 코드는 건드리지 않습니다.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  function $(id) { return document.getElementById(id); }
+  function pad2(n) { return (n < 10 ? "0" : "") + n; }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  function scrollToEl(el, extra) {
+    if (!el) return;
+    var head = document.querySelector(".top");
+    var off = (head ? head.offsetHeight : 96) + 14 + (extra || 0);
+    var y = el.getBoundingClientRect().top + window.pageYOffset - off;
+    try { window.scrollTo({ top: y < 0 ? 0 : y, behavior: "smooth" }); }
+    catch (e) { window.scrollTo(0, y < 0 ? 0 : y); }
+  }
+
+  /* ---------- 공 색 : 1~10 노랑, 11~20 파랑, 21~30 빨강, 31~40 회색, 41~45 초록 ---------- */
+  function ballClass(n) {
+    if (n <= 10) return "b1";
+    if (n <= 20) return "b2";
+    if (n <= 30) return "b3";
+    if (n <= 40) return "b4";
+    return "b5";
+  }
+
+  /* ---------- 시드 해시 · 난수 (전생체험과 같은 방식) ---------- */
+  function hashStr(s) {
+    var h = 2166136261;
+    for (var i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h = (h + (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24)) >>> 0;
+    }
+    return h >>> 0;
+  }
+
+  function makeRng(seed) {
+    var a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) >>> 0;
+      var t = a;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  /* 1~45 중복 없는 6개 + 보너스 1개 */
+  function pickNumbers(rng) {
+    var pool = [], i, j, t;
+    for (i = 1; i <= 45; i++) pool.push(i);
+    for (i = 0; i < 7; i++) {
+      j = i + Math.floor(rng() * (45 - i));
+      t = pool[i]; pool[i] = pool[j]; pool[j] = t;
+    }
+    return {
+      nums: pool.slice(0, 6).sort(function (a, b) { return a - b; }),
+      bonus: pool[6]
+    };
+  }
+
+  /* ---------- 이번 주(월~일) 계산 ---------- */
+  function weekInfo() {
+    var now = new Date();
+    var d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var back = (d.getDay() + 6) % 7;                       // 월요일까지 며칠 전
+    var mon = new Date(d.getFullYear(), d.getMonth(), d.getDate() - back);
+    var sun = new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + 6);
+    var thu = new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + 3);
+    var jan1 = new Date(thu.getFullYear(), 0, 1);
+    var week = Math.floor((thu - jan1) / 86400000 / 7) + 1;
+    return {
+      key: thu.getFullYear() + "-W" + pad2(week),
+      label: (mon.getMonth() + 1) + "월 " + mon.getDate() + "일 ~ " + (sun.getMonth() + 1) + "월 " + sun.getDate() + "일"
+    };
+  }
+
+  /* ---------- 행운 한마디(재미용) ---------- */
+  var LUCK = [
+    "이번 주는 앞자리보다 뒷자리에 기운이 모여 있어요. 큰 숫자가 잘 붙는 한 주예요.",
+    "고르는 것보다 미루지 않는 게 이번 주의 복이에요. 한 번 정했으면 가볍게 밀고 나가 보세요.",
+    "한 번에 크게보다 한 칸씩 꾸준한 쪽이 잘 맞는 주예요. 작은 번호도 힘을 냅니다.",
+    "뜻밖의 자리에서 반가운 소식이 붙는 한 주예요. 연락이 오면 바로 받아 보세요.",
+    "정리하고 비우면 들어올 자리가 생기는 주예요. 지갑과 서랍을 한 번 비워보세요.",
+    "말보다 행동이 먼저 통하는 한 주예요. 오늘 한 가지는 말없이 해두면 좋아요.",
+    "작은 지출을 한 번만 참으면 마음이 가벼워지는 주예요. 그 돈이 다른 복으로 돌아옵니다.",
+    "사람을 만나면 운이 트이는 주예요. 먼저 인사하는 쪽이 이번 주의 주인공이에요."
+  ];
+
+  /* ---------- 상태 ---------- */
+  var L = { mode: "seed", salt: 0, name: "", y: 1975, m: 1, d: 1, res: null };
+
+  function initForm() {
+    var ySel = $("loY"), mSel = $("loM"), dSel = $("loD");
+    if (!ySel || !mSel || !dSel) return;
+
+    var yo = "";
+    for (var y = 2010; y >= 1935; y--) yo += "<option" + (y === 1975 ? " selected" : "") + ">" + y + "</option>";
+    ySel.innerHTML = yo;
+
+    var mo = "";
+    for (var m = 1; m <= 12; m++) mo += "<option" + (m === 1 ? " selected" : "") + ">" + m + "</option>";
+    mSel.innerHTML = mo;
+
+    updateDays();
+    ySel.addEventListener("change", updateDays);
+    mSel.addEventListener("change", updateDays);
+  }
+
+  function updateDays() {
+    var y = +$("loY").value, m = +$("loM").value, dSel = $("loD");
+    var max = new Date(y, m, 0).getDate();
+    var cur = +dSel.value || 1;
+    if (cur > max) cur = max;
+    var html = "";
+    for (var d = 1; d <= max; d++) html += "<option" + (d === cur ? " selected" : "") + ">" + d + "</option>";
+    dSel.innerHTML = html;
+  }
+
+  function bindMode() {
+    var box = $("loMode");
+    if (!box) return;
+    var btns = box.querySelectorAll(".chip");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        var all = box.querySelectorAll(".chip");
+        for (var j = 0; j < all.length; j++) all[j].classList.remove("active");
+        this.classList.add("active");
+        L.mode = this.getAttribute("data-v");
+        var seedBox = $("loSeedBox");
+        if (seedBox) seedBox.hidden = (L.mode !== "seed");
+        L.salt = 0;
+        $("loMsg").textContent = "";
+      });
+    }
+  }
+
+  /* ---------- 뽑기 ---------- */
+  function draw() {
+    var nameEl = $("loName");
+    L.name = (nameEl && nameEl.value ? nameEl.value : "").replace(/\s+/g, " ").trim();
+    L.y = +$("loY").value;
+    L.m = +$("loM").value;
+    L.d = +$("loD").value;
+
+    var w = weekInfo();
+    var rng, modeLabel;
+
+    if (L.mode === "seed") {
+      var seedStr = (L.name ? L.name.toLowerCase() : "달빛한스푼") + "|" +
+        L.y + "-" + pad2(L.m) + "-" + pad2(L.d) + "|" + w.key + "|" + L.salt;
+      rng = makeRng(hashStr(seedStr));
+      modeLabel = "오늘의 기운으로";
+    } else {
+      var s;
+      var cs = window.crypto || window.msCrypto;
+      if (cs && cs.getRandomValues) {
+        var arr = new Uint32Array(1);
+        cs.getRandomValues(arr);
+        s = arr[0];
+      } else {
+        s = Math.floor(Math.random() * 4294967296);
+      }
+      rng = makeRng((s ^ Math.imul(L.salt + 1, 2654435761)) >>> 0);
+      modeLabel = "완전 랜덤 추첨";
+    }
+
+    var picked = pickNumbers(rng);
+    var tip = LUCK[hashStr(w.key + "|" + picked.nums.join("-")) % LUCK.length];
+
+    L.res = {
+      nums: picked.nums,
+      bonus: picked.bonus,
+      mode: modeLabel,
+      week: w,
+      name: L.name,
+      birth: L.y + "." + pad2(L.m) + "." + pad2(L.d),
+      tip: tip
+    };
+    render();
+  }
+
+  function numberLine() {
+    var r = L.res;
+    return r.nums.join(" ") + " + " + r.bonus;
+  }
+
+  function ctaHtml() {
+    var blog = CONFIG.blogUrl || "#";
+    var aff = CONFIG.affiliateUrl || blog;
+    return '<div class="cta">' +
+      '<a class="aff" href="' + blog + '" target="_blank" rel="noopener">' +
+      '<span>' + (CONFIG.blogLabel || "블로그에서 더 보기") + '</span><span class="arrow">›</span>' +
+      '</a>' +
+      (CONFIG.shopUrl ? '<a class="shop" href="' + CONFIG.shopUrl + '" target="_blank" rel="noopener">' +
+        '<span class="lbl"><i class="n" aria-hidden="true">N</i>' +
+        (CONFIG.shopLabel || "네이버 크리에이터샵 구경하기") + '</span>' +
+        '<span class="arrow">›</span></a>' : "") +
+      '<a class="aff" href="' + aff + '" target="_blank" rel="noopener">' +
+      '<span>' + (CONFIG.affiliateLabel || "오늘의 추천 생활 아이템 보기") + '</span>' +
+      '<span class="arrow">›</span></a>' +
+      '</div>';
+  }
+
+  function render() {
+    var r = L.res;
+    var balls = r.nums.map(function (n, i) {
+      return '<span class="ball ' + ballClass(n) + '" style="animation-delay:' + (i * 55) + 'ms">' + n + '</span>';
+    }).join("");
+
+    var who = (r.mode === "오늘의 기운으로")
+      ? (r.name ? esc(r.name) + " 님 · " + esc(r.birth) + " · " : esc(r.birth) + " · ") + "이번 주 기운으로 뽑았어요"
+      : "1~45 중 중복 없이 6개 + 보너스 1개";
+
+    var html =
+      '<div class="result" id="loResultInner">' +
+        '<div class="lo-head">' +
+          '<div class="lo-kicker">이번 주 행운의 로또 번호</div>' +
+          '<div class="lo-badge">' + esc(r.mode) + '</div>' +
+          '<h3 class="lo-week">' + esc(r.week.label) + '</h3>' +
+          '<div class="lo-who">' + who + '</div>' +
+        '</div>' +
+
+        '<div class="lo-balls">' + balls +
+          '<span class="plus">＋</span>' +
+          '<span class="ball bonus ' + ballClass(r.bonus) + '" style="animation-delay:420ms">' + r.bonus + '</span>' +
+        '</div>' +
+        '<div class="lo-colorkey"><span>1~10 노랑</span><span>11~20 파랑</span><span>21~30 빨강</span>' +
+          '<span>31~40 회색</span><span>41~45 초록</span></div>' +
+
+        '<div class="lo-line"><small>한 줄 복사용</small><b>' + numberLine() + '</b></div>' +
+
+        '<div class="lo-tip"><h3>이번 주 행운 한마디</h3><p>' + esc(r.tip) + '</p></div>' +
+
+        '<div class="mini-actions">' +
+          '<button id="loAgain">다시 뽑기</button>' +
+          '<button id="loCopy">번호 복사</button>' +
+          '<button id="loSave">이미지 저장</button>' +
+        '</div>' +
+        '<p class="lo-share">' + (r.mode === "오늘의 기운으로"
+          ? "같은 이름·생일이면 이번 주 내내 같은 번호가 나와요.<br>다른 번호가 보고 싶으면 다시 뽑기를 눌러보세요."
+          : "누를 때마다 새로 뽑아요. 마음에 드는 조합이 나오면 번호 복사로 저장해 두세요.") + '</p>' +
+        ctaHtml() +
+        '<p class="note">재미로 보는 행운 번호이며 당첨을 보장하지 않습니다.<br>' +
+          '로또 6/45 구매는 만 19세 이상만 가능하고, 도박 문제로 어려움이 있다면 한국도박문제예방치유원(1336)에 상담하실 수 있어요.</p>' +
+      '</div>';
+
+    var box = $("loResult");
+    box.innerHTML = html;
+
+    $("loCopy").addEventListener("click", function () {
+      var txt = numberLine();
+      var ui = window.DALBIT_UI;
+      if (ui && ui.copyResult) { ui.copyResult(txt, this, "✓ 번호를 복사했어요! 카톡에 붙여넣기 해보세요"); return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        var btn = this;
+        navigator.clipboard.writeText(txt).then(function () { btn.textContent = "복사됐어요 ✓"; }, function () { });
+      }
+    });
+
+    $("loSave").addEventListener("click", function () {
+      var ui = window.DALBIT_UI;
+      if (!ui || !ui.saveCard) return;
+      ui.saveCard({
+        kicker: "이번 주 행운의 로또 번호",
+        headline: r.week.label,
+        sub: "보너스 " + r.bonus + " · " + r.mode,
+        balls: r.nums,
+        bonus: r.bonus,
+        items: [
+          { label: "한 줄", text: numberLine() },
+          { label: "행운 한마디", text: r.tip }
+        ]
+      }, "dalbit-lotto-result.png");
+    });
+
+    $("loAgain").addEventListener("click", function () {
+      L.salt += 1;
+      draw();
+    });
+
+    scrollToEl($("loResultInner"), 8);
+  }
+
+  function init() {
+    if (!$("paneLotto")) return;
+    initForm();
+    bindMode();
+    $("loBtn").addEventListener("click", function () { L.salt = 0; draw(); });
+    var nameEl = $("loName");
+    if (nameEl) {
+      nameEl.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.keyCode === 13) { e.preventDefault(); L.salt = 0; draw(); }
+      });
+    }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
