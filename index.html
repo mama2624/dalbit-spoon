@@ -1476,8 +1476,15 @@ var CONFIG = {
     });
   }
 
-  window.addEventListener("hashchange", function () { renderView(hashKey(), false); });
-  window.addEventListener("popstate", function () { renderView(hashKey(), false); });
+  /* 애드센스 인터스티셜(#google_vignette)처럼 우리 화면 키가 아닌 해시가 붙어도
+     보고 있던 화면을 홈으로 되돌리지 않습니다. (2026-11-16) */
+  function onRouteChange() {
+    var h = String(location.hash || "").replace(/^#\/?/, "").toLowerCase();
+    if (h && !VIEWS[h]) return;
+    renderView(hashKey(), false);
+  }
+  window.addEventListener("hashchange", onRouteChange);
+  window.addEventListener("popstate", onRouteChange);
 
   /* 처음 열 때 해시가 있으면 그 전용 화면부터 시작 (북마크·공유 링크 대용) */
   renderView(hashKey(), true);
