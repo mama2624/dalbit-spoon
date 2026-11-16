@@ -691,7 +691,7 @@
           items: [
             { label: "총운", text: F.total },
             { label: "재물 · 직업", text: F.c[0] + " " + F.c[1] },
-            { label: "좋은 달 · 개운", text: "좋은 달 " + bestTxt + " / 조심할 달 " + careTxt + " / 개운 색 " + F.col[0][0] + " · 방위 " + F.dir[0] + " · 숫자 " + r.nums.join(", ") }
+            { label: "좋은 달 · 개운", text: "좋은 달 " + bestTxt + " / 조심할 달 " + careTxt + " / 개운 색 " + F.col[0][0] + " · 방위 " + F.dir[0] + " · 숫자 " + r.nums.join("·") }
           ]
         }, "dalbit-tojeong-2027.png");
       });

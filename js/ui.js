@@ -352,7 +352,7 @@
     ctx.fillText("saju.gold-queen.com", W / 2, 1262);
     ctx.fillStyle = "rgba(233,226,246,.45)";
     ctx.font = "400 19px " + FONT;
-    ctx.fillText("재미로 보는 타로·사주·꿈해몽·전생체험·로또 번호", W / 2, 1300);
+    ctx.fillText("재미로 보는 타로·사주·꿈해몽·전생체험·로또·토정비결", W / 2, 1300);
 
     return cv;
   }
