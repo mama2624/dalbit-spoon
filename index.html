@@ -1323,17 +1323,25 @@ var CONFIG = {
   var loaderEl = $("viewLoader");
   var loaderTxt = loaderEl ? loaderEl.querySelector(".vl-txt") : null;
   var loaderRetry = loaderEl ? loaderEl.querySelector(".vl-retry") : null;
-  var loaderTimer = null;
+  var loaderTimer = null, loaderShowTimer = null;
 
+  /* 200ms 안에 끝나는 로딩은 인디케이터를 띄우지 않습니다(깜빡임 방지). */
   function loaderShow(msg, withRetry) {
     if (!loaderEl) return;
     if (msg && loaderTxt) loaderTxt.textContent = msg;
     if (loaderRetry) loaderRetry.hidden = !withRetry;
     if (loaderTimer) { clearTimeout(loaderTimer); loaderTimer = null; }
-    loaderEl.hidden = false;
-    requestAnimationFrame(function () { loaderEl.classList.add("show"); });
+    if (loaderShowTimer) { clearTimeout(loaderShowTimer); loaderShowTimer = null; }
+    if (!loaderEl.hidden && loaderEl.classList.contains("show")) return;
+    var wait = withRetry ? 0 : 200;
+    loaderShowTimer = setTimeout(function () {
+      loaderShowTimer = null;
+      loaderEl.hidden = false;
+      requestAnimationFrame(function () { loaderEl.classList.add("show"); });
+    }, wait);
   }
   function loaderHide() {
+    if (loaderShowTimer) { clearTimeout(loaderShowTimer); loaderShowTimer = null; }
     if (!loaderEl || loaderEl.hidden) return;
     loaderEl.classList.remove("show");
     loaderTimer = setTimeout(function () { loaderEl.hidden = true; loaderTimer = null; }, 240);
