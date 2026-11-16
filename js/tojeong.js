@@ -646,7 +646,7 @@
         '<div class="tj-lucky">' +
           '<div class="cell"><span class="k">개운 색</span><span class="v">' +
             '<i class="tj-sw" style="background:' + F.col[0][1] + '"></i>' + esc(F.col[0][0]) +
-            '&nbsp; <i class="tj-sw" style="background:' + F.col[1][1] + '"></i>' + esc(F.col[1][0]) + "</span></div>" +
+            '&nbsp;&nbsp;<i class="tj-sw" style="background:' + F.col[1][1] + '"></i>' + esc(F.col[1][0]) + "</span></div>" +
           '<div class="cell"><span class="k">길한 방위</span><span class="v">' + esc(F.dir[0]) + "</span></div>" +
           '<div class="cell"><span class="k">행운 숫자</span><span class="v"><span class="tj-nums">' +
             r.nums.map(function (x) { return "<span>" + x + "</span>"; }).join("") + "</span></span></div>" +
