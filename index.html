@@ -18,6 +18,7 @@ window.addEventListener("error", function (e) {
 <meta property="og:title" content="달빛 한 스푼 — 오늘의 타로 · 사주 · 사주 궁합 · 꿈해몽 · 전생체험 · 로또 번호 · 2027 토정비결">
 <meta property="og:description" content="3장 타로로 오늘을 읽고, 만세력으로 내 사주를 보고, 두 사람의 사주 궁합을 풀고, 꿈해몽 233가지로 간밤의 꿈을 풀고, 이름과 생일로 전생까지, 이번 주 행운의 로또 번호와 2027 정미년 토정비결 144괘까지 만나봅니다.">
 <meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
 <!-- 제목용 명조 웹폰트 (2026-11-15 고급화 / 2026-11-16 비동기화) : 첫 화면을 막지 않고 뒤에서 받아옵니다. 차단되거나 없으면 시스템 명조체로 자연 대체 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +33,7 @@ window.addEventListener("error", function (e) {
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
+  color-scheme:dark;
   --bg:#000000; --bg2:#030306; --purple:#0a0a0e;
   --gold:#e9c67e; --gold2:#f6e3b4; --goldline:rgba(233,198,126,.26);
   --text:#f4efe6; --muted:#9a948a; --muted2:#726c63;
@@ -185,13 +187,14 @@ body{
   background:radial-gradient(56% 78% at 50% 0%, rgba(246,227,180,.14), rgba(246,227,180,0) 72%)}
 .top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;
   background:linear-gradient(90deg,rgba(233,198,126,0) 0%,rgba(233,198,126,.30) 20%,rgba(248,235,200,.52) 50%,rgba(233,198,126,.30) 80%,rgba(233,198,126,0) 100%)}
+/* 2026-11-17 : 그라데이션 글자(background-clip:text) 제거 → 단색 + 은은한 빛번짐
+   · 삼성 인터넷(다크모드)에서 그라데이션 글자가 배경에 먹혀 안 보이던 문제 해결 */
 .brand{display:flex;align-items:center;justify-content:center;gap:.3em;margin:15px 0 0;
   font-family:var(--serif);font-size:clamp(27px,7.6vw,32px);font-weight:700;
-  letter-spacing:.14em;line-height:1.24;word-break:keep-all;
-  filter:drop-shadow(0 3px 16px rgba(246,227,180,.32)) drop-shadow(0 0 40px rgba(233,198,126,.16))}
-.brand .brand-name{text-indent:.14em;
-  background:linear-gradient(104deg,#fffaf1 0%,#f9ecc9 20%,#f1d69d 44%,#e0b569 64%,#f6e8c2 86%,#fff9ea 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+  letter-spacing:.14em;line-height:1.24;word-break:keep-all;color:#fff7e7}
+.brand .brand-name{text-indent:.14em;color:#fff7e7;
+  text-shadow:0 1px 2px rgba(0,0,0,.65),0 0 1px rgba(255,255,255,.55),
+    0 0 18px rgba(246,227,180,.45),0 0 38px rgba(233,198,126,.26)}
 .brand .spark{flex:0 0 auto;font-size:.5em;line-height:1;-webkit-text-fill-color:#f8ecc8;color:#f8ecc8;
   text-shadow:0 0 12px rgba(246,227,180,.75),0 0 24px rgba(233,198,126,.45);animation:sparkAura 6.5s ease-in-out infinite}
 @keyframes sparkAura{0%,100%{opacity:.72}50%{opacity:1}}
@@ -207,18 +210,22 @@ body{
   filter:blur(16px);will-change:opacity;
   animation:haloBreath 6s ease-in-out infinite}
 @keyframes haloBreath{0%,100%{opacity:.14}50%{opacity:.30}}
-.tagline{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:0;row-gap:1px;
+/* 2026-11-17 : 두 줄 고정 배치 — 줄 끝에 구분점(·)이 남지 않도록
+   구분점을 '항목 앞'에 붙이고, 각 줄의 첫 항목만 ::first-child로 제외 */
+.tagline{display:flex;flex-direction:column;align-items:center;justify-content:center;
   margin:13px 0 0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
-  font-size:11.8px;letter-spacing:.11em;line-height:1.9;color:#9c968c;word-break:keep-all;
-  text-shadow:0 0 14px rgba(233,198,126,.14)}
-.tagline span{white-space:nowrap}
-.tagline span:not(:last-child)::after{content:"·";display:inline-block;margin:0 .55em;color:rgba(233,198,126,.62);letter-spacing:0}
+  font-size:12.4px;letter-spacing:.07em;line-height:1.85;color:#e8dfcd;word-break:keep-all;
+  text-shadow:0 0 12px rgba(233,198,126,.22),0 1px 2px rgba(0,0,0,.5)}
+.tagline .tl-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;white-space:nowrap}
+.tagline .tl-row > span{white-space:nowrap}
+.tagline .tl-row > span:not(:first-child)::before{content:"·";display:inline-block;margin:0 .48em 0 .42em;
+  color:rgba(233,198,126,.7);letter-spacing:0}
 /* 별빛 레이어 위로 헤더 글자가 오도록 (레이아웃·정렬은 그대로) */
 .top > .brand-orn,.top > .brand,.top > .tagline{position:relative;z-index:1}
-/* 좁은 화면에서 서브타이틀이 한 줄에 들어가도록 미세 조정 (2026-11-15) */
+/* 좁은 화면에서 두 줄이 넘치지 않도록 미세 조정 (2026-11-17) */
 @media (max-width:400px){
-  .tagline{font-size:11px;letter-spacing:.05em}
-  .tagline span:not(:last-child)::after{margin:0 .42em}
+  .tagline{font-size:11.9px;letter-spacing:.045em}
+  .tagline .tl-row > span:not(:first-child)::before{margin:0 .38em 0 .34em}
 }
 
 /* ============================================================
@@ -228,15 +235,12 @@ body{
 .home > .home-hero,.home > .menu,.home > .hub,.home > .home-note{position:relative;z-index:1}
 .home-hero{text-align:center}
 .home-title{margin:0;font-family:var(--serif);font-size:clamp(21px,5.9vw,25px);font-weight:700;
-  letter-spacing:.035em;line-height:1.45;
-  background:linear-gradient(100deg,#fdf7ec,#f8e4b8 44%,#e7c485);-webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 2px 12px rgba(246,227,180,.22))}
+  letter-spacing:.035em;line-height:1.45;color:#fdf0d2;
+  text-shadow:0 1px 2px rgba(0,0,0,.6),0 0 16px rgba(246,227,180,.32),0 0 34px rgba(233,198,126,.16)}
 .home-sub{margin:9px 0 0;font-size:12.5px;color:#918b81;letter-spacing:.02em}
 /* 물음표만 빙글빙글 (2026-11-15) : inline-block으로 감싸 제자리에서 회전, 금빛 글로우 */
 .home-title .q-spin{display:inline-block;transform-origin:50% 52%;vertical-align:baseline;
-  background:linear-gradient(102deg,#f8e4b8 0%,#f0d49a 52%,#e0b569 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 0 9px rgba(246,227,180,.5));
+  color:#f5dcaa;text-shadow:0 0 10px rgba(246,227,180,.55);
   animation:qSpin 4s ease-in-out infinite;will-change:transform}
 @keyframes qSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
@@ -674,10 +678,9 @@ mark{background:transparent;color:var(--gold2);font-weight:700}
 .pl-kicker{font-size:11px;letter-spacing:.16em;color:rgba(233,198,126,.7)}
 .pl-badge{display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;color:var(--gold2);
   background:rgba(233,198,126,.12);border:1px solid var(--goldline);border-radius:999px;padding:5px 12px}
-.pl-name{font-size:27px;font-weight:800;margin:12px 0 0;letter-spacing:-.03em;
-  background:linear-gradient(100deg,#f8ebc8,#e9c67e 50%,#c39a4c);-webkit-background-clip:text;background-clip:text;color:transparent}
-.pl-name small{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:6px;letter-spacing:0;
-  -webkit-text-fill-color:var(--muted)}
+.pl-name{font-size:27px;font-weight:800;margin:12px 0 0;letter-spacing:-.03em;color:#f7e6bd;
+  text-shadow:0 1px 2px rgba(0,0,0,.6),0 0 16px rgba(246,227,180,.26)}
+.pl-name small{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:6px;letter-spacing:0}
 .pl-one{margin:14px auto 0;max-width:310px;font-size:14.5px;line-height:1.7;color:#f1ebdf;word-break:keep-all}
 .pl-who{font-size:11.5px;color:var(--muted2);margin-top:12px;line-height:1.7;word-break:keep-all}
 
@@ -739,8 +742,8 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 .lo-kicker{font-size:11px;letter-spacing:.16em;color:rgba(233,198,126,.7)}
 .lo-badge{display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;color:var(--gold2);
   background:rgba(233,198,126,.12);border:1px solid var(--goldline);border-radius:999px;padding:5px 12px}
-.lo-week{font-size:20px;font-weight:800;margin:13px 0 0;letter-spacing:-.02em;
-  background:linear-gradient(100deg,#f8ebc8,#e9c67e 50%,#c39a4c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lo-week{font-size:20px;font-weight:800;margin:13px 0 0;letter-spacing:-.02em;color:#f7e6bd;
+  text-shadow:0 1px 2px rgba(0,0,0,.6),0 0 16px rgba(246,227,180,.26)}
 .lo-who{font-size:11.5px;color:var(--muted2);margin-top:9px;line-height:1.7;word-break:keep-all}
 
 .lo-balls{--d:41px;--g:7px;display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;
@@ -809,10 +812,10 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 .tj-badge{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:#251a06;
   background:linear-gradient(160deg,#f3dfae,#d9b06a);border-radius:999px;padding:5px 12px}
 .tj-name{margin:12px 0 0;font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:.01em;
-  line-height:1.4;background:linear-gradient(100deg,#fdf7ec,#f8e4b8 44%,#e7c485);
-  -webkit-background-clip:text;background-clip:text;color:transparent;word-break:keep-all}
+  line-height:1.4;color:#f7e6bd;word-break:keep-all;
+  text-shadow:0 1px 2px rgba(0,0,0,.6),0 0 16px rgba(246,227,180,.26)}
 .tj-name small{display:block;margin-top:6px;font-family:inherit;font-size:11.5px;font-weight:500;
-  letter-spacing:.14em;color:#8d8578;-webkit-text-fill-color:#8d8578}
+  letter-spacing:.14em;color:#8d8578}
 .tj-key{margin:10px auto 0;max-width:340px;font-size:13.5px;line-height:1.6;color:var(--gold2);word-break:keep-all}
 .tj-meta{margin-top:9px;font-size:11.5px;line-height:1.7;color:var(--muted2);word-break:keep-all}
 
@@ -918,7 +921,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
     <div class="brand-orn" aria-hidden="true"><i></i><span class="orn-moon l"></span><i></i></div>
     <i class="brand-halo" aria-hidden="true"></i>
     <div class="brand"><span class="spark" aria-hidden="true">✦</span><span class="brand-name">달빛 한 스푼</span><span class="spark" aria-hidden="true">✦</span></div>
-    <p class="tagline"><span>오늘의 타로</span><span>만세력 사주</span><span>사주 궁합</span><span>꿈해몽</span><span>전생체험</span><span>로또 번호</span><span>2027 토정비결</span></p>
+    <p class="tagline"><span class="tl-row"><span>오늘의 타로</span><span>만세력 사주</span><span>사주 궁합</span><span>꿈해몽</span></span><span class="tl-row"><span>전생체험</span><span>로또 번호</span><span>2027 토정비결</span></span></p>
   </header>
 
   <!-- ============================================================
