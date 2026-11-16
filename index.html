@@ -781,7 +781,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
    v4.1 (2026-11-16) 로딩 최적화 추가분
    ============================================================ */
 /* 탭 모듈을 처음 받는 동안만 잠깐 보이는 인디케이터 (화면 조작은 막지 않음) */
-.view-loader{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 16px);transform:translateX(-50%);
+.view-loader{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 62px);transform:translateX(-50%);
   z-index:90;display:flex;align-items:center;gap:9px;padding:8px 14px;border-radius:999px;
   background:rgba(9,9,13,.86);border:1px solid var(--goldline);color:var(--gold2);
   font-size:13px;line-height:1.4;letter-spacing:-.01em;white-space:nowrap;
@@ -1478,7 +1478,6 @@ var CONFIG = {
      메뉴 카드에 손이 닿으면 그 탭 파일을 미리 받아 둡니다(첫 화면 렌더 뒤에만).
      · 데스크톱 마우스 오버 / 모바일 터치 시작 지점에서만 동작해서 초기 로딩에는 영향이 없습니다.
      ============================================================ */
-  var prefetched = false;
   function prefetch(key) {
     if (!key || !MODULES[key] || modDone[key] || modPending[key]) return;
     ensureModule(key).catch(function () { });
@@ -1487,8 +1486,8 @@ var CONFIG = {
   for (var pi = 0; pi < menuEls.length; pi++) {
     (function (el) {
       var key = el.getAttribute("data-go");
-      el.addEventListener("pointerenter", function () { prefetched = true; prefetch(key); });
-      el.addEventListener("touchstart", function () { prefetched = true; prefetch(key); }, { passive: true });
+      el.addEventListener("pointerenter", function () { prefetch(key); });
+      el.addEventListener("touchstart", function () { prefetch(key); }, { passive: true });
       el.addEventListener("focus", function () { prefetch(key); });
     })(menuEls[pi]);
   }
