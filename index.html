@@ -1404,7 +1404,7 @@ var CONFIG = {
 </script>
 <script>
 /* ============================================================
-   달빛 한 스푼 v4.2 · 코어 (2026-11-17)
+   달빛 한 스푼 v4.3 · 코어 (2026-11-20)
    · 첫 화면 : 홈 메뉴 7개 + 공통 스타일만 즉시 그립니다.
    · 탭을 열 때 그 탭의 모듈(js/*.js)만 그때 받아 실행하고, 한 번 받은 파일은
      다시 받지 않습니다(브라우저 캐시 + 메모리 캐시).
@@ -1500,17 +1500,22 @@ var CONFIG = {
   };
   var modPending = {}, modDone = {}, scriptCache = {}, currentKey = "";
 
+  /* 모듈 버전 — 배포할 때 올립니다. 주소에 붙여서 예전 파일이 캐시에 남아
+     새 화면과 섞이는 일을 막습니다(2026-11-20). */
+  var MOD_VER = "4.3";
+
   function loadScript(src) {
-    if (scriptCache[src]) return scriptCache[src];
+    var url = src + (src.indexOf("?") < 0 ? "?v=" + MOD_VER : "");
+    if (scriptCache[url]) return scriptCache[url];
     var p = new Promise(function (resolve, reject) {
       var s = document.createElement("script");
-      s.src = src;
+      s.src = url;
       s.async = true;
-      s.onload = function () { resolve(src); };
-      s.onerror = function () { delete scriptCache[src]; reject(new Error("load failed: " + src)); };
+      s.onload = function () { resolve(url); };
+      s.onerror = function () { delete scriptCache[url]; reject(new Error("load failed: " + url)); };
       (document.body || document.head || document.documentElement).appendChild(s);
     });
-    scriptCache[src] = p;
+    scriptCache[url] = p;
     return p;
   }
 
