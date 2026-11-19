@@ -390,7 +390,11 @@
     }
     var tipTargets = missing.length ? missing.slice(0, 2) : [fewest];
 
-    var genderTxt = document.querySelector('input[name="gender"]:checked').value === "f" ? "여성" : "남성";
+    var gender = document.querySelector('input[name="gender"]:checked').value;
+    var genderTxt = gender === "f" ? "여성" : "남성";
+
+    /* P1~P4 업그레이드가 함께 쓰는 계산 문맥 (2026-11-20) */
+    var pro = (window.SAJU_PRO && SAJU_PRO.ctxFromResult) ? SAJU_PRO.ctxFromResult(s, gender) : null;
 
     var dateLine = solarLine(s);
     var lunarLine = s.lunar ? ("음력 " + s.lunar.y + "년 " + s.lunar.m + "월 " + s.lunar.d + "일" + (s.lunar.leap ? " (윤달)" : "")) : "";
@@ -421,7 +425,11 @@
             '</div>';
         }).join("") +
       '</div>' +
+      (pro ? SAJU_PRO.iljinStrip(pro) : '') +
       '</div>';
+
+    /* P2 — 지금 내 대운 · 세운 */
+    if (pro) html += SAJU_PRO.daeunPanel(pro);
 
     // 일간 성격
     html += '<div class="panel mt">' +
@@ -470,6 +478,9 @@
         '</div>';
     });
     html += '</div>';
+
+    /* P1 · P3 · P4 — 원국 프롬프트 / 저장 / 공유 (CTA 위) */
+    if (pro) html += SAJU_PRO.proBlocks(pro);
 
     html += ctaHtml(ELEMENT_INFO[tipTargets[0]].name);
     html += '<div class="mini-actions"><button id="sajuAgain">다시 보기</button><button id="sajuCopy">결과 복사</button><button id="sajuSave">이미지 저장</button></div>';
@@ -520,6 +531,8 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
+    if (pro) SAJU_PRO.bind(sajuResultEl, pro);
+
     scrollToEl(sajuResultEl);
   }
 
@@ -537,4 +550,37 @@
   function solarLine(s) {
     return s.solar.y + "년 " + s.solar.m + "월 " + s.solar.d + "일";
   }
+
+  /* ============================== 공유 링크 · 저장된 사주 (2026-11-20) ==============================
+     · #saju=己巳丙子丙寅 → 원국 8자만으로 결과 카드를 바로 그립니다.
+     · #saju=saved → 이 기기에 저장한 사주를 입력폼에 넣고 바로 계산합니다. */
+  var sharedShown = false;
+
+  function handleProHash() {
+    if (!window.SAJU_PRO) return;
+    var pane = document.getElementById("paneSaju");
+    if (!pane || !pane.classList.contains("active")) return;
+    var pl = SAJU_PRO.payloadFromHash();
+    if (pl === "saved") {
+      sharedShown = false;
+      SAJU_PRO.openSaved();
+      return;
+    }
+    if (pl) {
+      if (SAJU_PRO.renderShared(pl, sajuResultEl)) {
+        sharedShown = true;
+        scrollToEl(sajuResultEl);
+      }
+      return;
+    }
+    if (sharedShown) { sajuResultEl.innerHTML = ""; sharedShown = false; }
+  }
+
+  window.addEventListener("hashchange", handleProHash);
+  window.addEventListener("dalbit:view", function (e) {
+    var key = e && e.detail ? e.detail.key : "";
+    if (key !== "saju" && sharedShown) { sajuResultEl.innerHTML = ""; sharedShown = false; }
+    if (key === "saju") setTimeout(handleProHash, 0);
+  });
+  setTimeout(handleProHash, 0);
 })();

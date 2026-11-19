@@ -11,7 +11,7 @@ window.addEventListener("error", function (e) {
 });
 </script>
 <meta name="naver-site-verification" content="33dc4d4904ec34146abd478bb9608a8b88e8f0bf" />
-<!-- 달빛 한 스푼 v4.2 (2026-11-17) : 7번째 '2027 토정비결' 탭 추가 / 기존 6개 탭 100% 유지 / 애드센스 자동광고(ca-pub-3479064308586347) 적용 -->
+<!-- 달빛 한 스푼 v4.3 (2026-11-20) : 사주 원국 AI 프롬프트·대운·오늘의 일진·원국 공유 추가 / 기존 7개 탭·문구 유지 / 애드센스 자동광고(ca-pub-3479064308586347) 적용 -->
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>달빛 한 스푼 — 오늘의 타로 · 만세력 사주 · 사주 궁합 · 꿈해몽 · 전생체험 · 로또 번호 · 2027 토정비결</title>
 <meta name="description" content="고민을 고르고 카드 세 장을 뽑으면 지금 내 자리와 오늘의 조언을 읽어드려요. 생년월일시를 넣으면 사주팔자와 오행 균형까지, 두 사람 생년월일로는 사주 궁합, 꿈에서 본 것은 233가지 한국식 꿈해몽으로, 이름과 생일로는 재미로 보는 전생까지, 이번 주 행운의 로또 6/45 번호까지. 생년월일 하나로 2027 정미년 토정비결 144괘와 12달 흐름, 개운 색·방위·루틴도 찾아드립니다.">
@@ -522,6 +522,58 @@ select option:checked,select option:hover{background-color:#2b2450;color:#fdf6e6
 .ny-need{margin-top:10px;padding:11px 12px;border-radius:12px;border:1px dashed rgba(233,198,126,.34);
   font-size:13px;line-height:1.65;color:#f1ebdf;word-break:keep-all}
 .ny-need b{color:var(--gold2)}
+/* ===== 사주 업그레이드 P1~P4 (2026-11-20) =====
+   원칙: 그라데이션 글자(background-clip:text) 금지 — 단색만 (삼성 인터넷 다크모드 대비) */
+/* 홈 상단 오늘의 일진 배지 (저장한 사람에게만) */
+.home > .ijin-home{position:relative;z-index:1}
+.ijin-card{display:block;margin:18px 2px 0;padding:13px 14px;border-radius:15px;text-decoration:none;
+  background:rgba(233,198,126,.07);border:1px solid rgba(233,198,126,.28);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.ijin-card:active{transform:translateY(1px)}
+.ijin-hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.ijin-kicker{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#e9c67e}
+.ijin-go{font-size:11.5px;color:#c9b58a}
+.ijin-l1{font-size:13px;font-weight:700;color:#f6e3b4;line-height:1.5;word-break:keep-all}
+.ijin-l2{font-size:12.5px;color:#e8e2f6;line-height:1.55;margin-top:2px;word-break:keep-all}
+.ijin-l3{font-size:12.5px;color:#b9b2a6;line-height:1.55;margin-top:4px;word-break:keep-all}
+/* 결과 안 오늘의 일진 */
+.ijin-strip{margin-top:12px;padding:11px 12px;border-radius:13px;text-align:left;
+  border:1px dashed rgba(233,198,126,.3);background:rgba(233,198,126,.05)}
+/* P2 대운 표 */
+.dn-now{font-size:14px;color:#ece6dc;margin:2px 0 12px;line-height:1.6;word-break:keep-all}
+.dn-now b{color:#f6e3b4;font-size:15.5px}
+.dn-range{display:block;font-size:11.5px;color:var(--muted2);margin-top:2px}
+.dn-table{border:1px solid rgba(233,198,126,.16);border-radius:12px;overflow:hidden}
+.dn-row{display:grid;grid-template-columns:56px 1fr 56px;align-items:center;gap:8px;
+  padding:9px 12px;font-size:13px;color:#ece6dc;border-top:1px solid rgba(255,255,255,.06)}
+.dn-row:first-child{border-top:0}
+.dn-head{background:rgba(255,255,255,.04);font-size:11.5px;color:var(--muted);font-weight:700}
+.dn-cur{background:rgba(233,198,126,.1)}
+.dn-cur .dn-g{color:#f6e3b4;font-weight:700}
+.dn-g small{font-size:11px;color:var(--muted);margin-left:5px;font-weight:500}
+.sn{margin-top:11px;display:grid;gap:6px}
+.sn-row{font-size:12.5px;color:#cfc8bd;line-height:1.55;word-break:keep-all}
+.sn-row b{color:#e9c67e}
+/* P1 프롬프트 내보내기 */
+.pro-intro{margin:0 0 12px;font-size:13px;line-height:1.7;color:#cfc8bd;word-break:keep-all}
+.pro-intro b.ok{color:var(--ok)}
+.pro-btns{display:grid;gap:8px;margin-top:10px}
+.pro-btns.two{grid-template-columns:1fr 1fr}
+.pro-btns .btn{font-size:14px;padding:13px 12px}
+.pq-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.pq{appearance:none;font-family:inherit;text-align:left;display:flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:600;color:#cfc8bd;background:rgba(255,255,255,.045);
+  border:1px solid rgba(233,198,126,.16);border-radius:10px;padding:10px 9px;cursor:pointer;
+  line-height:1.3;word-break:keep-all;transition:.2s}
+.pq b{flex:0 0 auto;width:17px;height:17px;border-radius:6px;display:inline-flex;align-items:center;
+  justify-content:center;font-size:10.5px;color:#241703;background:#e9c67e}
+.pq:hover{border-color:rgba(233,198,126,.4);color:#f6e3b4}
+.pq:active{transform:translateY(1px)}
+@media (max-width:360px){
+  .pq-grid{grid-template-columns:1fr}
+  .pro-btns.two{grid-template-columns:1fr}
+  .dn-row{grid-template-columns:50px 1fr 46px;font-size:12.5px;padding:8px 10px}
+}
 .note{font-size:11.5px;color:var(--muted2);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07)}
 footer{text-align:center;font-size:11px;color:var(--muted2);padding:26px 20px 10px;line-height:1.7}
 .mini-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:12px}
@@ -962,6 +1014,9 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
       <h1 class="home-title">무엇이 궁금하세요<span class="q-spin">?</span></h1>
       <p class="home-sub">일곱 가지 중 하나를 고르면 바로 열려요.</p>
     </div>
+
+    <!-- 저장한 사람에게만 보이는 오늘의 일진 배지 (2026-11-20) -->
+    <div class="ijin-home" id="homeIljin" hidden></div>
 
     <nav class="menu" aria-label="메뉴">
       <button class="mcard" type="button" data-go="tarot">
@@ -1436,7 +1491,7 @@ var CONFIG = {
      ============================================================ */
   var MODULES = {
     tarot:  ["js/ui.js", "js/cards.js", "js/tarot.js"],
-    saju:   ["js/ui.js", "js/data-saju.js", "js/saju-engine.js", "js/saju-common.js", "js/content.js", "js/saju-view.js"],
+    saju:   ["js/ui.js", "js/data-saju.js", "js/saju-engine.js", "js/saju-common.js", "js/content.js", "js/saju-pro.js", "js/saju-view.js"],
     compat: ["js/ui.js", "js/data-saju.js", "js/saju-engine.js", "js/saju-common.js", "js/compat.js"],
     dream:  ["js/ui.js", "js/dream-data.js", "js/dream.js"],
     past:   ["js/ui.js", "js/pastlife.js"],
@@ -1546,8 +1601,11 @@ var CONFIG = {
   var HOME_TITLE = document.title;
 
   function hashKey() {
-    var h = String(location.hash || "").replace(/^#\/?/, "").toLowerCase();
-    return VIEWS[h] ? h : "";
+    var h = String(location.hash || "").replace(/^#\/?/, "");
+    var low = h.toLowerCase();
+    /* 공유 링크(#saju=己巳丙子丙寅) · 저장한 사주(#saju=saved)도 사주 화면으로 엽니다. */
+    if (low.indexOf("saju=") === 0) return "saju";
+    return VIEWS[low] ? low : "";
   }
 
   function renderView(key, skipScroll) {
@@ -1564,6 +1622,11 @@ var CONFIG = {
     if (!skipScroll) {
       try { window.scrollTo({ top: 0, behavior: "auto" }); } catch (e) { window.scrollTo(0, 0); }
     }
+    try {
+      var cue = document.createEvent("CustomEvent");
+      cue.initCustomEvent("dalbit:view", false, false, { key: key || "" });
+      window.dispatchEvent(cue);
+    } catch (e2) { }
     syncViewModule();
   }
 
@@ -1620,7 +1683,7 @@ var CONFIG = {
      보고 있던 화면을 홈으로 되돌리지 않습니다. (2026-11-16) */
   function onRouteChange() {
     var h = String(location.hash || "").replace(/^#\/?/, "").toLowerCase();
-    if (h && !VIEWS[h]) return;
+    if (h && !VIEWS[h] && h.indexOf("saju=") !== 0) return;
     renderView(hashKey(), false);
   }
   window.addEventListener("hashchange", onRouteChange);
@@ -1628,6 +1691,23 @@ var CONFIG = {
 
   /* 처음 열 때 해시가 있으면 그 전용 화면부터 시작 (북마크·공유 링크 대용) */
   renderView(hashKey(), true);
+
+  /* ============================================================
+     홈 상단 '오늘의 일진' 배지 (2026-11-20)
+     · 사주를 이 기기에 저장한 사람에게만, 첫 화면 렌더 뒤에 작은 모듈을 받아 그립니다.
+     · 저장한 사람이 아니면 아무 파일도 받지 않습니다.
+     ============================================================ */
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("dalbit.saju.v1"); } catch (e) { }
+    if (!saved) return;
+    function draw() {
+      if (window.SAJU_PRO && window.SAJU_PRO.renderHomeBadge) window.SAJU_PRO.renderHomeBadge();
+    }
+    var start = function () { loadScript("js/saju-pro.js").then(draw, function () { }); };
+    if ("requestIdleCallback" in window) window.requestIdleCallback(start, { timeout: 2500 });
+    else setTimeout(start, 800);
+  })();
 
   /* ============================================================
      메뉴 카드에 손이 닿으면 그 탭 파일을 미리 받아 둡니다(첫 화면 렌더 뒤에만).

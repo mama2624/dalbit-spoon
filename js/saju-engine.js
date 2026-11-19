@@ -259,6 +259,107 @@
     };
   }
 
+  /* ---------- 대운 · 세운 (2026-11-20 추가) ----------
+     · 방향: 사주년 천간이 양(甲丙戊庚壬)이고 남자 → 순행, 음(乙丁己辛癸)이고 여자 → 순행,
+             나머지는 역행 (입춘 기준 사주년 — 1~2월 초 출생은 전년 간지로 판정)
+     · 대운수: 순행이면 출생시각→다음 절(節), 역행이면 직전 절→출생시각까지의 일수 ÷ 3
+               (3일 = 1년 · 나머지 1일 버림 · 2일 올림 · 몫이 0이면 1)
+     · 대운 간지: 월주에서 60갑자 순/역으로 1칸씩, 대운수 나이부터 10년 간격
+     · 세운: (연도-4) % 10 · (연도-4) % 12
+     · 시간을 모르면 정오로 계산하며 ±1살 차이가 날 수 있습니다. */
+  function daeun(y, m, d, hour, gender) {
+    var unknownTime = (hour === null || hour === undefined);
+    var hh = unknownTime ? 12 : hour;
+    var birthMs = wallMs(y, m, d, hh, 0);
+
+    // 사주년(입춘 기준)
+    var lichun = jieMs(y, 1);
+    var sajuYear = y;
+    if (lichun !== null && birthMs < lichun) sajuYear = y - 1;
+    var yGi = ((sajuYear - 4) % 10 + 10) % 10;
+    var yang = (yGi % 2 === 0);
+    var male = (gender === "m");
+    var forward = (yang === male);
+
+    // 가장 가까운 절 — 순행은 다음 절, 역행은 직전 절
+    var prev = null, next = null;
+    for (var yy = y - 1; yy <= y + 1; yy++) {
+      for (var i = 0; i < 12; i++) {
+        var t = jieMs(yy, i);
+        if (t === null) continue;
+        if (t <= birthMs) {
+          if (!prev || t > prev.t) prev = { t: t, i: i, year: yy };
+        } else {
+          if (!next || t < next.t) next = { t: t, i: i, year: yy };
+        }
+      }
+    }
+    var target = forward ? next : prev;
+    var dist = 0;
+    if (target) dist = Math.abs(target.t - birthMs) / 86400000;
+    var q = Math.floor(dist / 3);
+    var rest = dist - q * 3;
+    var su = q + (rest >= 2 ? 1 : 0);
+    if (su < 1) su = 1;
+
+    // 월주 → 60갑자 index
+    var monthStem = 0, monthBranch = 1;
+    if (prev) {
+      monthBranch = (prev.i + 1) % 12;
+      var k = (prev.i - 1 + 12) % 12;
+      monthStem = (yGi * 2 + 2 + k) % 10;
+    } else {
+      monthStem = (yGi * 2 + 2 + 11) % 10;
+    }
+    var cur = 0;
+    for (var ci = 0; ci < 60; ci++) {
+      if (ci % 10 === monthStem && ci % 12 === monthBranch) { cur = ci; break; }
+    }
+
+    var rows = [];
+    for (var n = 0; n < 10; n++) {
+      var step = n + 1;
+      var idx = ((cur + (forward ? step : -step)) % 60 + 60) % 60;
+      var age = su + n * 10;
+      rows.push({
+        age: age, gi: idx % 10, zi: idx % 12,
+        gan: GAN[idx % 10], zhi: ZHI[idx % 12],
+        ganKo: GAN_KO[idx % 10], zhiKo: ZHI_KO[idx % 12],
+        text: GAN[idx % 10] + ZHI[idx % 12],
+        textKo: GAN_KO[idx % 10] + ZHI_KO[idx % 12],
+        startYear: y + age, endYear: y + age + 9
+      });
+    }
+
+    return {
+      forward: forward,
+      days: Math.round(dist * 100) / 100,
+      jieName: (target ? JIE_NAME[target.i] : ""),
+      daeunSu: su,
+      unknownTime: unknownTime,
+      rows: rows
+    };
+  }
+
+  function seun(year) {
+    var gi = ((year - 4) % 10 + 10) % 10;
+    var zi = ((year - 4) % 12 + 12) % 12;
+    return {
+      year: year, gi: gi, zi: zi,
+      gan: GAN[gi], zhi: ZHI[zi],
+      ganKo: GAN_KO[gi], zhiKo: ZHI_KO[zi],
+      text: GAN[gi] + ZHI[zi], textKo: GAN_KO[gi] + ZHI_KO[zi]
+    };
+  }
+
+  /* 만 나이 (생년월일 기준, 오늘 날짜) */
+  function ageAt(y, m, d, now) {
+    var t = now || new Date();
+    var a = t.getFullYear() - y;
+    if (t.getMonth() + 1 < m || (t.getMonth() + 1 === m && t.getDate() < d)) a--;
+    return a;
+  }
+
   function tenGroup(me, other) {
     if (me === other) return "bigeop";
     if (SAENG[me] === other) return "siksang";
@@ -274,6 +375,11 @@
     EL_NAME: EL_NAME, EL_HANJA: EL_HANJA, EL_COLOR: EL_COLOR,
     GAN_EL: GAN_EL, ZHI_EL: ZHI_EL,
     calculate: calculate,
+    daeun: daeun,
+    seun: seun,
+    ageAt: ageAt,
+    tenGroup: tenGroup,
+    JIE_NAME: JIE_NAME,
     lunarToSolar: lunarToSolar,
     solarToLunar: solarToLunar,
     jdn: jdn, fromJdn: fromJdn, dayIndex: dayIndex,
