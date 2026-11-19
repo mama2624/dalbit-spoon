@@ -130,13 +130,25 @@
     if (dayGi === null) { host.hidden = true; return; }
     var L = iljinLines(dayGi);
     host.innerHTML =
-      '<a class="ijin-card" href="#saju=saved">' +
+      '<a class="ijin-card" href="#saju=saved" id="ijinCardLink">' +
         '<div class="ijin-hd"><span class="ijin-kicker">내 사주 · 오늘의 일진</span><span class="ijin-go">열기 ›</span></div>' +
         '<div class="ijin-l1">' + esc(L.l1) + '</div>' +
         '<div class="ijin-l2">' + esc(L.l2) + '</div>' +
         '<div class="ijin-l3">' + esc(L.l3) + '</div>' +
       '</a>';
     host.hidden = false;
+
+    /* 앵커 이동은 애드센스 전면광고(#google_vignette)가 가로챌 수 있어서
+       앱 안 화면 전환으로 엽니다. (2026-11-20 실서버에서 확인) */
+    var a = host.querySelector("#ijinCardLink");
+    if (a) {
+      a.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        root.__dalbitOpenSaved = true;
+        if (root.DALBIT_APP && root.DALBIT_APP.goView) root.DALBIT_APP.goView("saju");
+        else root.location.hash = "saju=saved";
+      });
+    }
   }
 
   /* ============================================================
@@ -646,6 +658,31 @@
       c.fillStyle = "rgba(233,198,126,.85)";
       c.font = "600 28px " + FONT;
       c.fillText("saju.gold-queen.com", W / 2, 1500);
+
+      c.strokeStyle = "rgba(233,198,126,.18)";
+      c.beginPath();
+      c.moveTo(200, 1580);
+      c.lineTo(W - 200, 1580);
+      c.stroke();
+      c.fillStyle = "rgba(243,239,251,.62)";
+      c.font = "400 24px " + FONT;
+      c.fillText("1. 사이트에서 내 사주를 계산한다", W / 2, 1642);
+      c.fillText("2. 프롬프트를 복사해 ChatGPT·제미나이에 붙여넣는다", W / 2, 1686);
+      c.fillText("3. 1~15번 중 궁금한 번호만 물어본다", W / 2, 1730);
+    } else {
+      /* 정사각 카드: 아래 빈 자리에 프롬프트 안내 */
+      c.strokeStyle = "rgba(233,198,126,.22)";
+      c.beginPath();
+      c.moveTo(140, 836);
+      c.lineTo(W - 140, 836);
+      c.stroke();
+      c.fillStyle = "#e9c67e";
+      c.font = "700 29px " + FONT;
+      c.fillText("이 원국 그대로 AI에게 물어보기", W / 2, 892);
+      c.fillStyle = "rgba(243,239,251,.72)";
+      c.font = "400 23px " + FONT;
+      c.fillText("원국을 다시 계산하지 않도록 고정한 프롬프트를", W / 2, 932);
+      c.fillText("사이트에서 한 번에 복사할 수 있어요.", W / 2, 962);
     }
 
     c.textAlign = "center";

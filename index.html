@@ -1502,7 +1502,7 @@ var CONFIG = {
 
   /* 모듈 버전 — 배포할 때 올립니다. 주소에 붙여서 예전 파일이 캐시에 남아
      새 화면과 섞이는 일을 막습니다(2026-11-20). */
-  var MOD_VER = "4.3";
+  var MOD_VER = "4.3.1";
 
   function loadScript(src) {
     var url = src + (src.indexOf("?") < 0 ? "?v=" + MOD_VER : "");
@@ -1662,6 +1662,8 @@ var CONFIG = {
     if (hashKey() === key) renderView(key);
     else navTo(key, false);
   }
+  /* 다른 모듈(예: 사주 저장 배지)이 화면을 열 때 쓰는 공개 통로 (2026-11-20) */
+  window.DALBIT_APP.goView = goView;
 
   function goBack() {
     /* 이 앱 안에서 들어온 화면이면 직전 화면으로, 처음부터 들어온 화면이면 첫 화면으로 */

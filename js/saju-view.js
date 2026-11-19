@@ -561,6 +561,13 @@
     var pane = document.getElementById("paneSaju");
     if (!pane || !pane.classList.contains("active")) return;
     var pl = SAJU_PRO.payloadFromHash();
+    if (pl !== "saved" && window.__dalbitOpenSaved) {
+      /* 홈 배지에서 앱 안 화면 전환으로 들어온 경우 */
+      window.__dalbitOpenSaved = false;
+      sharedShown = false;
+      SAJU_PRO.openSaved();
+      return;
+    }
     if (pl === "saved") {
       sharedShown = false;
       SAJU_PRO.openSaved();
