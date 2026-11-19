@@ -526,11 +526,13 @@ select option:checked,select option:hover{background-color:#2b2450;color:#fdf6e6
    원칙: 그라데이션 글자(background-clip:text) 금지 — 단색만 (삼성 인터넷 다크모드 대비) */
 /* 홈 상단 오늘의 일진 배지 (저장한 사람에게만) */
 .home > .ijin-home{position:relative;z-index:1}
-.ijin-card{display:block;margin:18px 2px 0;padding:13px 14px;border-radius:15px;text-decoration:none;
+.ijin-card{display:block;width:100%;margin:18px 2px 0;padding:13px 14px;border-radius:15px;text-decoration:none;
+  appearance:none;font-family:inherit;text-align:left;cursor:pointer;color:inherit;-webkit-appearance:none;
   background:rgba(233,198,126,.07);border:1px solid rgba(233,198,126,.28);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
 .ijin-card:active{transform:translateY(1px)}
 .ijin-hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.ijin-l1,.ijin-l2,.ijin-l3{display:block}
 .ijin-kicker{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#e9c67e}
 .ijin-go{font-size:11.5px;color:#c9b58a}
 .ijin-l1{font-size:13px;font-weight:700;color:#f6e3b4;line-height:1.5;word-break:keep-all}
@@ -1502,7 +1504,7 @@ var CONFIG = {
 
   /* 모듈 버전 — 배포할 때 올립니다. 주소에 붙여서 예전 파일이 캐시에 남아
      새 화면과 섞이는 일을 막습니다(2026-11-20). */
-  var MOD_VER = "4.3.1";
+  var MOD_VER = "4.3.2";
 
   function loadScript(src) {
     var url = src + (src.indexOf("?") < 0 ? "?v=" + MOD_VER : "");

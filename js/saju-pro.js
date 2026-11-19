@@ -130,16 +130,16 @@
     if (dayGi === null) { host.hidden = true; return; }
     var L = iljinLines(dayGi);
     host.innerHTML =
-      '<a class="ijin-card" href="#saju=saved" id="ijinCardLink">' +
-        '<div class="ijin-hd"><span class="ijin-kicker">내 사주 · 오늘의 일진</span><span class="ijin-go">열기 ›</span></div>' +
-        '<div class="ijin-l1">' + esc(L.l1) + '</div>' +
-        '<div class="ijin-l2">' + esc(L.l2) + '</div>' +
-        '<div class="ijin-l3">' + esc(L.l3) + '</div>' +
-      '</a>';
+      '<button type="button" class="ijin-card" id="ijinCardLink">' +
+        '<span class="ijin-hd"><span class="ijin-kicker">내 사주 · 오늘의 일진</span><span class="ijin-go">열기 ›</span></span>' +
+        '<span class="ijin-l1">' + esc(L.l1) + '</span>' +
+        '<span class="ijin-l2">' + esc(L.l2) + '</span>' +
+        '<span class="ijin-l3">' + esc(L.l3) + '</span>' +
+      '</button>';
     host.hidden = false;
 
-    /* 앵커 이동은 애드센스 전면광고(#google_vignette)가 가로챌 수 있어서
-       앱 안 화면 전환으로 엽니다. (2026-11-20 실서버에서 확인) */
+    /* <a href>는 애드센스 전면광고(#google_vignette)가 클릭을 가로채서,
+       메뉴 카드처럼 버튼 + 앱 안 화면 전환으로 엽니다. (2026-11-20 실서버 확인) */
     var a = host.querySelector("#ijinCardLink");
     if (a) {
       a.addEventListener("click", function (ev) {
