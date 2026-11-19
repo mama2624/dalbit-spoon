@@ -483,24 +483,38 @@
   /* ============================================================
      P4 — 공유 · 원국 카드
      ============================================================ */
+  function copyShareLink(url) {
+    var UI = root.DALBIT_UI;
+    if (!UI || !UI.copy) return;
+    UI.copy(url).then(function () {
+      UI.toast("✓ 공유 링크를 복사했어요. 원국 8자만 담겨 있어요");
+    }, function () {
+      UI.toast("링크 복사에 실패했어요. 주소창의 주소를 복사해 주세요.");
+    });
+  }
+
   function shareCtx(ctx) {
     var url = shareUrl(ctx);
     var txt = "만세력으로 계산한 내 사주 원국이에요.\n" +
       "년주 " + pillarLine(ctx.pillars.year) + " · 월주 " + pillarLine(ctx.pillars.month) +
       " · 일주 " + pillarLine(ctx.pillars.day) + (ctx.pillars.hour ? " · 시주 " + pillarLine(ctx.pillars.hour) : "") + "\n" +
       "일간 " + ctx.pillars.day.gan + "(" + EL[ctx.me] + ") — 링크를 열면 같은 원국으로 AI 프롬프트까지 만들 수 있어요.";
+    /* 공유 시트를 쓸 수 있으면 그걸로, 못 쓰거나 실패하면 링크 복사로 대신합니다.
+       사용자가 공유 시트를 그냥 닫은 경우(AbortError)에는 아무 것도 하지 않습니다. */
     if (root.navigator && root.navigator.share) {
+      var p = null;
       try {
-        var p = root.navigator.share({ title: "달빛 한 스푼 — 만세력 사주", text: txt, url: url });
-        if (p && typeof p.catch === "function") p.catch(function () { });
+        p = root.navigator.share({ title: "달빛 한 스푼 — 만세력 사주", text: txt, url: url });
+      } catch (e) { p = null; }
+      if (p && typeof p.then === "function") {
+        p.then(function () { }, function (err) {
+          if (err && err.name === "AbortError") return;
+          copyShareLink(url);
+        });
         return;
-      } catch (e) { }
+      }
     }
-    root.DALBIT_UI.copy(url).then(function () {
-      root.DALBIT_UI.toast("✓ 공유 링크를 복사했어요. 원국 8자만 담겨 있어요");
-    }, function () {
-      root.DALBIT_UI.toast("링크 복사에 실패했어요. 주소창의 주소를 복사해 주세요.");
-    });
+    copyShareLink(url);
   }
 
   var FONT = 'Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif';
@@ -931,6 +945,7 @@
     bind: bind,
     compose: compose,
     shareUrl: shareUrl,
+    copyShareLink: copyShareLink,
     drawCard: drawCard,
     renderShared: renderShared,
     openSaved: openSaved,
