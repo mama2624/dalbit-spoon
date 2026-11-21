@@ -451,7 +451,6 @@ h2.sec small{font-weight:500;color:var(--muted2);font-size:12.5px;margin-left:6p
 .cta .arrow{opacity:.7;font-size:13px}
 .cta .cta-note{margin:0 2px 3px;font-size:12px;line-height:1.65;color:var(--muted);opacity:1;text-align:center;word-break:keep-all}
 .ad-slot{margin:18px 0 4px;min-height:0}
-.foot-legal{display:block;margin-top:6px;font-size:11px;line-height:1.65;color:var(--muted2);opacity:.75;word-break:keep-all}
 
 /* saju form */
 .field{margin-bottom:14px}
@@ -1408,7 +1407,6 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
     재미로 보는 오늘의 타로·사주·사주 궁합·꿈해몽·전생체험·로또 번호·2027 토정비결입니다.<br>
     중요한 결정은 나의 판단과 전문가의 조언을 함께 믿어주세요.<br>
     <span style="opacity:.7">© 달빛 한 스푼</span>
-    <span class="foot-legal">이 페이지의 제휴 링크는 쿠팡 파트너스·네이버 브랜드커넥트 활동의 일환으로, 구매 발생 시 이에 따른 일정액의 수수료를 제공받습니다.</span>
   </footer>
 </div>
 
@@ -1441,7 +1439,7 @@ var CONFIG = {
   // 오행별로 따로 연결하고 싶으면 아래에 넣으세요. 비어 있으면 위 affiliateUrl을 씁니다.
   affiliateByElement: { "목": "", "화": "", "토": "", "금": "", "수": "" },
 
-  // 🧾 대가성(경제적 이해관계) 고지 — 제휴 버튼 바로 위·푸터에 같은 문구 (v2.3.5 · 확정 표현)
+  // 🧾 대가성(경제적 이해관계) 고지 — 제휴 링크 버튼 묶음 바로 위에 한 번만 표시(푸터 중복 없음)
   affiliateNote: "이 페이지의 제휴 링크는 쿠팡 파트너스·네이버 브랜드커넥트 활동의 일환으로, 구매 발생 시 이에 따른 일정액의 수수료를 제공받습니다.",
 
   // 애드센스 (자동 광고 — gold-queen.com 승인 계정 / slot은 비워두면 자동 광고만)
@@ -1496,12 +1494,6 @@ var CONFIG = {
     }
     return '<div class="ad-slot">' + inner + '</div>';
   }
-
-  /* 푸터 대가성 고지도 CONFIG 한 곳을 따른다 (문구를 두 곳에서 고치지 않게) */
-  (function syncFooterNote() {
-    var el = document.querySelector(".foot-legal");
-    if (el && CONFIG.affiliateNote) el.textContent = CONFIG.affiliateNote;
-  })();
 
   function shopBtn() {
     var url = (CONFIG.shopUrl || "");
