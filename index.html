@@ -10,6 +10,30 @@ window.addEventListener("error", function (e) {
   window.__dalbitErr.push(String(e.message || "error") + " @ " + String(e.filename || "").replace(/^.*\//, "") + ":" + (e.lineno || 0));
 });
 </script>
+<!-- ============================================================
+     GOOGLE ANALYTICS 4 (2026-11-21) : saju.gold-queen.com · 속성 G-PH787Y6BNH
+     · 화면 전환은 해시 라우팅(#tarot·#saju·#compat·#dream·#past·#lotto·#tojeong)이 담당하므로,
+       기본 페이지뷰 외에 'menu_view' 이벤트로 어느 메뉴를 봤는지 함께 보냅니다.
+     · 아래 라우터가 보내는 dalbit:view 신호를 그대로 받아 1회만 기록합니다
+       (popstate와 hashchange가 겹치는 뒤로가기에서 중복 집계 방지).
+     ============================================================ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PH787Y6BNH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+gtag("js", new Date());
+gtag("config", "G-PH787Y6BNH");
+(function () {
+  var lastKey = null, lastAt = 0;
+  window.addEventListener("dalbit:view", function (e) {
+    var key = (e && e.detail && e.detail.key) || "home";
+    var now = Date.now();
+    if (key === lastKey && now - lastAt < 1000) return;
+    lastKey = key; lastAt = now;
+    try { gtag("event", "menu_view", { menu: key }); } catch (err) { }
+  });
+})();
+</script>
 <meta name="naver-site-verification" content="33dc4d4904ec34146abd478bb9608a8b88e8f0bf" />
 <!-- 달빛 한 스푼 v4.3 (2026-11-20) : 사주 원국 AI 프롬프트·대운·오늘의 일진·원국 공유 추가 / 기존 7개 탭·문구 유지 / 애드센스 자동광고(ca-pub-3479064308586347) 적용 -->
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
