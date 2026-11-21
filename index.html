@@ -514,6 +514,19 @@ select option:checked,select option:hover{background-color:#2b2450;color:#fdf6e6
 .tipbox h3{margin:0 0 8px;font-size:13.5px;color:var(--gold2)}
 .tipbox .item{display:flex;gap:9px;font-size:13.5px;line-height:1.65;margin-bottom:6px;color:#f1ebdf;word-break:keep-all}
 .tipbox .item b{color:var(--gold2);flex:0 0 auto;width:62px;font-weight:600}
+/* ===== 고전 3관점 — 궁통보감 · 적천수 · 자평진전 (2026-11-22 추가) ===== */
+.cl-list{display:grid;gap:10px;margin-top:2px}
+.cl-card{border-radius:14px;padding:14px 14px 13px;background:#08090c;border:1px solid rgba(233,198,126,.16)}
+.cl-card h3{margin:0 0 7px;font-size:13.5px;color:var(--gold2);font-weight:700;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.cl-card h3 .cl-n{font-size:12px;color:rgba(233,198,126,.66);font-weight:700}
+.cl-card h3 i{font-style:normal;font-weight:500;font-size:11.5px;color:var(--muted2);letter-spacing:0}
+.cl-val{font-size:12px;line-height:1.6;color:#d9cdb2;padding:7px 9px;border-radius:9px;background:rgba(233,198,126,.07);word-break:keep-all}
+.cl-body{margin:9px 0 0;font-size:14px;line-height:1.78;color:#ece6dc;word-break:keep-all}
+.cl-tip{margin:9px 0 0;padding:8px 0 0 10px;border-left:2px solid rgba(233,198,126,.45);font-size:13px;line-height:1.7;color:#f3e7c9;word-break:keep-all}
+.cl-tip b{color:var(--gold2);font-weight:700;margin-right:4px}
+.cl-fork{margin:12px 0 0;padding-top:11px;border-top:1px dashed rgba(255,255,255,.09);font-size:12.5px;line-height:1.72;color:var(--muted);word-break:keep-all}
+.cl-fork b{color:#e9d9b4;font-weight:600}
+@media (max-width:360px){.cl-card{padding:13px 12px}.cl-body{font-size:13.5px}}
 /* ===== 사주 궁합 (2026-11-15 추가) ===== */
 .compat-two{display:grid;gap:14px;margin-top:14px}
 /* 두 사람 카드는 항상 한 줄로 세운다. 본문 폭이 468px 로 고정이라 2단으로 나누면
@@ -806,7 +819,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
 .brand-orn i{background:linear-gradient(90deg,rgba(233,198,126,0),rgba(246,227,180,.62),rgba(233,198,126,0))}
 .rblock{box-shadow:0 14px 32px -28px rgba(0,0,0,.95), inset 0 0 24px -16px rgba(233,198,126,.55)}
 .oneline{box-shadow:0 16px 34px -26px rgba(233,198,126,.8), inset 0 0 26px -18px rgba(233,198,126,.7)}
-.luck .lcard,.tipbox,.pl-rx{box-shadow:0 14px 30px -28px rgba(0,0,0,.9), inset 0 0 20px -14px rgba(233,198,126,.45)}
+.luck .lcard,.tipbox,.pl-rx,.cl-card{box-shadow:0 14px 30px -28px rgba(0,0,0,.9), inset 0 0 20px -14px rgba(233,198,126,.45)}
 .tc .back{box-shadow:0 0 22px -10px rgba(233,198,126,.5)}
 .pl-head,.dtop{background:radial-gradient(70% 80% at 50% 0%, rgba(233,198,126,.10), rgba(233,198,126,0) 72%);border-radius:18px}
 .pl-actions .btn{box-shadow:0 10px 26px -18px rgba(0,0,0,.9)}
@@ -1533,7 +1546,7 @@ var CONFIG = {
      ============================================================ */
   var MODULES = {
     tarot:  ["js/ui.js", "js/cards.js", "js/tarot.js"],
-    saju:   ["js/ui.js", "js/data-saju.js", "js/saju-engine.js", "js/saju-common.js", "js/content.js", "js/saju-pro.js", "js/saju-view.js"],
+    saju:   ["js/ui.js", "js/data-saju.js", "js/saju-engine.js", "js/saju-common.js", "js/content.js", "js/saju-pro.js", "js/saju-classic.js", "js/saju-view.js"],
     compat: ["js/ui.js", "js/data-saju.js", "js/saju-engine.js", "js/saju-common.js", "js/compat.js"],
     dream:  ["js/ui.js", "js/dream-data.js", "js/dream.js"],
     past:   ["js/ui.js", "js/pastlife.js"],
@@ -1544,7 +1557,7 @@ var CONFIG = {
 
   /* 모듈 버전 — 배포할 때 올립니다. 주소에 붙여서 예전 파일이 캐시에 남아
      새 화면과 섞이는 일을 막습니다(2026-11-20). */
-  var MOD_VER = "4.3.3";
+  var MOD_VER = "4.4.0";
 
   function loadScript(src) {
     var url = src + (src.indexOf("?") < 0 ? "?v=" + MOD_VER : "");

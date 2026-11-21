@@ -295,6 +295,12 @@
     L.push("- 오행 분포: 목 " + ctx.counts[0] + " 화 " + ctx.counts[1] + " 토 " + ctx.counts[2] + " 금 " + ctx.counts[3] + " 수 " + ctx.counts[4] +
       " (없는 오행: " + missingText(ctx.counts) + ")");
     L.push("- 십성 개수: 비겁 " + ctx.ten.bigeop + " 식상 " + ctx.ten.siksang + " 재성 " + ctx.ten.jaeseong + " 관성 " + ctx.ten.gwanseong + " 인성 " + ctx.ten.inseong);
+    if (root.SAJU_CLASSIC && root.SAJU_CLASSIC.build) {
+      var cb = root.SAJU_CLASSIC.build(ctx);
+      if (cb) {
+        L.push("- 고전 3관점 계산값(화면에 함께 보여 준 값과 같은 것): " + cb.climate.head + " / " + cb.jigi.head + " / " + cb.gyeok.head);
+      }
+    }
     if (ctx.daeun) {
       var dr = ctx.daeun.rows;
       var list = [];
@@ -870,6 +876,7 @@
       (missing.length ? '<p class="hint">' + missing.join(", ") + ' 기운이 사주에 없어요.</p>' : '<p class="hint">다섯 기운이 모두 들어 있어요.</p>') +
       iljinStrip(ctx) +
       '</div>';
+    if (root.SAJU_CLASSIC && root.SAJU_CLASSIC.panel) html += root.SAJU_CLASSIC.panel(ctx);
     html += promptPanel(ctx);
     html += savePanel(ctx);
     html += '<p class="note">· 이 화면은 누군가 보낸 링크의 원국 8자만으로 그렸어요. 생년월일·성별은 링크에 담기지 않습니다.<br>· 재미로 보는 풀이이니 큰 결정은 스스로 판단해 주세요.</p>';

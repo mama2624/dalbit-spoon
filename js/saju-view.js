@@ -441,6 +441,9 @@
         : '<p class="hint">다섯 기운이 모두 들어 있어요. 흔한 사주는 아니에요.</p>') +
       '</div>';
 
+    /* 고전 3관점 — 궁통보감(계절·조후) · 적천수(기세·균형) · 자평진전(격국·그릇) */
+    if (pro && window.SAJU_CLASSIC) html += SAJU_CLASSIC.panel(pro);
+
     // 운세 3종
     var moneyKey = Math.min(s.ten.jaeseong, 2) + "-" + (s.strong ? "strong" : "weak");
     var healthKey = missing.length >= 2 ? "weak2" : (missing.length === 1 ? "weak1" : "weak0");
@@ -504,11 +507,13 @@
     });
 
     $("sajuCopy").addEventListener("click", function () {
+      var cl = (pro && window.SAJU_CLASSIC) ? SAJU_CLASSIC.build(pro) : null;
       var txt = "[사주팔자] " + dateLine + (s.unknownTime ? " (시간 모름)" : "") + "\n" +
         "년주 " + p.year.textKo + " · 월주 " + p.month.textKo + " · 일주 " + p.day.textKo +
         (p.hour ? " · 시주 " + p.hour.textKo : "") + "\n" +
         "일간 " + p.day.ganKo + "(" + SAJU.EL_HANJA[me] + ") — " + dm.t + "\n" +
         "오행 " + s.elementCount.map(function (c, i2) { return SAJU.EL_NAME[i2] + c; }).join(" ") + "\n" +
+        (cl ? "고전 3관점: " + cl.line + "\n" : "") +
         "재물운: " + MONEY_TEXT[moneyKey] + "\n" +
         "2027 정미년: " + NEWYEAR_2027.byDayMaster[p.day.gi].key + " — " + NEWYEAR_2027.byDayMaster[p.day.gi].title + "\n" +
         "▸ " + CONFIG.blogUrl;
