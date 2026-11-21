@@ -377,8 +377,10 @@
     if (!exposed) picked = jang[jang.length - 1];
     for (var s = 0; s < stems.length; s++) if (stems[s] === picked) at.push(posNames[s]);
 
-    var key = tenPair(meGi, picked);
-    var g = GYEOK[key] || GYEOK.jeongin;
+    var pair = tenPair(meGi, picked);
+    var grpNow = TEN_GROUP_OF[pair] || pair;
+    var gk = pair === "bigeop" ? "geonrok" : (pair === "geopjae" ? "yangin" : pair);
+    var g = GYEOK[gk] || GYEOK.jeongin;
     var pickedTxt = GAN_KO[picked] + "(" + GAN[picked] + ")";
 
     var jangTxt = jang.map(function (x) { return GAN_KO[x] + "(" + GAN[x] + ")"; }).join("·");
@@ -395,7 +397,6 @@
       ? "이 원국에는 " + TEN_KO[needKey] + "이 " + needN + "개 있어 그 통로가 열려 있습니다."
       : "그런데 이 원국에는 " + TEN_KO[needKey] + "이 없습니다. " + g.bare;
 
-    var grpNow = TEN_GROUP_OF[key] || key;
     var grpN = (ctx.ten && ctx.ten[grpNow]) || 0;
     if (grpN >= 3) body += " 격을 이룬 " + TEN_KO[grpNow] + "이 원국에 " + grpN + "개로 힘이 실려 있어, 이 역할이 삶의 중심에 놓입니다.";
     else if (grpN <= 1) body += " 다만 격을 이룬 " + TEN_KO[grpNow] + "이 1개뿐이라 격이 가는 편입니다 — 그 역할을 의식적으로 키우는 게 좋아요.";
@@ -412,7 +413,7 @@
     }
 
     return {
-      name: g.n, key: key, head: head, body: body, tip: g.tip,
+      name: g.n, key: gk, head: head, body: body, tip: g.tip,
       need: needKey, exposed: exposed,
       chip: "격 " + g.n.replace(/\(.*\)/, "")
     };
