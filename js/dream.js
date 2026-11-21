@@ -276,7 +276,10 @@
         ? CONFIG.affiliateLabel : "오늘의 추천 생활 아이템 보기");
     var blogLabel = (typeof CONFIG !== "undefined" && CONFIG.blogLabel)
       ? CONFIG.blogLabel : "나에게 맞는 건강·생활 정보 더 보기";
+    var note = (typeof CONFIG !== "undefined" && CONFIG.affiliateNote)
+      ? String(CONFIG.affiliateNote).trim() : "";
     return '<div class="cta">' +
+        (note ? '<p class="cta-note">' + esc(note) + '</p>' : '') +
         '<a class="blog" href="' + esc(blog) + '" target="_blank" rel="noopener">' +
           "<span>" + esc(blogLabel) + '</span><span class="arrow">바로가기 ›</span></a>' +
         (CONFIG.shopUrl ? '<a class="shop" href="' + esc(CONFIG.shopUrl) + '" target="_blank" rel="noopener">' +

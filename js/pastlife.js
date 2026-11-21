@@ -1169,7 +1169,9 @@
   function ctaHtmlHtml() {
     var blog = CONFIG.blogUrl || "#";
     var aff = CONFIG.affiliateUrl || blog;
+    var note = (CONFIG.affiliateNote || "").trim();
     return '<div class="cta">' +
+      (note ? '<p class="cta-note">' + note + '</p>' : '') +
       '<a class="aff" href="' + blog + '" target="_blank" rel="noopener">' +
       '<span>' + (CONFIG.blogLabel || "블로그에서 더 보기") + '</span><span class="arrow">›</span>' +
       '</a>' +
