@@ -283,8 +283,12 @@ def score_for(rel, day_zhi, b):
     return max(0.8, min(5.0, round(base, 1)))
 
 
+def star_count(score):
+    return max(1, min(5, int(score + 0.5)))
+
+
 def stars(score):
-    full = max(1, min(5, int(round(score))))
+    full = star_count(score)
     return "★" * full + "☆" * (5 - full)
 
 
@@ -889,8 +893,8 @@ def build_daily_page(day, prev_day, next_day):
     # --- 한눈에 보는 표 ---
     tbl_rows = []
     for b, rel_name, sc, good in rows:
-        tbl_rows.append('<tr><td class="d"><a href="#%s">%s %s띠</a></td><td>%s</td><td class="d">%s %s</td></tr>'
-                        % (ZHI_SLUG[b], ZHI_EMOJI[b], ZHI_ANIMAL[b], rel_name, "★" * max(1, int(round(sc))), "☆" * (5 - max(1, int(round(sc))))))
+        tbl_rows.append('<tr><td class="d"><a href="#%s">%s %s띠</a></td><td>%s</td><td class="d">%s</td></tr>'
+                        % (ZHI_SLUG[b], ZHI_EMOJI[b], ZHI_ANIMAL[b], rel_name, stars(sc)))
 
     # --- 오행별 ---
     el_blocks = []
@@ -1163,7 +1167,7 @@ def build_2027_room_page(b):
     info = REL_INFO[rel]
     sc = score_for(rel, 7, b)
     yt = YEAR_TEXT[rel]
-    stars_txt = "★" * max(1, int(round(sc))) + "☆" * (5 - max(1, int(round(sc))))
+    stars_txt = stars(sc)
     title = f"2027년 {animal}띠 운세 — 정미년(丁未年) 총운·재물·직장·건강·월별 | 달빛 한 스푼"
     desc = (f"2027년 정미년(丁未年) {animal}띠({ZHI[b]}) 운세입니다. 해의 지지 미(未)와 {animal}띠의 {ZHI[b]}가 {info[0]} 관계에 놓입니다. "
             f"총운·재물운·직장·사업운·건강운과 1월부터 12월까지 월별 포인트를 정리했습니다.")
