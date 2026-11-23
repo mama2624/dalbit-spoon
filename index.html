@@ -313,6 +313,19 @@ body{
   border-radius:7px;background:linear-gradient(160deg,#f4dfae,#cf9f52);color:#2a1c05;
   font-size:9.5px;font-weight:800;letter-spacing:0;line-height:1;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
 .hub-go{opacity:.7;font-size:13px}
+.guides{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.guides a{display:flex;align-items:center;gap:9px;text-decoration:none;padding:12px 13px;border-radius:14px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);color:var(--text);transition:.18s}
+.guides a:hover{border-color:rgba(233,198,126,.38);background:rgba(255,255,255,.07)}
+.guides a:active{transform:translateY(1px)}
+.guides .g-ico{font-size:16px;line-height:1}
+.guides .g-txt{display:flex;flex-direction:column;min-width:0}
+.guides b{font-size:13px;font-weight:700;color:var(--gold2);letter-spacing:-.01em}
+.guides small{font-size:10.5px;color:var(--muted2);margin-top:2px;letter-spacing:0}
+.guides .g-go{margin-left:auto;color:var(--muted);font-size:12px;flex:0 0 auto}
+@media (max-width:360px){.guides{grid-template-columns:1fr}}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--gold)}
 .home-note{margin:16px 2px 0;text-align:center;font-size:11px;color:#6f6a62;line-height:1.75;word-break:keep-all}
 
 /* ============================================================
@@ -1103,6 +1116,20 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
       <span class="hub-lbl"><span class="hub-n" aria-hidden="true">GQ</span>골드퀸 허브 · 건강·생활 정보 더 보기</span>
       <span class="hub-go" aria-hidden="true">›</span>
     </a>
+
+    <!-- 운세 가이드 입구 (2026-11-23) : 날짜별 오늘의 운세 · 2027 띠별 운세 -->
+    <div class="guides">
+      <a href="/guide/today/">
+        <span class="g-ico" aria-hidden="true">📅</span>
+        <span class="g-txt"><b>날짜별 오늘의 운세</b><small>일진과 12띠별 하루 운세</small></span>
+        <span class="g-go" aria-hidden="true">›</span>
+      </a>
+      <a href="/guide/2027-unse/">
+        <span class="g-ico" aria-hidden="true">📜</span>
+        <span class="g-txt"><b>2027 띠별 운세</b><small>정미년 12띠 총운·재물·월별</small></span>
+        <span class="g-go" aria-hidden="true">›</span>
+      </a>
+    </div>
   </div>
 
   <main>
@@ -1406,6 +1433,7 @@ h2.sec::before{content:"✦";font-size:10px;color:rgba(233,198,126,.62);margin-r
   <footer>
     재미로 보는 오늘의 타로·사주·사주 궁합·꿈해몽·전생체험·로또 번호·2027 토정비결입니다.<br>
     중요한 결정은 나의 판단과 전문가의 조언을 함께 믿어주세요.<br>
+    <span class="foot-links"><a href="/guide/">운세 가이드</a> · <a href="/guide/today/">날짜별 오늘의 운세</a> · <a href="/guide/2027-unse/">2027 띠별 운세</a></span><br>
     <span style="opacity:.7">© 달빛 한 스푼</span>
   </footer>
 </div>

@@ -20,6 +20,14 @@
 - [행운의 로또 번호](https://saju.gold-queen.com/#lotto): 이번 주 6/45 행운의 번호를 뽑습니다.
 - [2027 토정비결](https://saju.gold-queen.com/#tojeong): 2027 정미년(丁未年) 144괘로 총운과 상·중·하괘, 분야별 운세, 1~12월 흐름, 30일 개운 루틴을 봅니다. 같은 생년월일이면 같은 괘가 나옵니다.
 
+## 운세 가이드 (검색·요약용 정적 페이지)
+
+- [날짜별 오늘의 운세](https://saju.gold-queen.com/guide/today/): 날짜마다 그날의 일진(간지)·음력·월건과 12띠별 총운·재물·일·관계·건강을 정리한 페이지 모음입니다. 2026년 11월 22일부터 2027년 1월 31일까지 날짜별 페이지가 있고, 주소는 `https://saju.gold-queen.com/guide/today/YYYY-MM-DD.html` 형식입니다.
+- [2027 띠별 운세](https://saju.gold-queen.com/guide/2027-unse/): 2027년 정미년(丁未年) 12띠별 총운·재물운·직장·사업운·건강운·연애·인간관계와 1~12월 월별 포인트를 띠마다 따로 정리했습니다. 쥐 띠는 `/guide/2027-unse/rat.html` 처럼 영문 슬러그(rat·ox·tiger·rabbit·dragon·snake·horse·goat·monkey·rooster·dog·pig)를 씁니다.
+- [운세 가이드 전체](https://saju.gold-queen.com/guide/): 위 두 가이드를 모은 입구입니다.
+- 계산 기준: 일진은 율리우스적일 기반 60갑자(한국표준시 자정 기준)를 앱 본체와 같은 방식으로 계산하고, 띠별 길흉은 그날 일진의 지지와 띠의 지지가 합(六合)·삼합(三合)·방합(方合)·충(沖)·형(刑)·파(破)·해(害) 중 어디에 놓이는지로 봅니다. 납음오행·월건(절입 기준)도 표기합니다.
+- 성격: 가이드 페이지 역시 재미로 보는 운세 콘텐츠이며, 띠는 태어난 해의 지지 하나만 보는 가장 단순한 방식입니다. 더 정확한 해석은 앱의 만세력 사주(태어난 날 일간까지)나 토정비결로 이어집니다.
+
 ## 주소 규칙
 
 - 첫 화면은 https://saju.gold-queen.com/ 이고, 위 일곱 기능은 해시 주소(#tarot, #saju, #compat, #dream, #past, #lotto, #tojeong)로 바로 열립니다.
@@ -28,7 +36,7 @@
 ## 함께 보는 페이지
 
 - [골드퀸 허브](https://link.gold-queen.com/): 달빛 한 스푼과 네이버 블로그 4곳, 크리에이터샵·추천템 모음을 모은 링크 페이지
-- [sitemap.xml](https://saju.gold-queen.com/sitemap.xml)
+- [sitemap.xml](https://saju.gold-queen.com/sitemap.xml) — 앱과 가이드 페이지 전체 목록
 - [robots.txt](https://saju.gold-queen.com/robots.txt)
 
 ## 고지
