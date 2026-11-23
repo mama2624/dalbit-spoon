@@ -881,8 +881,8 @@ def build_daily_page(day, prev_day, next_day):
   </ul>
   <p class="adv"><b>한 줄 조언</b>{advice} 행운 포인트는 {lucky}입니다.</p>
 </article>""".format(cls=good, slug=ZHI_SLUG[b], emo=ZHI_EMOJI[b], animal=ZHI_ANIMAL[b], rel=rel_name,
-                    sc=sc, stars=stars(sc), zhi=day.zhi, zhi_h=day.zhi_ko,
-                    dzhi=ZHI[b], dzhi_h=ZHI_KO[b], info="%s(%s)" % (REL_INFO[rel][1], rel_name) + " — " + ZODIAC_EXTRA[rel],
+                    sc=sc, stars=stars(sc), zhi=ZHI[b], zhi_h=ZHI_KO[b],
+                    dzhi=day.zhi, dzhi_h=day.zhi_ko, info="%s(%s)" % (REL_INFO[rel][1], rel_name) + " — " + ZODIAC_EXTRA[rel],
                     elem=elem_note, total=total, money=money, work=work, love=love, health=health,
                     advice=ADVICE[rel], lucky=lucky))
 
