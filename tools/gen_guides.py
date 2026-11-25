@@ -746,7 +746,7 @@ gtag("js",new Date());gtag("config","G-PH787Y6BNH",{{"anonymize_ip":true}});
 FOOT = """<div class="adsense-bottom"></div>
 <footer>
   <p>재미로 보는 운세 콘텐츠입니다. 중요한 결정은 본인의 판단과 전문가의 조언을 함께 믿어주세요.</p>
-  <p><a href="https://saju.gold-queen.com/">달빛 한 스푼 앱</a> · <a href="/guide/">운세 가이드</a> · <a href="/guide/today/">날짜별 오늘의 운세</a> · <a href="/guide/2027-unse/">2027 띠별 운세</a> · <a href="https://link.gold-queen.com/">골드퀸 허브</a></p>
+  <p><a href="https://saju.gold-queen.com/">달빛 한 스푼 앱</a> · <a href="/guide/">운세 가이드</a> · <a href="/guide/today/">날짜별 오늘의 운세</a> · <a href="/guide/2027-unse/">2027 띠별 운세</a> · <a href="https://link.gold-queen.com/">골드퀸 허브</a> · <a href="/privacy.html">개인정보처리방침</a></p>
   <p style="opacity:.7">© 달빛 한 스푼 · 일진·음력은 만세력(한국표준시 자정 기준)으로 계산합니다.</p>
 </footer>
 </div>
@@ -1358,7 +1358,8 @@ def build_2027_index():
 # ============================================================
 def build_sitemap(days):
     rows = [(BASE_URL + "/", "1.0", "daily"), (BASE_URL + "/guide/", "0.9", "weekly"),
-            (BASE_URL + "/guide/today/", "0.9", "daily"), (BASE_URL + "/guide/2027-unse/", "0.9", "weekly")]
+            (BASE_URL + "/guide/today/", "0.9", "daily"), (BASE_URL + "/guide/2027-unse/", "0.9", "weekly"),
+            (BASE_URL + "/privacy.html", "0.3", "yearly")]
     for d in days:
         rows.append((d.url, "0.7", "daily"))
     for b in range(12):

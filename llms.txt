@@ -38,6 +38,7 @@
 - [골드퀸 허브](https://link.gold-queen.com/): 달빛 한 스푼과 네이버 블로그 4곳, 크리에이터샵·추천템 모음을 모은 링크 페이지
 - [sitemap.xml](https://saju.gold-queen.com/sitemap.xml) — 앱과 가이드 페이지 전체 목록
 - [robots.txt](https://saju.gold-queen.com/robots.txt)
+- [개인정보처리방침](https://saju.gold-queen.com/privacy.html) — 입력한 생년월일·이름은 서버로 전송되지 않으며(기기 내 계산), 기기 내 저장(localStorage)·쿠키(Google Analytics 4·Google AdSense)·제휴 링크 수수료·문의처를 안내합니다.
 
 ## 고지
 
